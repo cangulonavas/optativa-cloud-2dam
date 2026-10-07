@@ -7,11 +7,11 @@ nav:
       - "Introducción a la Nube Pública": "ud01/ud01.md"
       - "Lanzamiento del Laboratorio": "ud01/practica00.md"
       - "La Interfaz de Línea de Comandos": "ud01/practica01.md"
-#  - "UD02. Capa de Cómputo": 
+  - "UD02. Capa de Cómputo": 
       - "Capa de Cómputo": "ud02/ud02.md"
       - "Creación de una Máquina Virtual": "ud02/practica1.md"
       - "Prácticas a entregar": "ud02/practica2.md"
-#  - "UD03. Creación de un entorno de red": 
+  - "UD03. Creación de un entorno de red": 
       - "Creación de un entorno de red": "ud03/vpc.md"
       - "Práctica 0. Creación de una VPC automática": "ud03/redpractica00.md"
       - "Práctica 1. Creación de una VPC manual": "ud03/redpractica01.md"
