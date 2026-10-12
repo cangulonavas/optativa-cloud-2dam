@@ -1,5 +1,5 @@
 site_name: Introducción a la Nube
-site_url: https://cangulonavas.github.io/
+#site_url: https://cangulonavas.github.io/
 use_directory_urls: false
 
 nav:
