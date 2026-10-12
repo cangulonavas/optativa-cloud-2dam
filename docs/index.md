@@ -11,7 +11,6 @@ permalink: /
 Módulo optativo de Introducción al Cloud Computing de CFGS ASIR, DAM y DAW
 
 [Iniciar ahora](ud01/ud01.html){ .md-button .md-button--primary }
-#[Ver en GitHub](https://github.com/IES-CAMP-DE-MORVEDRE/optativa-cloud){ .md-button }
 
 La computación en la nube (**cloud computing**) ha transformado radicalmente la forma en que las empresas y usuarios acceden, almacenan y procesan la información. Este modelo tecnológico permite disponer de recursos informáticos bajo demanda a través de Internet, sin necesidad de adquirir ni mantener infraestructuras físicas propias. En el entorno profesional actual, donde la escalabilidad, la flexibilidad y la eficiencia son factores clave, conocer el funcionamiento y las posibilidades de la nube se ha convertido en una competencia esencial para cualquier técnico en informática.
 
