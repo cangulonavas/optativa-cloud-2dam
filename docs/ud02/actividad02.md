@@ -1,4 +1,4 @@
-# Creación de una Máquina Virtual (práctica guiada)
+# Actividad 02. Creación de una Máquina Virtual (práctica guiada)
 
 ## Objetivo de la práctica
 
@@ -104,6 +104,8 @@ El primer paso para poder ver la contraseña es descargarnos el fichero de la cl
 !!! success "Captura la pantalla"
     Haz una captura de pantalla en la que se vea la conexión por RDP a la máquina Windows Server 2025 como parte de las prácticas a entregar.
 
+
+<img src="../images/ud02/ud02_07.png" width="500">
 ___
 
 ### Liberación de recursos
@@ -111,6 +113,13 @@ ___
 8.- Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
 
 - Terminamos la instancia. En el panel de EC2, con la instancia seleccionada, pulsamos sobre la Acción **Terminar (eliminar) instancia**. Nos informa que el volumen EBS asociado también se eliminará.
+
+<img src="../images/ud02/ud02_08.png" width="100%">
+
 - Por último, eliminamos el grupo de seguridad *acceso-remoto*.
 
+<img src="../images/ud02/ud02_09.png" width="100%">
+<img src="../images/ud02/ud02_10.png" width="100%">
+
+!!! warning Recuerda
 Recuerda finalizar el laboratorio cuando acabes con las prácticas.

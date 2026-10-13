@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Lanzamiento del Laboratorio
+title: Actividad 01. Lanzamiento del Laboratorio
 nav_order: 1
 ---
 
-# Lanzamiento el laboratorio de AWS Academy
+# Actividad 01. Lanzamiento del laboratorio de AWS Academy
 
 ### Acceso a AWS Academy
 
