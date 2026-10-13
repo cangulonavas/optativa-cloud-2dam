@@ -1,4 +1,4 @@
-# Práctica 0. Creación de una VPC de forma automática
+# Actividad 06. Creación de una VPC de forma automática
 
 Una VPC es una red virtual aislada desde un punto de vista lógico, a la que asignamos un direccionamiento de red, y que podemos subdividir en subredes, como se hace en una infraestructura tradicional. La diferencia es que en este caso todo lo definimos por software, ya sea desde la consola de AWS, desde la terminal con comandos de CLI, o utlizando algún lenguaje de programación soportado por el SDK de AWS.
 
@@ -30,6 +30,13 @@ Vamos a crear una VPC que contendrá una única subred en una Zona de Disponibil
 
 * La dirección de la Red será `192.168.0.0/16`
 * La dirección de la subred pública será `192.168.5.0/24`
+
+!!! question "Entrega de la actividad"
+    - Realiza una bitácora o documento de aprendizaje incluyendo descripción y capturas de pantalla de los pasos principales:
+    - Creación de VPC.
+    - Creación de instancias.
+    - Asignación de VPCs a cada isntancia.
+    - Pings entre las máquinas por conexión SSH.
 
 
 ### Creación simultánea de los elementos de red desde la consola de AWS
@@ -93,3 +100,8 @@ Accede por ssh a las instancias y comprueba sus	direcciones ip privadas.
 
 !!! success "Captura las pantallas"
     Entrega captura de pantalla resultado de ejecutar el comando `ip a` una vez estás conectado por ssh en cada una de las instancias.
+
+!!! warning "Recuerda finalizar el laboratorio cuando acabes con la actividad"
+    - Termina las instancias
+    - Termina el grupo de seguridad
+    - Cierra el laboratorio

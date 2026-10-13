@@ -15,10 +15,10 @@ nav:
       - "Actividad 04. Creación de MV con CloudShell": "ud02/actividad04.md"
   - "UD03. Creación de un entorno de red": 
       - "Creación de un entorno de red": "ud03/vpc.md"
-      - "Práctica 0. Creación de una VPC automática": "ud03/redpractica00.md"
-      - "Práctica 1. Creación de una VPC manual": "ud03/redpractica01.md"
-      - "Práctica 2. Creación de una VPC con 2 subredes": "ud03/redpractica02.md"
-      - "Práctica 3. Creación de una VPC con CLI": "ud03/redpractica04.md"
+      - "Actividad 06. Creación de una VPC de forma automática": "ud03/actividad06.md"
+      - "Actividad 07. Creación de una VPC de forma manual": "ud03/actividad07.md"
+#      - "Práctica 2. Creación de una VPC con 2 subredes": "ud03/redpractica02.md"
+#      - "Práctica 3. Creación de una VPC con CLI": "ud03/redpractica04.md"
 #  - "UD04. Capa de Almacenamiento": 
 #      - "Capa de Almacenamiento": "ud04/ud04.md"
 #      - "Práctica 1. Creación de bucket en S3": "ud04/practica1.md"

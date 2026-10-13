@@ -50,7 +50,14 @@ Diseñar una arquitectura de red sólida en AWS no es una opción, sino un requi
 
 Haciendo usos de esos servicios se puede mostrar una solución sencilla:
 
-![](../images/ud03/vpc1.png)
+<img src="../images/ud03/vpc1.png" width="75%">
+
+!!! question "Actividad 05. Solución sencilla con servicios AWS"
+    - Dado el siguiente esquema realizado con servicios AWS:
+    - Describe la solución propuesta con tus propias palabras.
+    - Debes indicar lo que crees entender. 
+    - Después sube el texto a Aules en un PDF
+
 
 ## Redes en AWS
 

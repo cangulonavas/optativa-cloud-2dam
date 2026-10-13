@@ -1,4 +1,5 @@
-﻿# Práctica 1. Creación de una VPC de forma manual
+﻿# Actividad 07. Creación de una VPC de forma manual
+
 ## Objetivo de la práctica
 
 En esta práctica vamos a realizar la creación independiente de los elementos de red desde la consola de AWS, el resultado será el mismo que en la práctica anterior pero se trata de que entiendas qué papel juegan cada uno de los siguientes conceptos en la VPC:
