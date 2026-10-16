@@ -81,12 +81,21 @@ Es importante fijarnos en el identificador que se genera para cada recurso, porq
 
 ### Creación de una instancia EC2 en la subred creada
 
-Crea una instancia EC2 de Ubuntu con un grupo de seguridad por defecto, de manera que se despliegue **en la subred que acabamos de crear**, y selecciona la opción de **Asignar automáticamente la IP pública**. Para ello, en el momento de lanzar la instancia, **edita la configuración de red** y seleccionar la VPC y la subred recién creadas:
+!!! success "Crea una instancia EC2 de Ubuntu con las siguientes características:"
+    - Un grupo de seguridad por defecto, de manera que se despliegue **en la subred que acabamos de crear**,
+    - Selecciona la opción de **Asignar automáticamente la IP pública**. Para ello, en el momento de lanzar la instancia, **edita la configuración de red** 
+    - Seleccionar la VPC y la subred recién creadas
 
 ![Figura 11](../images/ud03/practica0/t1vpc11.png)
 
 ![Figura 12](../images/ud03/practica0/t1vpc12.png)
 
+!!! warning "Error en la asignación de subred"
+    - Puede darse el caso de que la instancia no se cree debido a una falta de recursos en una zona o área. Este error no es tuyo sino de tráfico de solicitudes de clientes a AWS. Una forma de esquivarlo es seguir los siguientes pasos:
+    - Desde el área de creación de la instancia, crea una nueza subred dentro de VPC
+    - Elige una zona o área de disponibilidad distinto al que tienes asignado actualmente, por ejemplo 1b, 1c, etc...
+    - Crea la subred.
+    - Asigna dicha nueva subred a la instancia. 
 
 ### Creación de una segunda instancia EC2 en la subred creada
 
@@ -96,7 +105,10 @@ Con todo esto la arquitectura finalmente creada es la que se muestra a continuac
 
 ![Figura 13](../images/ud03/practica0/VPC.drawio.png)
 
-Accede por ssh a las instancias y comprueba sus	direcciones ip privadas.
+Accede por ssh a las instancias y comprueba sus	direcciones ip privadas con el comando:
+```
+ip a
+```
 
 !!! success "Captura las pantallas"
     Entrega captura de pantalla resultado de ejecutar el comando `ip a` una vez estás conectado por ssh en cada una de las instancias.
