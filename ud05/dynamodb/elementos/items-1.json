@@ -1,0 +1,25 @@
+{
+  "curso": [
+    { "PutRequest": { "Item": { "modulo": { "S": "Matemáticas" }, "alumno": { "S": "Juan Sinmiedo" }, "nota": { "N": "8.7" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Matemáticas" }, "alumno": { "S": "Ana Banana" }, "nota": { "N": "9.1" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Matemáticas" }, "alumno": { "S": "Luis Lenteja" }, "nota": { "N": "7.4" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Historia" }, "alumno": { "S": "Paco Pandereta" }, "nota": { "N": "8.9" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Historia" }, "alumno": { "S": "Rosa Mosqueta" }, "nota": { "N": "9.5" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Historia" }, "alumno": { "S": "Carlos Canela" }, "nota": { "N": "6.8" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Ciencias" }, "alumno": { "S": "Pepe Trueno" }, "nota": { "N": "7.9" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Ciencias" }, "alumno": { "S": "Lola Lolipop" }, "nota": { "N": "9.2" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Ciencias" }, "alumno": { "S": "Mario Maracas" }, "nota": { "N": "8.1" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Arte" }, "alumno": { "S": "Carmen Camaleón" }, "nota": { "N": "9.0" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Arte" }, "alumno": { "S": "Tito Trompeta" }, "nota": { "N": "6.5" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Arte" }, "alumno": { "S": "Nina Naranja" }, "nota": { "N": "8.3" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Programación" }, "alumno": { "S": "Héctor Hex" }, "nota": { "N": "9.8" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Programación" }, "alumno": { "S": "Sofía Script" }, "nota": { "N": "9.6" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Programación" }, "alumno": { "S": "Pedro Pixel" }, "nota": { "N": "8.0" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Deportes" }, "alumno": { "S": "Rafa Raqueta" }, "nota": { "N": "7.3" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Deportes" }, "alumno": { "S": "Lucía Pelota" }, "nota": { "N": "8.4" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Deportes" }, "alumno": { "S": "Manu Maratón" }, "nota": { "N": "9.2" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Música" }, "alumno": { "S": "Gloria Guitarra" }, "nota": { "N": "9.7" } } } },
+    { "PutRequest": { "Item": { "modulo": { "S": "Música" }, "alumno": { "S": "Toni Tambor" }, "nota": { "N": "8.8" } } } }
+  ]
+}
+

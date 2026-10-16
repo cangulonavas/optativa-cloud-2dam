@@ -1,0 +1,1154 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 5. Bases de Datos en AWS - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-5-bases-de-datos-en-aws" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 5. Bases de Datos en AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de bases de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de bases de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bases-de-datos-relacionales-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bases de datos relacionales (SQL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bases-de-datos-nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bases de datos NoSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RDS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RDS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caso-tipico-de-rds-en-una-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso típico de RDS en una VPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alta-disponibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alta disponibilidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replicas-de-lectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réplicas de lectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aurora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aurora
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DynamoDB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seleccion-de-tecnologias-de-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selección de tecnologías de almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-5-bases-de-datos-en-aws">Tema 5. Bases de Datos en AWS</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>Las <strong>bases de datos</strong> son el corazón de casi cualquier aplicación moderna. Permiten almacenar, organizar y recuperar información de forma estructurada y segura, y serán por tanto un elemento importante de cualquier infraestructura informática.</p>
+<p>Para trabajar con una base de datos en AWS podemos optar por 2 modelos diferenciados según sean <em>IaaS</em> o <em>PaaS</em>:</p>
+<ul>
+<li>En el primer caso, en un modelo de <strong>Infraestructura como Servicio</strong>, contrataríamos la máquina virtual, en una red virtual e instalaríamos el SGBD que consideráramos oportuno (MySQL, SQL Server, PostgrsSQL, …). En este modelo gestionaríamos nosotros toda la infraestructura.</li>
+<li>En el caso de optar por un modelo de <strong>Plataforma como Servicio</strong>, contrataríamos directamente el servicio de base de datos, sin preocuparnos por gestionar la infraestructura que hay por debajo (máquina, red, sistema operativo y sistema gestor de base de datos). Es lo que se conoce como un <strong>servicio gestionado</strong>. Las bases de datos gestionadas son servicios de base de datos en la nube en los que el proveedor se encarga de toda la administración y mantenimiento, desde la instalación y configuración inicial hasta la escalabilidad, seguridad, copias de seguridad y actualizaciones.</li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">Servicios BBDD en AWS</p>
+<p>AWS ofrece varios servicios gestionados de Bases de Datos. Los más populares son:</p>
+<ul>
+<li><strong>RDS</strong>: Es una base de datos <strong>relacional</strong> gestionada basada en MySQL, PostrgreSQL, MariaDB, Oracle, Aurora o Microsoft SQL Server.</li>
+<li><strong>Amazon Aurora</strong>: Es un SGBD propio de AWS compatible con MySQL y PostgrSQL que ofrece <strong>mejores prestaciones que <em>RDS</em></strong>.</li>
+<li><strong>Amazon DynamoDB</strong>: En este caso se trata de una base de datos <strong>NoSQL</strong> que soporta modelos de datos clave-valor y documentos.</li>
+<li><strong>Amazon Neptune</strong>: Base de datos de grafos.</li>
+<li><strong>Amazon Redshift</strong>: Base de datos relacional para almacenes de datos de Big Data.</li>
+</ul>
+</div>
+<p>En este tema nos vamos a centrar en los 3 primeros: <strong>RDS</strong>, <strong>Aurora</strong> y <strong>DynamoDB</strong>.</p>
+<hr />
+<h2 id="tipos-de-bases-de-datos">Tipos de bases de datos</h2>
+<h3 id="bases-de-datos-relacionales-sql">Bases de datos relacionales (SQL)</h3>
+<p>Las bases de datos relacionales organizan la información en <strong>tablas</strong> compuestas por filas y columnas, donde los datos se relacionan entre sí mediante <strong>claves primarias y externa</strong>. Ejemplos de bases de datos relacionales son MySQL, PostgreSQL, MariaDB, Oracle o SQL Server.</p>
+<p>En AWS, el servicio que gestiona este tipo de bases de datos es <strong>Amazon RDS (Relational Database Service)</strong>.</p>
+<h3 id="bases-de-datos-nosql">Bases de datos NoSQL</h3>
+<p>Cuando los datos no siguen un esquema fijo (por ejemplo, registros de usuarios, logs o catálogos de productos con diferentes atributos), las bases de datos <strong>NoSQL</strong> ofrecen mayor flexibilidad y rendimiento.</p>
+<p>Una base de datos NoSQL es un sistema de almacenamiento de datos que no utiliza el modelo relacional tradicional. En lugar de tablas con filas y columnas, organiza la información en estructuras más flexibles como documentos, pares clave-valor, grafos o columnas. Está pensada para manejar grandes volúmenes de datos, alta velocidad de acceso y escalabilidad horizontal, lo que la hace ideal para aplicaciones web, big data y tiempo real.</p>
+<p>En el caso concreto de <strong>DynamoDB</strong>, la base de datos NoSQL de AWS, se utiliza un esquema de par <strong>clave-valor</strong>. </p>
+<hr />
+<h2 id="rds">RDS</h2>
+<p>Amazon RDS (<strong>Relational Database Service</strong>) es un servicio administrado que configura y opera una <strong>base de datos relacional</strong> en la nube.</p>
+<p>El componente de creación básico de Amazon RDS es la instancia de base de datos. Una instancia de base de datos es un entorno de base de datos aislado que puede contener varias bases de datos creadas por el usuario. Se puede acceder a ella mediante las mismas herramientas y aplicaciones que se utilizan con una instancia de base de datos independiente.</p>
+<p>Las instancias de base de datos y el almacenamiento difieren en cuanto a características de rendimiento y precio, lo que le permite personalizar el rendimiento y el costo según las necesidades de la base de datos. Al crear una instancia de base de datos, primero se debe especificar qué motor de base de datos se va a ejecutar. </p>
+<p>Amazon RDS admite actualmente seis bases de datos: </p>
+<table>
+<thead>
+<tr>
+<th>Motor</th>
+<th>Características</th>
+<th>Casos de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MariaDB</strong></td>
+<td>Open source, compatible con MySQL, alto rendimiento</td>
+<td>Aplicaciones web, CMS como WordPress</td>
+</tr>
+<tr>
+<td><strong>MySQL</strong></td>
+<td>Amplio soporte y comunidad, ideal para proyectos pequeños y medianos</td>
+<td>Aplicaciones de comercio electrónico o SaaS</td>
+</tr>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td>Robusto, con soporte para JSON, funciones avanzadas</td>
+<td>Aplicaciones empresariales y analíticas</td>
+</tr>
+<tr>
+<td><strong>Amazon Aurora</strong></td>
+<td>Compatible con MySQL y PostgreSQL, optimizado por AWS</td>
+<td>Aplicaciones críticas que requieren alta disponibilidad</td>
+</tr>
+<tr>
+<td><strong>Otros (Oracle, SQL Server)</strong></td>
+<td>Integración empresarial, soporte para procedimientos almacenados</td>
+<td>ERP, CRM, entornos corporativos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="caso-tipico-de-rds-en-una-vpc">Caso típico de RDS en una VPC</h3>
+<p>Un caso sencillo de uso de una instancia RDS es el ubicarla en una subred de nuestra VPC para que sea accesible únicamente por servicios de nuestra propia VPC (por ejemplo, una instancia EC2 con un servidor web) y no accesible directamente desde el exterior.</p>
+<p><img src="../images/ud05/ud05_01.png" width=700></p>
+<h3 id="alta-disponibilidad">Alta disponibilidad</h3>
+<p>Una de las funciones más potentes de Amazon RDS es la posibilidad de configurar la instancia de base de datos para una alta disponibilidad con un <strong>despliegue Multi-AZ</strong>. Amazon RDS genera automáticamente una copia en espera de la instancia de base de datos en otra zona de disponibilidad de la misma VPC. Tras propagar la copia de la base de datos, las transacciones se replican de forma <strong>síncrona</strong> en la copia en espera.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Replicación síncrona y asíncrona</p>
+<p>Replicación <strong>síncrona</strong>:</p>
+<ul>
+<li>La escritura se confirma solo cuando los datos se guardan en todas las zonas.</li>
+<li>Garantiza que todas las réplicas estén actualizadas al instante.</li>
+<li>Ventaja: máxima consistencia de datos.</li>
+<li>Inconveniente: puede tener más latencia porque espera la confirmación de la réplica.</li>
+</ul>
+<p>Replicación <strong>asíncrona</strong>: </p>
+<ul>
+<li>La escritura se confirma solo en la zona principal, y las réplicas se actualizan después.</li>
+<li>Ventaja: mejor rendimiento y menor latencia.</li>
+<li>Inconveniente: si falla la zona principal, las réplicas pueden quedar ligeramente desactualizadas.</li>
+</ul>
+</div>
+<p>Esta configuración protege las bases de datos contra errores de la instancia de base de datos e interrupciones de la zona de disponibilidad. </p>
+<p><img src="../images/ud05/ud05_02.png" width=700></p>
+<p>Si la instancia de base de datos principal falla en un despliegue Multi-AZ, Amazon RDS pone en línea automáticamente la instancia de base de datos en espera como nueva instancia principal. Dado que las aplicaciones hacen referencia a la base de datos por su nombre mediante el punto de enlace del sistema de nombres de dominio (DNS), no es necesario cambiar nada en el código de la aplicación para utilizar la copia en espera para la conmutación por error.</p>
+<h3 id="replicas-de-lectura">Réplicas de lectura</h3>
+<p>Amazon RDS también soporta la creación de réplicas de lectura. Las actualizaciones realizadas en la instancia de base de datos fuente se copian de <strong>forma asíncrona</strong> en la instancia de réplica de lectura. </p>
+<p>Se puede reducir la carga sobre la instancia de base de datos de origen por medio del enrutamiento de las consultas de lectura desde las aplicaciones a la réplica de lectura. </p>
+<p>Las réplicas de lectura permiten escalar horizontalmente y también por encima de las restricciones de capacidad de una instancia de base de datos única para las cargas de trabajo de las bases de datos con operaciones intensivas de lectura. </p>
+<p>Las réplicas de lectura también pueden promoverse para convertirse en la instancia de base de datos primaria, pero esto requiere una acción manual debido a la replicación asíncrona.</p>
+<p><img src="../images/ud05/ud05_03b.png" width=400></p>
+<hr />
+<h2 id="aurora">Aurora</h2>
+<p><strong>Amazon Aurora</strong> es un motor de base de datos relacional administrado, totalmente compatible con <strong>MySQL</strong> y <strong>PostgreSQL</strong>. Ofrece el rendimiento y la disponibilidad de las bases de datos comerciales (como Oracle o SQL Server), pero con un coste más reducido y la simplicidad de las bases de datos de código abierto.</p>
+<p>Al estar desarrollado de forma nativa por Amazon, está diseñado específicamente para la nube y se adapta mejor en coste, rendimiento y alta disponibilidad. Está pensado como un subsistema de almacenamiento <strong>distribuido de alto rendimiento</strong> y <strong>tolerante a fallos</strong>:</p>
+<ul>
+<li>Los datos se replican automáticamente en tres zonas de disponibilidad (Multi-AZ), con hasta seis copias de cada bloque de datos.</li>
+<li>Esta replicación es <strong>síncrona</strong> entre las zonas, garantizando alta consistencia y recuperación automática ante fallos.</li>
+<li>Además, permite <strong>réplicas de lectura</strong> (hasta 15) para escalar el rendimiento en aplicaciones con muchas consultas.</li>
+</ul>
+<p>Ofrece dos modelos, el clásico basado en instancias y un modelo serverless. </p>
+<p><strong>Aurora Serverless</strong> es una modalidad muy interesante, ya que elimina la necesidad de aprovisionar capacidad de forma fija:</p>
+<ul>
+<li><strong>Escala automáticamente</strong> el número de recursos de cómputo (CPU y memoria) según la carga de trabajo.</li>
+<li>Si no hay actividad, puede <strong>detenerse por completo</strong>, lo que reduce costes.</li>
+<li>Cuando vuelve a recibir peticiones, <strong>se reactiva automáticamente</strong> en pocos segundos.</li>
+<li>Es ideal para <strong>aplicaciones con uso intermitente</strong>, entornos de desarrollo o pruebas, y cargas variables o impredecibles.</li>
+</ul>
+<p>Aurora también realiza <strong>copias de seguridad continuas en Amazon S3</strong>, sin impacto en el rendimiento, y permite restaurar la base de datos a cualquier punto en el tiempo.</p>
+<hr />
+<h2 id="dynamodb">DynamoDB</h2>
+<p><strong>DynamoDB</strong> es un servicio administrado de base de datos NoSQL muy rápido y flexible:</p>
+<ul>
+<li>Base de datos <strong>NoSQL totalmente gestionada</strong>.</li>
+<li>Almacena datos en formato <strong>clave-valor</strong> o <strong>documento</strong>.</li>
+<li>Escala automáticamente en función de la carga.</li>
+<li>Latencia baja (milisegundos) ideal para aplicaciones móviles o IoT.</li>
+<li>Es muy flexible y sin estructura fija (los elementos pueden tener atributos diferentes).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo de uso</p>
+<p>Una aplicación de videojuegos que almacena estadísticas de jugadores en tiempo real. DynamoDB gestiona millones de solicitudes sin necesidad de administrar servidores.</p>
+</div>
+<p>En el caso concreto de <strong>DynamoDB</strong>, se utiliza un esquema de par <strong>clave-valor</strong>. Las bases de datos clave-valor funcionan como un gran diccionario o mapa asociativo, cada dato se guarda con una clave única que sirve para identificarlo y recuperarlo:</p>
+<ul>
+<li>La clave actúa como un identificador (por ejemplo, un número o un nombre).</li>
+<li>El valor es el dato asociado (que puede ser texto, un objeto, un JSON, etc.).</li>
+</ul>
+<p>El acceso es muy rápido porque el sistema busca directamente la clave sin recorrer estructuras complejas.</p>
+<p>Los componentes principales son:</p>
+<ul>
+<li>las <strong>tablas</strong>: son conjuntos de datos, formada por los elementos.</li>
+<li>los <strong>elementos</strong>: grupo de atributos que pueden identificar de forma exclusiva a un registro.</li>
+<li>los <strong>atributos</strong>: elementos de datos fundamental que no es preciso seguir dividiendo.</li>
+</ul>
+<p>DynamoDB soporta dos tipos de claves principales:</p>
+<ul>
+<li>La clave de partición es una clave principal simple.</li>
+<li>La clave de partición y de ordenamiento, también conocidas como clave principal compuesta, ya que está formada por dos atributos.</li>
+</ul>
+<p><img src="../images/ud05/ud05_04.png" width=600></p>
+<p>Ejemplo de una tabla denominada <strong>usuario</strong>:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Partition Key (clave primaria)</strong></th>
+<th><strong>Valor (atributos)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_001</code></td>
+<td><code>{ "nombre": "Ana", "email": "ana@example.com", "puntos": 150 }</code></td>
+</tr>
+<tr>
+<td><code>user_002</code></td>
+<td><code>{ "nombre": "Luis", "puntos": 80 }</code></td>
+</tr>
+<tr>
+<td><code>user_003</code></td>
+<td><code>{ "nombre": "María", "email": "maria@example.com", "pais": "España", "suscripcion": "premium" }</code></td>
+</tr>
+<tr>
+<td><code>user_004</code></td>
+<td><code>{ "nombre": "Carlos" }</code></td>
+</tr>
+</tbody>
+</table>
+<p>En este ejemplo todos los ítems tienen una clave primaria única (<code>user_001</code>, <code>user_002</code>, etc.).</p>
+<p>No todos los ítems tienen los mismos campos. DynamoDB permite esto porque no requiere un esquema fijo, a diferencia de las bases de datos relacionales.</p>
+<p>Si hiciéramos una consulta sobre un item, se nos devolvería la siguiente información en formato <strong>json</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_003"</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"María"</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maria@example.com"</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"pais"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"España"</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"suscripcion"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"premium"</span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="seleccion-de-tecnologias-de-almacenamiento">Selección de tecnologías de almacenamiento</h2>
+<p>La elección del servicio adecuado depende de varios factores:</p>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Servicio recomendado</th>
+<th>Motivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aplicación web tradicional</td>
+<td>RDS (MySQL o Aurora)</td>
+<td>Relacional, consistente, soporta SQL</td>
+</tr>
+<tr>
+<td>Aplicación de IoT o juegos</td>
+<td>DynamoDB</td>
+<td>Escalabilidad y baja latencia</td>
+</tr>
+<tr>
+<td>Alta disponibilidad crítica</td>
+<td>Aurora Multi-AZ</td>
+<td>Réplicas automáticas, resiliencia</td>
+</tr>
+<tr>
+<td>Coste bajo y simplicidad</td>
+<td>RDS con instancias pequeñas</td>
+<td>Configuración rápida y gestión mínima</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

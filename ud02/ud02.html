@@ -1,0 +1,1410 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ud01/actividad01.html">
+      
+      
+        <link rel="next" href="actividad02.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Capa de Cómputo - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-2-capa-informatica" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Capa de Cómputo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ud02.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-una-capa-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es una Capa Informática?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es una Capa Informática?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-otros-componentes-interactuan-con-la-capa-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué otros componentes interactúan con la capa informática?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-de-computo-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios de cómputo en AWS.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros-de-configuracion-de-una-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros de configuración de una instancia EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parámetros de configuración de una instancia EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMIs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-instancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipo de instancias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#par-de-claves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Par de Claves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-la-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de la red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datos-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos de usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#costos-de-las-instancias-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Costos de las instancias EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Costos de las instancias EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#precauciones-a-tener-en-cuenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Precauciones a tener en cuenta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-una-capa-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es una Capa Informática?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es una Capa Informática?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-otros-componentes-interactuan-con-la-capa-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué otros componentes interactúan con la capa informática?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-de-computo-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios de cómputo en AWS.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros-de-configuracion-de-una-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros de configuración de una instancia EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parámetros de configuración de una instancia EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMIs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-instancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipo de instancias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#par-de-claves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Par de Claves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-la-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de la red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datos-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos de usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#costos-de-las-instancias-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Costos de las instancias EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Costos de las instancias EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#precauciones-a-tener-en-cuenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Precauciones a tener en cuenta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-2-capa-informatica">Tema 2. Capa Informática</h1>
+<h2 id="que-es-una-capa-informatica">¿Qué es una Capa Informática?</h2>
+<p>La capa informática (o de cómputo) de AWS es el nivel de la nube encargado de proporcionar recursos de procesamiento (CPU, memoria y red) que permiten ejecutar aplicaciones, sistemas operativos y servicios. Esta capa ofrece distintos modelos de uso, desde máquinas virtuales hasta entornos sin servidor.</p>
+<p>Es decir, son los servicios que sustituyen o complementan a los servidores físicos o máquinas virtuales tradicionales en un centro de datos.</p>
+<h3 id="que-otros-componentes-interactuan-con-la-capa-informatica">¿Qué otros componentes interactúan con la capa informática?</h3>
+<ul>
+<li><strong>Capa de almacenamiento</strong> (S3, EBS, EFS): Proporciona dónde guardar los datos que las aplicaciones procesan.</li>
+<li><strong>Capa de red</strong> (VPC, Route 53, ELB): Permite la comunicación entre instancias, usuarios y servicios de AWS.</li>
+<li><strong>Capa de bases de datos</strong> (RDS, DynamoDB, Aurora): Proporciona sistemas gestionados para almacenar, consultar y organizar datos.</li>
+<li><strong>Capa de seguridad e identidad</strong> (IAM, Security Groups, NACLs): Garantiza que solo los usuarios o servicios autorizados accedan a los recursos de cómputo.</li>
+<li><strong>Capa de monitorización y gestión</strong> (CloudWatch, CloudTrail): Supervisa el estado y el rendimiento de los recursos informáticos.</li>
+</ul>
+<h2 id="servicios-de-computo-en-aws">Servicios de cómputo en AWS.</h2>
+<p>Cuando hablamos de capa informática en AWS pensamos rápidamente en la posibilidad de crear máquinas virtuales en la nube. Este popular servicio es el conocido como <strong>EC2</strong>, pero no es el único servicio que ofrece AWS relacionado con la capa de cómputo.</p>
+<p>AWS ofrece varias opciones de informática para satisfacer diferentes necesidades. Las opciones clave de informática de tiempo de ejecución se pueden agrupar en cuatro categorías de modelos informáticos en la nube: </p>
+<ul>
+<li><strong>Máquinas virtuales</strong> (VM)</li>
+<li><strong>Contenedores</strong></li>
+<li><strong>Plataforma como servicio</strong> (PaaS)</li>
+<li><strong>Sin servidor</strong> (Serverless)</li>
+</ul>
+<p><img src="../images/ud02/ud02_01.png" width="700"></p>
+<p>En este tema nos vamos a centrar en el servicio <strong>EC2</strong>.</p>
+<h2 id="amazon-ec2">Amazon EC2</h2>
+<p><strong>Amazon Elastic Compute Cloud</strong> (<a href="https://docs.aws.amazon.com/ec2/">Amazon EC2</a>) proporciona máquinas virtuales en las que podemos alojar el mismo tipo de aplicaciones que podríamos ejecutar en un servidor en nuestras oficinas (servidores web, de aplicaciones, de correo, de bases de datos, multimedia, ...), ofreciendo capacidad de cómputo segura y de tamaño ajustable en la nube.</p>
+<p>Amazon EC2 proporciona máquinas virtuales y se puede considerar una forma de infraestructura como servicio (IaaS). Podemos elegir el sistema operativo, así como el tamaño y las capacidades de los recursos de los servidores que lancemos, pero los servicios de IaaS nos obligan a estar a cargo de muchas de las responsabilidades de la administración del servidor tales como actualizaciones del sistema operativo, copias de seguridad, instalación y actualización de aplicaciones y servicios, etc.</p>
+<p>La computación elástica (<em>Elastic Compute</em>) se refiere a la capacidad para aumentar o reducir fácilmente la cantidad de servidores que ejecutan una aplicación de manera automática, así como para aumentar o reducir la capacidad de procesamiento (CPU), memoria RAM o almacenamiento de los servidores existentes.</p>
+<p>Cuando hablemos de una máquina virtual lanzada en Amazon EC2 nos referiremos a ella como una <strong>instancia EC2</strong>.</p>
+<h3 id="parametros-de-configuracion-de-una-instancia-ec2">Parámetros de configuración de una instancia EC2</h3>
+<p>Cuando creemos una instancia EC2 deberemos especificarle algunos parámetros necesarios para su configuración y su seguridad. Algunos de ellos los vamos a ver en este tema y otros los iremos desarrollando en temas siguientes.</p>
+<p>Entre estos parámetros necesarios habrá que indicarle a la consola que la instancia debe tener un <strong>tamaño</strong> de procesador y memoria, un <strong>sistema de almacenamiento</strong> o disco duro virtual, con un sistema operativo basado en una <strong>imagen de máquina</strong> que se creará con unos <strong>datos de usuario</strong>; además deberá estar conectada en una <strong>red privada virtual</strong> de AWS y necesitaremos un <strong>par de claves</strong> pública/privada para conectarnos a la máquina.</p>
+<p><img src="../images/ud02/ud02_02.png" width="700"></p>
+<h4 id="amis">AMIs</h4>
+<p>Una <strong>AMI (Amazon Machine Image)</strong> es una plantilla preconfigurada que contiene la información necesaria para crear una máquina virtual (instancia) en Amazon EC2.</p>
+<p>Podría decirse que es como una “foto” de un servidor que sirve de modelo para lanzar nuevas instancias en AWS. A partir de esa imagen se pueden crear tantas máquinas virtuales como se necesiten, todas con la misma configuración inicial.</p>
+<p>Una AMI incluye:</p>
+<ul>
+<li>El sistema operativo (Linux, Windows, etc.).</li>
+<li>Opcionalmente, aplicaciones o configuraciones adicionales.</li>
+<li>Permisos de acceso (quién puede usarla).</li>
+<li>Información sobre el tipo de almacenamiento que utilizará.</li>
+</ul>
+<p>Podemos encontrarnos varios tipos de AMI:</p>
+<ul>
+<li><strong>De AWS:</strong> proporcionadas y mantenidas por Amazon (ej. Amazon Linux, Ubuntu, Windows Server).</li>
+<li><strong>De la comunidad:</strong> compartidas por otros usuarios.</li>
+<li><strong>Privadas/personalizadas:</strong> creadas por la propia organización o usuario con sus programas y configuraciones.</li>
+<li><strong>Del Marketplace</strong>: publicadas por proveedores de software (ej. imágenes con Oracle, SAP, etc.).</li>
+</ul>
+<h4 id="tipo-de-instancias">Tipo de instancias</h4>
+<p>Un <strong>tipo de instancia EC2</strong> define una configuración de características de rendimiento de <strong>CPU</strong>, <strong>memoria</strong>, <strong>almacenamiento</strong> y <strong>red</strong> que proporcionan un nivel determinado de rendimiento informático. Será lo equivalente a decir el tamaño de la instancia ajustando los tamaños de dichas características de la máquina virtual.</p>
+<p>La nomenclatura del tipo de instancia nos determina la familia, la generación y el tamaño.</p>
+<p><img src="../images/ud02/ud02_03.png" width="600"></p>
+<p>Para el tipo de instancia <code>m5d.xlarge</code> la letra <em>m</em> indica el nombre de la familia, al cual le sigue un número, en este caso el <em>5</em>. </p>
+<p>Este número indica la generación de ese tipo de familia. Por lo tanto, una instancia <em>m5</em> es la quinta generación de la familia <em>m</em>. En general, los tipos de instancias que son de una generación más alta son más potentes y ofrecen un mejor relación calidad-precio.</p>
+<p>La parte siguiente del nombre corresponde a la capacidad de la instancia. Cuando se comparan las capacidades, es importante tener en cuenta la parte del coeficiente de la categoría de capacidad.
+ 
+Por ejemplo, una instancia <code>m5.2xlarge</code> tiene el doble de vCPU y memoria que una instancia <code>m5.xlarge</code> que tiene, a su vez, el doble de vCPU y memoria que una instancia <code>m5.large</code>.
+ </p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Además de tener en cuenta las necesidades de CPU, RAM y almacenamiento de las cargas de trabajo, también es importante tener en cuenta los <strong>requisitos del ancho de banda de la red</strong>, que también está vinculada al tamaño de la instancia de EC2. Si ejecutamos trabajos que hacen un uso intensivo de la red, es posible que debamos aumentar las especificaciones de las instancias para satisfacer nuestras necesidades.</p>
+<p>Cada tipo de instancia proporciona un nivel de rendimiento de red documentado. Por ejemplo, una instancia <code>a1.medium</code> brinda hasta 10 Gb/s, pero una instancia <code>p3dn.24xlarge</code> proporciona hasta 100 Gb/s.</p>
+</div>
+<p>Las <a href="https://aws.amazon.com/es/ec2/instance-types/">familias de las instancias</a> se agrupan según su propósito y características de hardware como se resume la siguiente tabla:</p>
+<table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Optimizado para</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>t, m</td>
+<td>Uso general</td>
+<td>Web, apps ligeras, desarrollo, pruebas</td>
+</tr>
+<tr>
+<td>c</td>
+<td>CPU intensiva</td>
+<td>Análisis, servicios web, juegos multijugador, codificación de vídeos</td>
+</tr>
+<tr>
+<td>r, x</td>
+<td>RAM intensiva</td>
+<td>Bases de datos, caché en memoria, análisis de Big Data</td>
+</tr>
+<tr>
+<td>i, d</td>
+<td>Disco Duro rápido</td>
+<td>Bases de datos NoSQL, Big Data, Almacenamiento de Datos</td>
+</tr>
+<tr>
+<td>p, g, f</td>
+<td>Computación acelerada</td>
+<td>HPC, Machine Learning e IA, gráficos</td>
+</tr>
+</tbody>
+</table>
+<h4 id="par-de-claves">Par de Claves</h4>
+<p>Amazon EC2 utiliza la criptografía de clave pública para cifrar y descifrar la información de inicio de sesión. La tecnología utiliza una clave pública para cifrar un dato y luego el destinatario usa la clave privada para descifrar los datos. El conjunto de clave pública y clave privada se denomina <strong>par de claves</strong>. </p>
+<p>Esta criptografía de clave pública nos permite acceder de forma segura a nuestras instancias mediante una clave privada en lugar de una contraseña, de hecho EC2 deshabilita en las máquinas Linux el acceso por contraseña mediante SSH, obligándonos a conectarnos mediante este par de claves.</p>
+<p>Cuando lanzamos una instancia es neccesario especificar un par de claves. Podemos especificar un par de claves existente o uno nuevo que se cree durante el lanzamiento. Si creamos un nuevo par de claves, debemos descargarlo y guardarlo en un lugar seguro. Esta oportunidad es la única posibilidad de guardar el archivo de clave privada. La clave pública la almacena AWS dentro de la instancia, mientras que la <strong>clave privada la almacenamos nosotros</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Atención</p>
+<p><strong>Si perdemos las claves, tendremos que destruir la instancia y volver a crearla.</strong></p>
+</div>
+<p>Para conectarnos a una instancia de Windows, utilizaremos la clave privada a fin de obtener la contraseña de administrador y, a continuación, iniciar sesión en el escritorio de Windows de la instancia de EC2 mediante el Protocolo de escritorio remoto (RDP). Para establecer una conexión SSH desde una máquina Windows a una instancia de EC2, podemos utilizar una herramienta como PuTTY, que requerirá la misma clave privada.</p>
+<p>Con las instancias de Linux, en el momento de arranque, se coloca el contenido de la clave pública en la instancia. Se crea una entrada en <code>~/.ssh/authorized_keys</code>. Para iniciar sesión en nuestra instancia de Linux (por ejemplo, mediante SSH), debemos proporcionar la clave privada cuando establezcamos la conexión. El siguiente ejemplo muestra cómo hacer una conexión por ssh a la máquina remota ubicada en 3.83.80.53 utilizando la clave privada descargada en el fichero <code>labuser.pem</code>:</p>
+<div class="highlight"><pre><span></span><code>ssh -i labsuser.pem ec2-user@3.83.80.52
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Claves en AWS Academy</p>
+<p>Nuestro usuario del laboratorio tiene creado por defecto un par de claves que se conocen como <code>vockey</code>. Esta claves se pueden descargar desde la opción <em>AWS Details</em> del laboratorio de Learner Lab. Para poder conectarnos es necesario además dar permisos para que sólo nuestro usuario pueda utilizar la clave: <code>chmod 400 labuser.pem</code></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Usuarios Linux por defecto</p>
+<p>Al crear una instancia basada en una AMI de Linux se crean unos <a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/managing-users.html#ami-default-user-names">usuarios por defecto</a>. En el caso de una AMI Ubuntu el usuario es <code>ubuntu</code> y para las AMIs de Amazon Linux el usuario es <code>ec2-user</code>.</p>
+</div>
+<h4 id="configuracion-de-la-red">Configuración de la red</h4>
+<p>Un paso necesario para la creación de una instrancia EC2 es especificar la ubicación de red en la que se implementará, teniendo en cuenta la región donde nos encontramos antes de lanzar la instancia. Hay que elegire la VPC (la red) y la subred dentro de la misma, ya sea de las que tenemos creadas o pudiendo crear los recursos en este paso.</p>
+<p>Además, cuando se lanza una instancia en una VPC predeterminada, AWS le asigna una dirección IP pública de forma predeterminada. En caso contrario, si la VPC no es la predeterminada, AWS no asignará una dirección IP pública, a no ser que lo indiquemos de forma explícita.</p>
+<p>A la creación y configuración de la red le dedicaremos un tema entero.</p>
+<h4 id="almacenamiento">Almacenamiento</h4>
+<p>Al lanzar la instancia EC2 configuraremos las opciones de almacenamiento. Se puede definir el tamaño del volumen raíz en el que está instalado el sistema operativo invitado, o incluso añadir volúmenes de almacenamiento adicionales.</p>
+<p>Algunas AMI están configuradas para lanzar más de un volumen de almacenamiento de forma predeterminada y, de esa manera, proporcionar almacenamiento independiente del volumen raíz. Para cada volumen que tenga la instancia, podemos indicar el tamaño de los discos, los tipos de volumen, si el almacenamiento se conservará en el caso de terminación de la instancia y si se debe utilizar el cifrado.</p>
+<ul>
+<li>Configurar el volumen raíz.<ul>
+<li>Dónde está instalado el sistema operativo invitado.</li>
+</ul>
+</li>
+<li>Adjuntar volúmenes de almacenamiento adicionales (opcional).<ul>
+<li>Es posible que la AMI ya incluya más de un volumen.</li>
+</ul>
+</li>
+<li>Para cada volumen, especificaremos lo siguiente:<ul>
+<li>Tamaño del disco (en GB).</li>
+<li>El tipo de volumen<ul>
+<li>Hay disponibles diferentes tipos de unidades de estado sólido (SSD) y unidades de disco duro (HDD).</li>
+</ul>
+</li>
+<li>Si el volumen se eliminará al finalizar la instancia.</li>
+<li>Si se debe utilizar el cifrado.</li>
+</ul>
+</li>
+</ul>
+<p>Al almacenamiento también le dedicaremos un tema entero.</p>
+<h4 id="datos-de-usuario">Datos de usuario</h4>
+<p>Al crear las instancias de EC2, tenemos la opción de pasar datos de usuario a la instancia. Los datos de usuario pueden automatizar la finalización de las instalaciones y configuraciones en el lanzamiento de la instancia. Por ejemplo, un script de datos de usuario podría aplicar parches y actualizar el sistema operativo de la instancia, buscar e instalar claves de licencia de software, o instalar software adicional. </p>
+<p><img src="../images/ud02/ud02_05.png" width="500"></p>
+<p>En el <strong>script de datos de usuario</strong> de ejemplo, verá un script de shell Linux Bash de tres líneas sencillo. La primera línea indica que el script debe ser ejecutado por el shell de Bash. La segunda línea invoca la utilidad <code>apt update</code> para actualizar los repositorios de una distribución Ubuntu, por ejemplo. La tercera línea del script indica que se debe instalar la utilidad Wget para descargar archivos de la Web.</p>
+<p>En una instancia de Windows, el script de datos de usuario debe escribirse en un formato compatible con una ventana del símbolo del sistema (comandos por lotes) o con Windows PowerShell.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El script sólo se ejecuta la primera vez que se inicia la instancia.</p>
+</div>
+<p>Cuando se lanza una instancia se crean una serie de metadatos a los que se puede acceder desde la misma instancia mediante la url <code>http://169.254.169.254/latest/meta-data/​</code> y que a su vez podemos acceder desde el script de datos de usuario.</p>
+<p><img src="../images/ud02/ud02_06.png" width="700"></p>
+<h2 id="costos-de-las-instancias-ec2">Costos de las instancias EC2</h2>
+<p>No todas las máquinas EC2 cuestan lo mismo. Evidentemente las más grandes cuestan más, pero además existen una serie de factores que influirán en el costo de nuestra máquina EC2:</p>
+<ul>
+<li><strong>Tipo de instancia</strong> (más CPU/memoria ⇒ más caro).</li>
+<li><strong>Región</strong> en la que se lanza (cada región tiene precios distintos).</li>
+<li><strong>Tiempo de uso</strong> (horas/minutos encendida).</li>
+<li><strong>Almacenamiento asociado</strong> (EBS, snapshots).</li>
+<li><strong>Tráfico de red</strong> (salida de datos hacia Internet suele ser de pago).</li>
+</ul>
+<p>El costo habitual de las máquinas EC2 viene determinado por el uso que hagamos de ellas. Mientras la máquina está apagada no se nos factura el costo asociado a la computación (pero ojo, sí otros costos como almacenamiento). Este pago por uso se conoce como pago <strong>bajo demanda</strong>. Normalmente cuando iniciemos una instancia usaremos este tipo de pago (el crédito concedido por AWS Academy es en esa modalidad), pero conviene conocer el resto de formas que ofrecen diferentes facturaciones:</p>
+<ul>
+<li><strong>Pago por uso (On-Demand):</strong> se paga por hora o por segundo de uso, sin compromiso. Es la modalidad de pago por defecto.</li>
+<li><strong>Instancias reservadas:</strong> precio más bajo a cambio de un compromiso de 1 o 3 años.</li>
+<li><strong>Instancias spot:</strong> muy baratas, pero pueden ser interrumpidas por AWS si necesita los recursos.</li>
+<li><strong>Savings Plans:</strong> descuentos a cambio de comprometerse a un nivel de gasto mensual.</li>
+</ul>
+<h3 id="precauciones-a-tener-en-cuenta">Precauciones a tener en cuenta</h3>
+<ul>
+<li><strong>Apagar las instancias cuando no se usan:</strong> aunque estén inactivas, si están “running” generan costos.</li>
+<li><strong>Revisar el almacenamiento EBS:</strong> incluso si se apaga la instancia, los discos EBS asociados siguen cobrando.</li>
+<li><strong>Controlar el tamaño de las instancias:</strong> usar solo la potencia que realmente se necesita.</li>
+<li><strong>Monitorizar el tráfico de red:</strong> grandes transferencias de datos a Internet incrementan la factura.</li>
+<li><strong>Usar la capa gratuita (Free Tier):</strong> ofrece 750 horas/mes de una instancia t2.micro o t3.micro durante 12 meses, pero solo en determinadas condiciones.</li>
+<li><strong>Configurar alarmas en AWS Budgets o CloudWatch:</strong> para evitar gastos inesperados.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Atención</p>
+<p>EC2 es flexible pero puede ser caro si no se controla. Lo importante es elegir el modelo de facturación adecuado y vigilar los recursos que siguen generando gasto aunque no se usen. El costo de EC2 depende del tipo de instancia, el tiempo de uso, el almacenamiento y la red. Para evitar sorpresas en la factura, hay que <strong>apagar instancias cuando no se usan, vigilar discos y transferencias, y aprovechar la capa gratuita</strong>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../ud01/actividad01.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Actividad 01. Lanzamiento del Laboratorio">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Actividad 01. Lanzamiento del Laboratorio
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="actividad02.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Actividad 02. Creación de una Máquina Virtual">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Actividad 02. Creación de una Máquina Virtual
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1089 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Proyecto 1. Infraestructura Segura de Servidores Internos y Públicos en AWS - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#proyecto-1-infraestructura-segura-de-servidores-internos-y-publicos-en-aws" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Proyecto 1. Infraestructura Segura de Servidores Internos y Públicos en AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisitos-funcionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisitos funcionales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisitos funcionales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servidores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servidores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diseno-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diseño de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento-compartido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento compartido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceso-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceso y seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entregables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entregables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ayuda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ayuda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asignacion-de-una-ip-fija-elastic-ip-a-una-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asignación de una IP fija (Elastic IP) a una instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación de servidor web
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración del servidor web
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reto-adicional-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reto adicional (opcional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="proyecto-1-infraestructura-segura-de-servidores-internos-y-publicos-en-aws">Proyecto 1. Infraestructura Segura de Servidores Internos y Públicos en AWS</h1>
+<h2 id="contexto">Contexto</h2>
+<p>La empresa <strong>NovaWeb Solutions</strong> se dedica al desarrollo y despliegue de sitios web para clientes externos. Hasta ahora, su entorno de pruebas y publicación se encontraba en servidores locales, pero ha decidido migrarlo completamente a la nube de AWS.</p>
+<p>Tu misión como ingeniero DevOps en la empresa es diseñar y desplegar la infraestructura base que dará soporte a sus proyectos, asegurando conectividad, seguridad, y un aprovechamiento eficiente de los recursos.</p>
+<hr />
+<h2 id="objetivos-del-proyecto">Objetivos del proyecto</h2>
+<p>Implementar una infraestructura propia en AWS que contemple:</p>
+<ul>
+<li>Una red estructurada en varias subredes.</li>
+<li>Servidores Ubuntu distribuidos entre subredes públicas y privadas.</li>
+<li>Un servidor web accesible desde Internet.</li>
+<li>Un sistema de almacenamiento compartido entre varios servidores.</li>
+<li>Un volumen adicional en alguno de los servidores para almacenamiento o copias.</li>
+<li>Gestión controlada del acceso a Internet en las instancias privadas.</li>
+</ul>
+<hr />
+<h2 id="requisitos-funcionales">Requisitos funcionales</h2>
+<h3 id="servidores">Servidores</h3>
+<ul>
+<li>
+<p>Despliega al menos <strong>tres instancias Ubuntu Server LTS</strong>, con roles diferenciados:</p>
+<ul>
+<li>
+<p><strong>Servidor Web (público):</strong> alojará un sitio web accesible desde Internet mediante Apache u otro servidor similar.</p>
+<ul>
+<li>Este servidor debe ser accesible por HTTP/HTTPS y SSH.</li>
+<li>Su dirección IP pública debe mantenerse fija a lo largo del tiempo (aunque la instancia se detenga y se inicie de nuevo). <a href="elasticip.html">Elastic IP</a>.</li>
+<li>Deberá servir el contenido que encontrarás en el repositorio de GitHub que contiene una web de muestra:
+    <a href="https://github.com/IES-CAMP-DE-MORVEDRE/hello-cloud"><code>https://github.com/ies-camp-de-morvedre/hello-cloud</code></a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Servidor Interno de Aplicaciones (privado):</strong> destinado a tareas de soporte y procesamiento interno.</p>
+<ul>
+<li>No debe tener acceso directo desde Internet.</li>
+</ul>
+</li>
+<li>
+<p><strong>Servidor de Copias o Contenidos (privado):</strong> centralizará archivos y respaldos utilizados por otros servidores.</p>
+<ul>
+<li>Accesible únicamente desde la VPC.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>En el servidor de Copias, crea y configura un <strong>dispositivo o volumen adicional</strong> para almacenamiento específico (datos, copias o logs).</p>
+</li>
+<li>Elige para cada servidor la <strong>familia de instancia</strong> más adecuada según su función y justifica tu elección en la memoria técnica.</li>
+</ul>
+<h3 id="diseno-de-red">Diseño de red</h3>
+<ul>
+<li>Diseña la estructura de red completa a partir de la <strong>VPC 172.16.0.0/16</strong>.</li>
+<li>Define cuántas subredes necesitas, qué tamaño debe tener cada una y su función dentro de la infraestructura (públicas, privadas, etc.).</li>
+<li>Establece las rutas necesarias para que cada servidor tenga la conectividad requerida según su propósito.</li>
+</ul>
+<h3 id="almacenamiento-compartido">Almacenamiento compartido</h3>
+<ul>
+<li>Implementa un <strong>sistema de archivos compartido</strong> que permita que al menos dos servidores trabajen sobre el mismo conjunto de datos (por ejemplo, el contenido multimedia de la web).</li>
+</ul>
+<h3 id="acceso-y-seguridad">Acceso y seguridad</h3>
+<ul>
+<li>Define <strong>grupos de seguridad</strong> adaptados a los diferentes roles de los servidores, siguiendo el principio de mínimo privilegio.</li>
+<li>
+<p>Asegura que:</p>
+<ul>
+<li>El servidor web sea accesible únicamente por los puertos necesarios.</li>
+<li>Los servidores privados puedan comunicarse entre ellos y con el servidor web según sus necesidades.</li>
+<li>No exista acceso SSH directo desde Internet a los servidores privados.</li>
+</ul>
+</li>
+<li>
+<p>Durante el proceso de despliegue y configuración, <strong>las instancias privadas deben poder acceder a Internet para instalar y actualizar paquetes</strong>.</p>
+<ul>
+<li>Con el fin de economizar costos,tras la puesta en marcha del entorno, el acceso a Internet desde las máquinas internas deberá quedar deshabilitado.</li>
+</ul>
+</li>
+</ul>
+<h3 id="verificaciones">Verificaciones</h3>
+<ul>
+<li>Desde tu equipo local, deberás poder acceder al servidor web y visualizar correctamente el sitio servido por Apache.</li>
+<li>Los servidores deben ser accesibles por SSH según las reglas definidas.</li>
+<li>El sistema de archivos compartido debe estar operativo y accesible entre los servidores que lo utilicen.</li>
+</ul>
+<hr />
+<h2 id="entregables">Entregables</h2>
+<p>El proyecto debe incluir:</p>
+<ul>
+<li>Un <strong>diagrama de arquitectura</strong> donde se representen la VPC, las subredes, las rutas, las instancias desplegadas y los servicios que hayas necesitado.</li>
+<li>
+<p>Una <strong>memoria técnica</strong> que describa:</p>
+<ul>
+<li>La justificación del diseño de red y segmentación elegidos.</li>
+<li>Los tipos de instancia seleccionados y su razón de elección.</li>
+<li>La configuración de seguridad y conectividad.</li>
+<li>La verificación de la conexión a cada una de las instancias utilizando claves públicas/privadas.</li>
+<li>El proceso de montaje del almacenamiento compartido y del volumen adicional.</li>
+<li>Las pruebas de verificación realizadas.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para el diagrama de arquitectura utiliza <a href="https://app.diagrams.net/">https://app.diagrams.net/</a>. Puedes utilizar como base el diagrama <a href="VPC.drawio">ejemplo</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Importante</p>
+<p>El documento entregable deberá seguir la estructura definida en el <a href="Normativa%20para%20la%20entrega%20de%20Trabajos-2025-26.pdf">este documento</a>.</p>
+</div>
+<hr />
+<h2 id="ayuda">Ayuda</h2>
+<h3 id="asignacion-de-una-ip-fija-elastic-ip-a-una-instancia-ec2">Asignación de una IP fija (<strong>Elastic IP</strong>) a una instancia EC2</h3>
+<p>Para crear y asignar una IP Elástica a una máquina EC2 puedes seguir <a href="elasticip.html">este manual</a>.</p>
+<h3 id="instalacion-de-servidor-web">Instalación de servidor web</h3>
+<p>El servicio del servidor web se deberá instalar en el momento de creación de la instancia. </p>
+<p>Los comandos necesarios para instalar el servidor web:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="configuracion-del-servidor-web">Configuración del servidor web</h3>
+<p>Para que Apache sirva nuestra página web, copia el contenido del repositorio clonado a <code>/var/www/html/</code></p>
+<hr />
+<h2 id="reto-adicional-opcional"><strong>Reto adicional (opcional)</strong></h2>
+<ul>
+<li>Configura una tarea programada en el servidor de copias que sincronice periódicamente los datos del almacenamiento compartido con un directorio local.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

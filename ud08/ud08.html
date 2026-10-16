@@ -1,0 +1,1111 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 8. Monitorización en AWS - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-8-monitorizacion-en-aws" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 8. Monitorización en AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#monitoreo-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoreo en la Nube
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon CloudWatch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon CloudWatch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registros-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registros (Logs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alarmas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alarmas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos-amazon-eventbridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos (Amazon EventBridge)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CloudTrail
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS CloudTrail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acciones-registradas-por-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acciones registradas por CloudTrail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-eventos-registrados-por-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de eventos registrados por CloudTrail
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de eventos registrados por CloudTrail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventos-de-administracion-management-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos de administración (Management Events)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos-de-datos-data-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos de datos (Data Events)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos-de-analisis-insight-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos de análisis (Insight Events)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento-y-consulta-de-los-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento y consulta de los logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoreo-de-costos-y-uso-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoreo de Costos y Uso en AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-8-monitorizacion-en-aws">Tema 8. Monitorización en AWS</h1>
+<h2 id="monitoreo-en-la-nube">Monitoreo en la Nube</h2>
+<p>El monitoreo es un componente esencial de cualquier arquitectura moderna y reactiva en la nube. Permite obtener visibilidad sobre el estado de los sistemas, comprender cómo se comportan las aplicaciones y tomar decisiones informadas para optimizar tanto el rendimiento como los costos. Implementar una estrategia de monitoreo sólida ayuda a abordar cuatro áreas principales:</p>
+<ul>
+<li>Estado operativo: Permite hacer un seguimiento continuo del funcionamiento y el rendimiento de todos los recursos en la nube, asegurando que todo funcione como se espera.</li>
+<li>Rendimiento de la aplicación: Ayuda a verificar que la infraestructura esté satisfaciendo la demanda de los usuarios, identificando cuellos de botella o degradaciones en el servicio antes de que afecten la experiencia del cliente.</li>
+<li>Utilización de los recursos: Ofrece datos precisos sobre cómo se están usando los recursos (como la capacidad de cómputo o el almacenamiento), lo que permite optimizar su uso y reducir costos al detener instancias infrautilizadas.</li>
+<li>Auditoría de la seguridad: Proporciona un rastro de auditoría de quién accede a qué recursos, información crucial para definir y verificar los permisos de acceso y cumplir con los objetivos de gobernanza.</li>
+</ul>
+<p>Para centralizar y gestionar estas actividades, AWS ofrece un servicio principal de monitoreo y observación conocido como** Amazon CloudWatch**.</p>
+<h2 id="amazon-cloudwatch">Amazon CloudWatch</h2>
+<p>Amazon CloudWatch es el servicio central de monitorización de AWS. Permite recopilar y visualizar métricas, logs y eventos de los recursos AWS y de aplicaciones personalizadas. Su propósito es proporcionar datos e información procesable para monitorear aplicaciones, responder a cambios de rendimiento en todo el sistema, optimizar el uso de recursos y obtener una visión unificada del estado operativo general.</p>
+<p>El valor fundamental de CloudWatch es su capacidad para recopilar y rastrear variables (métricas), crear alarmas para responder a cambios en esas métricas e incluso automatizar acciones basadas en esas alarmas.</p>
+<p><img src="../images/ud08/ud08_01.png" width="600"></p>
+<p>Los componentes principales de CloudWatch se pueden resumir de la siguiente manera:</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Función Principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Métricas</td>
+<td>Recopila puntos de datos a lo largo del tiempo sobre el rendimiento de los sistemas y las aplicaciones.</td>
+</tr>
+<tr>
+<td>Registros (Logs)</td>
+<td>Centraliza, monitorea y almacena archivos de registro (logs) de diversas fuentes para su análisis y solución de problemas.</td>
+</tr>
+<tr>
+<td>Alarmas</td>
+<td>Vigila una métrica específica y ejecuta acciones automáticas cuando se cruza un umbral predefinido.</td>
+</tr>
+<tr>
+<td>Eventos (EventBridge)</td>
+<td>Entrega un flujo de eventos del sistema en tiempo real que describen cambios en los recursos de AWS.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metricas">Métricas</h3>
+<p>Las métricas son el fundamento del monitoreo en CloudWatch. Son esencialmente puntos de datos sobre el rendimiento de nuestros sistemas, recopilados a lo largo del tiempo. Por ejemplo, una métrica común es el uso de la CPU de una instancia EC2.</p>
+<p><img src="../images/ud08/ud08_02.png" width="700"></p>
+<p>Es importante conocer tres características clave de las métricas de CloudWatch:</p>
+<ol>
+<li>Métricas por Defecto: Muchos servicios de AWS, como Amazon EC2, Amazon EBS y Amazon RDS, envían automáticamente métricas de rendimiento a CloudWatch sin necesidad de configuración adicional.</li>
+<li>Retención de Datos: Los datos de las métricas se conservan durante 15 meses. Esto es útil para analizar tanto las tendencias de rendimiento recientes como los patrones históricos a largo plazo.</li>
+<li>Métricas Personalizadas: Además de las métricas que AWS proporciona de forma predeterminada, tenemos la flexibilidad de publicar nuestras propias métricas personalizadas desde nuestras aplicaciones.</li>
+</ol>
+<h3 id="registros-logs">Registros (Logs)</h3>
+<p>Amazon CloudWatch Logs es un servicio que nos permite monitorear, almacenar y acceder a nuestros archivos de registro desde una variedad de fuentes. En lugar de tener que conectarnos a cada servidor para ver sus logs, podemos centralizarlos todos en un solo lugar.</p>
+<p><img src="../images/ud08/ud08_03.png" width="700"></p>
+<p>Algunos ejemplos de fuentes de registro incluyen:</p>
+<ul>
+<li>Instancias Amazon EC2</li>
+<li>AWS CloudTrail (registros de llamadas a la API)</li>
+<li>Amazon Route 53</li>
+</ul>
+<p>Un caso de uso práctico es monitorear los registros de una aplicación para contar el número de errores que ocurren. Si la cantidad de errores supera un límite que se ha definido, CloudWatch Logs puede enviar una notificación para que se investigue el problema.</p>
+<p>Adicionalmente, el servicio incluye <strong>CloudWatch Logs Insights</strong>, una potente herramienta que permite ejecutar consultas interactivas para analizar grandes volúmenes de datos de registro en segundos.</p>
+<h3 id="alarmas">Alarmas</h3>
+<p>Una alarma de CloudWatch es una herramienta que vigila una única métrica durante un período de tiempo que se puede especificar. Sin embargo, su propósito no es solo notificar; su verdadera capacidad reside en la automatización. El objetivo principal de una alarma es iniciar una o más acciones automáticamente cuando una métrica cruza un umbral definido.</p>
+<p><img src="../images/ud08/ud08_04.png" width="700"></p>
+<p>Una alarma puede desencadenar principalmente dos tipos de acciones:</p>
+<ul>
+<li><strong>Enviar una notificación</strong> a un tema de Amazon Simple Notification Service (SNS).</li>
+<li><strong>Ejecutar una política de Amazon Auto Scaling</strong> para añadir o eliminar recursos.</li>
+</ul>
+<p>Esta última acción es especialmente interesante para realizar un escalado horizontal de manera automática. Por ejemplo, podemos configurar una alarma que se active si la métrica <em>CPUUtilization</em> de una instancia EC2 es superior al 50% durante 5 minutos. Esta alarma podría entonces activar una política de Auto Scaling para lanzar una instancia EC2 adicional y así manejar el aumento de la carga.</p>
+<p><img src="../images/ud08/ud08_06.png" width="600"></p>
+<h3 id="eventos-amazon-eventbridge">Eventos (Amazon EventBridge)</h3>
+<p>Amazon EventBridge (anteriormente conocido como CloudWatch Events) es un servicio que ofrece un flujo de eventos del sistema en tiempo real. Un evento es simplemente una señal de que algo ha cambiado en el entorno de AWS.</p>
+<p><img src="../images/ud08/ud08_05.png" width="700"></p>
+<p>Ejemplos de eventos incluyen:</p>
+<ul>
+<li>Un cambio en el estado de una instancia EC2 (por ejemplo, de pending a running).</li>
+<li>Una llamada a la API de AWS registrada por CloudTrail.</li>
+<li>Un evento programado que se genera a intervalos regulares (por ejemplo, cada hora).</li>
+</ul>
+<p>EventBridge funciona con dos conceptos clave:</p>
+<ul>
+<li><strong>Reglas</strong>: Una regla se encarga de buscar y coincidir con los eventos entrantes según un patrón que definamos. Por ejemplo, una regla puede coincidir con cualquier evento que indique la terminación de una instancia EC2.</li>
+<li><strong>Objetivos</strong>: Un objetivo es el recurso que procesa el evento una vez que una regla lo ha identificado. Los objetivos pueden ser muy variados, como una función de AWS Lambda, una instancia EC2 o una cola de Amazon SQS.</li>
+</ul>
+<hr />
+<h2 id="aws-cloudtrail">AWS CloudTrail</h2>
+<p>AWS CloudTrail es el servicio de AWS encargado de <strong>registrar y auditar toda la actividad que ocurre dentro de una cuenta</strong>. Su función principal es dejar constancia de <strong>quién realiza una acción, cuándo la realiza, desde dónde y con qué resultado</strong>.</p>
+<p>CloudTrail no está pensado para medir rendimiento ni consumo de recursos, sino para <strong>seguridad, auditoría y cumplimiento normativo</strong>. Gracias a este servicio es posible reconstruir exactamente qué ha ocurrido en una cuenta AWS ante un incidente o una auditoría.</p>
+<p>En la práctica, CloudTrail registra las <strong>llamadas a la API de AWS</strong>, independientemente de que se hayan hecho desde la consola web, la AWS CLI, un SDK o desde otro servicio de AWS.</p>
+<h3 id="acciones-registradas-por-cloudtrail">Acciones registradas por CloudTrail</h3>
+<p>CloudTrail registra prácticamente cualquier acción relevante en AWS. Esto incluye:</p>
+<ul>
+<li>Acciones realizadas desde la <strong>consola de administración</strong>, como crear una instancia EC2 o modificar un grupo de seguridad.</li>
+<li>Acciones realizadas mediante <strong>AWS CLI o SDKs</strong>, muy comunes en entornos automatizados.</li>
+<li>Acciones realizadas por <strong>servicios de AWS entre sí</strong>, por ejemplo cuando Auto Scaling lanza nuevas instancias o una función Lambda accede a un bucket S3.</li>
+</ul>
+<p>La idea clave es que <strong>todo lo que sea una llamada a la API queda reflejado en CloudTrail</strong>.</p>
+<h3 id="tipos-de-eventos-registrados-por-cloudtrail">Tipos de eventos registrados por CloudTrail</h3>
+<h4 id="eventos-de-administracion-management-events">Eventos de administración (Management Events)</h4>
+<p>Son los eventos más importantes y están <strong>activados por defecto</strong>. Registran operaciones relacionadas con la <strong>gestión y configuración de los recursos</strong>.</p>
+<p>Incluyen, entre otros:</p>
+<ul>
+<li>Creación, modificación y eliminación de recursos</li>
+<li>Cambios de configuración</li>
+<li>Gestión de usuarios, roles y políticas IAM</li>
+</ul>
+<p>Ejemplos típicos serían crear una instancia EC2, borrar un bucket S3 o asignar una política a un rol.</p>
+<h4 id="eventos-de-datos-data-events">Eventos de datos (Data Events)</h4>
+<p>Los eventos de datos registran el <strong>acceso al contenido de los recursos</strong>, no su configuración. Debido al enorme volumen que pueden generar, <strong>no están activados por defecto</strong>.</p>
+<p>Ejemplos claros:</p>
+<ul>
+<li>Accesos a objetos en S3 (<code>GetObject</code>, <code>PutObject</code>)</li>
+<li>Invocaciones de funciones Lambda</li>
+</ul>
+<p>Se configuran de forma explícita y por recurso, y se usan cuando es necesario un control muy detallado de accesos.</p>
+<h4 id="eventos-de-analisis-insight-events">Eventos de análisis (Insight Events)</h4>
+<p>Este tipo de eventos permite a CloudTrail <strong>detectar comportamientos anómalos</strong>, como un aumento inusual de determinadas acciones.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li>Un número anormalmente alto de eliminaciones de recursos</li>
+<li>Cambios inesperados en el uso de IAM</li>
+</ul>
+<p>Son muy útiles como sistema de alerta temprana ante posibles incidentes de seguridad.</p>
+<h3 id="almacenamiento-y-consulta-de-los-logs">Almacenamiento y consulta de los logs</h3>
+<p>Los eventos de CloudTrail se almacenan en <strong>formato JSON</strong>, lo que permite su análisis automático.</p>
+<p>También pueden enviarse a <strong>CloudWatch Logs</strong>, lo que permite crear métricas y alarmas casi en tiempo real, por ejemplo para detectar la eliminación de recursos críticos.</p>
+<p>De forma predeterminada, AWS ofrece el <strong>Event History</strong>, que permite consultar los eventos de los últimos 90 días directamente desde la consola. Este historial no es configurable y solo sirve para consultas rápidas.</p>
+<p>Para un uso real y profesional se utilizan los <strong>Trails</strong>, que permiten enviar los eventos a un bucket S3 y opcionalmente a CloudWatch Logs. Esto posibilita:</p>
+<ul>
+<li>Retener los logs durante años</li>
+<li>Analizarlos con otras herramientas</li>
+<li>Integrarlos con sistemas de alerta</li>
+</ul>
+<hr />
+<h2 id="monitoreo-de-costos-y-uso-en-aws">Monitoreo de Costos y Uso en AWS</h2>
+<p>Además de monitorear el rendimiento técnico de la infraestructura, es vital monitorear los costos para gestionar eficazmente nuestro gasto en AWS. La plataforma ofrece varias herramientas diseñadas específicamente para este propósito.</p>
+<ul>
+<li>AWS Cost Explorer: Es una herramienta que ayuda a visualizar, comprender y administrar los costos y uso de AWS a lo largo del tiempo, con datos de hasta 13 meses que permiten identificar patrones de gasto.</li>
+<li>AWS Budgets: Permite definir presupuestos personalizados. Si los costos o el uso superan (o se prevé que superen) el monto presupuestado, se envía una alerta.</li>
+<li>Informe de uso y costo de AWS: Ofrece el conjunto de datos de costos y uso más completo disponible, incluyendo metadatos detallados sobre servicios, precios y reservas.</li>
+<li>Cost Optimization Monitor: Una solución que procesa automáticamente los informes de facturación para ofrecer métricas detalladas que se pueden analizar y visualizar en un panel personalizado.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

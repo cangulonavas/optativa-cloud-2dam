@@ -1,0 +1,1089 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Redpractica03 - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objetivo-de-la-practica" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Redpractica03
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-la-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo de la práctica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivo de la práctica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-tienes-que-hacer-en-esta-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué tienes que hacer en esta tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#veamos-ahora-el-ejemplo-de-como-hacer-esto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Veamos ahora el ejemplo de cómo hacer esto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc-con-su-direccionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC con su direccionamiento:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conexion-ssh-a-las-instancias-publica-y-privada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conexión SSH a las instancias pública y privada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-un-nat-gateway-y-modificacion-de-la-tabla-de-rutas-de-la-subred-privada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de un NAT Gateway y modificación de la tabla de rutas de la subred privada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacl-network-access-control-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NACL (Network Access Control List)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escenario-de-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escenario de prueba
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-la-vpc-e-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de la VPC e instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-una-acl-de-red-nacl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de una ACL de red (NACL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-encadenadas-en-grupos-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas encadenadas en grupos de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Redpractica03</h1>
+
+<h2 id="objetivo-de-la-practica">Objetivo de la práctica</h2>
+<p>En esta tarea aprenderemos a crear subredes privadas y a configurar diferentes recursos de red de manera que se pueda acceder a Internet desde una instancia desplegada en una subred privada. También trataremos diferentes aspectos de seguridad para controlar el tráfico de red, tanto a nivel de instancias como a nivel  de  subred.  En  concreto, utilizaremos  los  siguientes  servicios  y  recursos  relacionados  con  la  parte  de  redes de AWS:</p>
+<ol>
+<li>VPC</li>
+<li>Subredes públicas y privadas</li>
+<li>Tablas de enrutamiento y rutas</li>
+<li>Gateway de Internet</li>
+<li>Gateway NAT</li>
+<li>Grupos de seguridad</li>
+<li>ACL de red</li>
+</ol>
+<p>El escenario propuesto que vamos a desarrollar consistirá en una VPC con una subred pública y una subred privada, la cual sólo tendrá acceso al exterior pasando primero por la subred pública, y se lanzará una instancia EC2 en cada subred. Para que la instancia desplegada en la subred privada tenga acceso a Internet, se utilizará un Gateway NAT, que  es  un  recurso  de  red  que  podemos  desplegar  en  una  subred  pública  que  tenga conexión a un Gateway de Internet, de manera que permita la salida a Internet desde los recursos desplegados en subredes privadas, sin más que redirigir de manera apropiada el tráfico de red mediante rutas.</p>
+<p>Los rangos utilizados para la VPC y subredes de la práctica guiada que tienes a continuación son:</p>
+<ul>
+<li>Direccionamiento VPC: 172.16.0.0/16</li>
+<li>Direccionamiento subred pública: 172.16.0.0/20</li>
+<li>Direccionamiento subred privada: 172.16.64.0/20</li>
+</ul>
+<p><img alt="" src="../images/ud03/practica3/001.png" /></p>
+<p>Aunque es posible desplegar todos los recursos de red al crear la VPC, vamos a crear únicamente la VPC, la subred pública, el Gateway de Internet y las tablas de rutas por defecto. Para ello se utilizará la consola gráfica de AWS. Después, añadiremos uno a uno los recursos de la parte privada.</p>
+<p>El objetivo inicial entonces en cuanto a la parte de red, es tener una VPC, una subred pública, un Gateway de Internet (IGW) y una tabla de enrutamiento, que vamos creando desde la opción de creación de VPC como ya se vio</p>
+<h5 id="que-tienes-que-hacer-en-esta-tarea">Qué tienes que hacer en esta tarea</h5>
+<ul>
+<li>La tarea consiste en realizar un despliegue de una típica <strong>arquitectura de dos capas</strong>, donde en la parte pública tendremos un servidor web, y en la privada un servidor de base de datos:</li>
+<li>Crea  una  VPC  con  dos  subredes,  una  pública  y  otra  privada, puedes poner el mismo direccionamiento de red que tienes en esta tarea guiada o puedes escoger otro. Para que desde la subred privada se pueda acceder al exterior deberás utilizar un NAT Gateway.</li>
+<li>En la subred pública, lanza una instancia EC2 e instala un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.</li>
+<li>En la subred privada, lanza otra instancia EC2 e instala un servicio de MySQL. Para acceder a esta instancia, tendrás que acceder primero a la instancia pública (utiliza para ello el agente ssh).</li>
+<li>Los grupos de seguridad asociados a las instancias deben permitir sólo el tráfico de entrada  necesario, utilizando una regla encadenada en el caso del grupo de seguridad asociado a la instancia de base de datos,  de  manera  que  sólo  acepte  tráfico  entrante  del protocolo adecuado desde la instancia del servidor web.</li>
+<li>Conéctate con ssh a la instancia de la subred pública, y realiza una prueba de conexión al servidor de base de datos, utilizando para ello la aplicación cliente mysql (que tendrás que instalar previamente).</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Para entregar</p>
+<ul>
+<li>Adjunta   a  la  tarea   un   documento  pdf   con   las   siguientes  capturas:  mapa  de  la  VPC, configuración  de  las reglas de entrada  de los grupos de seguridad de las dos instancias, conexión al servidor Apache desde un navegador, y conexión al servicio de base de datos desde la instancia del servidor web.</li>
+</ul>
+</div>
+<p><strong>Nota: No es necesario utilizar ACLs de red en esta tarea, el tráfico de red se controlará únicamente con los grupos de seguridad asociados a las instancias, y por el hecho de que el servidor de base de datos residirá en una subred privada.</strong></p>
+<h5 id="veamos-ahora-el-ejemplo-de-como-hacer-esto">Veamos ahora el ejemplo de cómo hacer esto</h5>
+<h4 id="vpc-con-su-direccionamiento">VPC con su direccionamiento:</h4>
+<p><img alt="" src="../images/ud03/practica3/002.png" /></p>
+<p>Y ahora el direccionamiento de la subred pública (la subred privada la crearemos más adelante):</p>
+<p><img alt="" src="../images/ud03/practica3/003.png" /></p>
+<p><img alt="" src="../images/ud03/practica3/004.png" /></p>
+<p>Partiendo de aquí, el siguiente objetivo es crear otra subred (que será la subred privada), utilizando la opción Subredes del Panel de VPC:</p>
+<p><img alt="" src="../images/ud03/practica3/005.png" /></p>
+<p>Subred privada (hay que elegir la VPC que acabamos de crear):</p>
+<p><img alt="" src="../images/ud03/practica3/006.png" /></p>
+<p>Como se puede comprobar, realmente en ningún momento estamos indicando que la subred sea privada. Simplemente creamos subredes, y serán las tablas de enrutamiento las que decidan si la subred es pública o privada, dependiendo de si ésta puede alcanzar o no un elemento de red que permita la comunicación con el exterior.</p>
+<p>A continuación, lanzaremos una instancia EC2 en la subred pública y otra en la subred privada. Las instancias pueden ser por ejemplo Amazon Linux o Ubuntu, tamaño t3.micro, con creación de grupo de seguridad por defecto y clave privada ‘vockey’. En las opciones para lanzar las instancias, hay que editar la configuración de red y seleccionar la VPC y subred  en  la  queremos  lanzarla.  También  seleccionaremos  la  opción  para  asignar automáticamente una IP pública.</p>
+<p>En la imagen siguiente se muestra la configuración para el caso de la instancia EC2 pública, para la privada habría que cambiar sólo la subred:</p>
+<p><img alt="" src="../images/ud03/practica3/007.png" /></p>
+<p>Si  intentamos  conectarnos  por  ssh  a  la  instancia  desplegada  en  la  subred  privada utilizando su dirección ip pública, comprobaremos que no es posible el acceso. La subred privada no está asociada de ninguna manera con la subred con el Internet Gateway para poder enrutar el tráfico al exterior.</p>
+<p>Si comprobamos la tabla de enrutamiento asociada a la VPC (desde el panel de VPC, opción Tablas de enrutamiento), podremos ver en la pestaña de asociaciones de subred, que únicamente tenemos la subred pública asociada a la tabla de enrutamiento:</p>
+<p><img alt="" src="../images/ud03/practica3/008.png" /></p>
+<p>La subred privada aparece en la pestaña “Subredes sin asociaciones explícitas”, lo que quiere decir que está preparada para ser añadida a la tabla de enrutamiento, pero aún no lo hemos hecho.</p>
+<p>Básicamente lo que pretendemos es hacer que la subred privada salga al exterior a través de la subred pública. Para ello, cada subred tiene su propia tabla de enrutamiento, y en el caso de la subred pública existe una ruta hacia el Gateway de Internet para poder salir al exterior:</p>
+<p><img alt="" src="../images/ud03/practica3/009.png" /></p>
+<p>En este punto podríamos conectarnos por ssh a la instancia de la red pública y hacer ping a www.google.es y debería funcionar:</p>
+<p><img alt="" src="../images/ud03/practica3/010.png" /></p>
+<p>También podemos conectarnos por ssh desde la instancia en la subred pública a la instancia de la subred privada y probar el mismo comando ping, que obviamente no funcionará todavía. En el siguiente punto veremos cómo hacer esta conexión ssh a la instancia EC2 de la subred privada, ‘saltando’ desde la instancia pública.</p>
+<h4 id="conexion-ssh-a-las-instancias-publica-y-privada">Conexión SSH a las instancias pública y privada</h4>
+<p>A continuación, veremos cómo hacer la conexión ssh a las instancias EC2 utilizando la misma clave privada,  sin  necesidad  de  copiar  la  clave  privada  (labsuser.pem)  a  la instancia  pública  (también  se  podría  hacer usando diferentes credenciales de acceso, pero aprovecharemos que las dos instancias se han creado con la misma clave ‘vockey’). Para ello utilizaremos el reenvío de agente SSH, que permitirá conectarnos desde un host bastión en una subred pública a la instancia privada.</p>
+<p>Seguiremos los pasos indicados  para  equipos  Linux.  En sistemas Windows,  se puede utilizar el programa PuTTY (puedes consultar este  artículo  donde se detalla cómo realizar la conexión a una EC2 con Linux desde un host bastión).  En primer lugar, comprobamos que las claves privadas tienen los permisos adecuados. Luego, desde el terminal ejecutaremos los siguientes comandos:</p>
+<p>Ejecutamos ssh-agent en segundo plano:</p>
+<p><code>eval $(ssh-agent)</code></p>
+<p>Cargamos en memoria la clave privada de la instancia:</p>
+<p><code>ssh-add labsuser.pem</code></p>
+<p>Podemos ver las claves añadidas al agente ssh mediante el comando:</p>
+<p><code>ssh-add -l</code></p>
+<p>Nos conectamos en primer lugar a la instancia de la subred pública. Con la opción <strong>-A</strong>, las claves se mantienen en memoria, y no es necesario utilizar la opción -i para indicar la clave (utiliza el nombre de usuario</p>
+<p>adecuado según la AMI de la instancia):</p>
+<p><code>ssh -A ec2-user@dirección-ip-pública</code></p>
+<p>Una vez conectados a la instancia pública, desde ella nos conectamos a la instancia de la subred privada utilizando su dirección IP privada:</p>
+<p><code>ssh ec2-user@direccion-ip-privada</code></p>
+<p>Una vez hemos logrado tener acceso a la instancia de la subred privada, si intentamos hacer  por  ejemplo un  ping  a www.google.es,  comprobaremos que  no  funciona. Hasta ahora lo que hemos logrado hacer es llegar hasta la instancia, pero, ¿y si la instancia necesita actualizarse o tener acceso a Internet por cualquier motivo? Para esta casuística podemos  utilizar  el  servicio  <strong>NAT  Gateway</strong> ,  que  es  un  servicio  que  permite  que  las instancias de una subred privada puedan conectarse a servicios fuera de la VPC, pero los servicios externos no pueden iniciar una conexión con esas instancias.</p>
+<h4 id="creacion-de-un-nat-gateway-y-modificacion-de-la-tabla-de-rutas-de-la-subred-privada">Creación de un NAT Gateway y modificación de la tabla de rutas de la subred privada</h4>
+<p>Lo primero que haremos será crear un NAT Gateway desde la opción correspondiente del panel de VPC:</p>
+<p><img alt="" src="../images/ud03/practica3/011.png" /></p>
+<p>Aquí aparece por primera vez el concepto de <strong>ip elástica</strong>. Una ip elástica es una dirección ip pública estática, que vamos a poder reutilizar en otros servicios.  Es decir, si hubiera un servicio que necesitase de una dirección ip pública, o bien podemos utilizar las que AWS asigna por defecto de forma dinámica, o si ya necesitamos una dirección estática que no cambie (para un servidor web, por ejemplo) se podría reutilizar la ip elástica creada. Por supuesto,  reservar  direcciones  ip  de  esta  forma  conlleva  un  gasto  asociado, independientemente de que estén o no asignadas a recursos. En las cuentas de AWS se
+pueden utilizar hasta 5 direcciones elásticas por región, aunque se puede solicitar el aumento de este límite.</p>
+<p>El servicio NAT Gateway necesita tener asignado una dirección ip elástica, por eso hay que pinchar en la opción de asignar ip elástica. La creación de este elemento de red lleva un rato, y habrá que esperar a que esté en estado “available”. En este caso el NAT Gateway lo vamos a crear en la subred pública (ya veremos más adelante el motivo).</p>
+<p><img alt="" src="../images/ud03/practica3/012.png" /></p>
+<p>Cabe destacar que el servicio NAT Gateway, al tener una ip elástica asociada, supondrá un coste adicional incluso cuando apaguemos el laboratorio. Lo mismo pasa con otros servicios  de  AWS  (cuando  paramos el laboratorio, las instancias EC2 se detienen y dejamos de pagar por el uso de CPU, pero seguimos pagando por el almacenamiento asignado a su disco de sistema).</p>
+<p>A continuación, vamos a configurar la subred privada para que tenga conexión al exterior. Para ello, primero  vamos  a  crear  una  tabla  de  enrutamiento que  podemos  llamar  ‘rt- privada’, y después le asociaremos la subred:</p>
+<p><img alt="" src="../images/ud03/practica3/018.png" /></p>
+<p>Cuando se cree la tabla de enrutamiento, le asociaremos la subred privada desde la pestaña “Asociaciones de subredes”, haciendo clic en “Editar asociaciones de subredes”:</p>
+<p><img alt="" src="../images/ud03/practica3/019.png" /></p>
+<p>Después, accediendo desde la pestaña ‘Rutas’ de la tabla de enrutamiento, añadiremos una ruta para redirigir el tráfico que vaya a Internet hacia el NAT Gateway que hemos creado, y éste ya se encargará de dar salida hacia Internet:</p>
+<p><img alt="" src="../images/ud03/practica3/020.png" /></p>
+<p><img alt="" src="../images/ud03/practica3/021.png" /></p>
+<p>Ahora podremos hacer dos comprobaciones:</p>
+<ul>
+<li>Seguimos sin poder conectarnos por ssh directamente a la ip pública de la instancia privada desde una máquina local:</li>
+</ul>
+<p><img alt="" src="../images/ud03/practica3/023.png" /></p>
+<p><img alt="" src="../images/ud03/practica3/024.png" /></p>
+<ul>
+<li>Si hacemos ping desde la EC2 de la subred privada al exterior, SÍ que obtendremos respuesta:</li>
+</ul>
+<p><img alt="" src="../images/ud03/practica3/024.png" /></p>
+<h4 id="nacl-network-access-control-list">NACL (Network Access Control List)</h4>
+<p>Una NACL es un componente de seguridad que actúa como un firewall, permitiendo o denegando el tráfico entrante o saliente a nivel de subred dentro de una VPC. Hasta ahora hemos estado trabajando con los grupos de seguridad, que son básicamente son firewalls  con  estado  que  podemos  asignar  a  diferentes  recursos en AWS, como una instancia EC2. Con los grupos de seguridad, cuando se establece una conexión entrante, se puede devolver una respuesta sin que sea necesario habilitar una regla de salida que lo permita explícitamente. Sin embargo, AWS ofrece otro nivel de seguridad, que son las NACL o ACL de red.</p>
+<p>A diferencia de las reglas asociadas a un grupo de seguridad, las reglas de NACL son sin estado. Por ejemplo, si queremos que una instancia responda a un ping, añadimos en su grupo de seguridad asociado una regla que permita el tráfico entrante ICMP. Cuando se realiza el ping, la entrada se permite e implícitamente se permite la salida por cualquier puerto, ya que es una conexión establecida. Sin embargo, en el caso de las NACL, este permiso implícito NO es dado, hay que configurar tanto las reglas de entrada como las de salida.</p>
+<h4 id="escenario-de-prueba">Escenario de prueba</h4>
+<p>Vamos a comprobar que los grupos de seguridad son capaces de guardar el estado y las ACLs de red no. Para ello, montaremos en una VPC una subred pública y lanzaremos una instancia EC2 en dicha subred. Permitiremos la entrada del ping mediante una NACL definida en la subred pero NO la salida, para comprobar que el ping NO sale, y luego más tarde lo permitiremos.</p>
+<p>Antes de continuar, es recomendable eliminar todo lo que hemos hecho anteriormente para no confundirnos y tener los siguientes conceptos claros. Si no queremos eliminar los recursos individualmente, se puede realizar un reset del laboratorio para eliminar todos los recursos, pero dejará éste inaccesible durante un rato.</p>
+<p>El escenario de prueba es básico, con una VPC con una sola subred pública que enrutará el tráfico externo mediante un Gateway de Internet:</p>
+<p><img alt="" src="../images/ud03/practica3/025.png" /></p>
+<h4 id="creacion-de-la-vpc-e-instancia-ec2">Creación de la VPC e instancia EC2</h4>
+<p>Lo primero es crear la VPC junto con la subred. Nos podemos guiar con las siguientes capturas:</p>
+<p><img alt="" src="../images/ud03/practica3/026.png" /></p>
+<p><img alt="" src="../images/ud03/practica3/027.png" />Una vez creada la infraestructura de red, pasaremos a lanzar la instancia dentro de la subred en la VPC recién creada:</p>
+<p><img alt="" src="../images/ud03/practica3/028.png" /></p>
+<p>Una vez la instancia esté en ejecución, podemos probar que podemos acceder por ssh, y a continuación salir y probar a hacer un ping desde nuestra máquina local a la instancia:</p>
+<p><img alt="" src="../images/ud03/practica3/029.png" /></p>
+<p>A continuación, modificaremos el grupo de seguridad asociado a la instancia para permitir tráfico ICMP entrante desde cualquier sitio, y comprobar que el ping funciona. Una vez hecha esta comprobación, añadiremos una capa adicional de seguridad a nivel de subred con reglas ACL.</p>
+<p>Hay  que  tener  en  cuenta  que  en  los  grupos  de  seguridad,  por  defecto  todo  el  tráfico entrante se deniega, y se permite todo el de salida. Por lo tanto, daremos permiso al protocolo ICMP en una regla de entrada y salida del ping y luego denegaremos la salida del ping y ver como ya no responde.</p>
+<p>El  grupo de  seguridad  asociado  a  la  instancia  EC2  configurado para  permitir el  ping tendría un aspecto como el siguiente:</p>
+<p><img alt="" src="../images/ud03/practica3/030.png" /></p>
+<p>Observamos en las reglas de salida que todo el tráfico está permitido:</p>
+<p><img alt="" src="../images/ud03/practica3/031.png" /></p>
+<p>En este punto, podemos probar de nuevo el ping de la máquina local a la EC2, y veremos que funciona.</p>
+<p>Para comprobar que los grupos de seguridad ‘recuerdan’ las peticiones entrantes, vamos a eliminar la regla que permite toda la salida de todo el tráfico. Para ello, editamos las reglas de salida del grupo de seguridad:</p>
+<p><img alt="" src="../images/ud03/practica3/033.png" /></p>
+<p>Una vez eliminada la regla, comprobamos que no hay reglas de salida:</p>
+<p><img alt="" src="../images/ud03/practica3/034.png" /></p>
+<p>Si volvemos a probar el ping, comprobaremos que sigue funcionando incluso, después de eliminar la regla de tráfico de salida. Las ACL de red nos van a permitir tener un mayor control sobre el tráfico entrante y saliente a una subred, a cambio de una mayor sobrecarga en las tareas de administración.</p>
+<h4 id="creacion-de-una-acl-de-red-nacl">Creación de una ACL de red (NACL)</h4>
+<p>En el momento de la creación de la VPC, la subred, y la tabla de rutas correspondiente, también se ha creado una ACL de red predeterminada asociada a nuestra subred, aunque es posible crear más ACLs desde el panel de VPC, opción ACL de red. Podemos observar la ACL de red por defecto asociada a nuestra subred:</p>
+<p><img alt="" src="../images/ud03/practica3/035.png" /></p>
+<p><img alt="" src="../images/ud03/practica3/036.png" /></p>
+<p>Cada subred de una VPC debe estar asociada a una ACL de red. Si no asociamos una subred de forma explícita a una ACL de red, la subred se asociará de manera automática a la ACL de red predeterminada, que por defecto permite todo el tráfico  de  entrada y salida de la subred. Se puede crear una ACL de red personalizada y asociarla a una subred para permitir o denegar el tráfico entrante o saliente específico a nivel de subred. Además, es posible asociar una ACL de red con varias subredes, pero una subred sólo puede asociarse a una ACL de red a la vez. Al asociar una ACL de red a una subred, se quita la asociación anterior.</p>
+<p>A continuación crearemos el NACL en la VPC con la que estamos trabajando y le asociaremos la subred, lo que eliminará la asociación con la NACL predeterminada:</p>
+<p><img alt="" src="../images/ud03/practica3/037.png" /></p>
+<p>Y comprobamos que tiene asociada la subred pública desde la pestaña “Asociaciones de subredes”:</p>
+<p><img alt="" src="../images/ud03/practica3/038.png" /></p>
+<p>Si observamos las reglas de entrada y salida de la NACL recién creada, comprobaremos que por defecto se deniega todo el tráfico de entrada y salida a la subred:</p>
+<p><img alt="" src="../images/ud03/practica3/039.png" /></p>
+<p>Podemos añadir y eliminar reglas de entrada y salida. Las reglas se evalúan comenzando por la regla de número más bajo. En cuanto una regla coincide con el tráfico, esta se aplica  independientemente  de  cualquier  regla  con  un  número  mayor  que  pueda contradecirla.</p>
+<p>Desde el menú ACL de red, vamos a modificar las reglas de entrada y salida y realizar las siguientes pruebas:</p>
+<ul>
+<li>Añadir regla de entrada ICMP. Desde la regla NACL, en la pestaña Reglas de Entrada, Editamos las reglas de entrada:</li>
+</ul>
+<p><img alt="" src="../images/ud03/practica3/041.png" /></p>
+<p>Añadimos una nueva regla de entrada, con número 100 (se recomiendan incrementos de 10 o 100), permitiendo el tráfico ICMP desde cualquier origen:</p>
+<p><img alt="" src="../images/ud03/practica3/043.png" /></p>
+<p>Y ahora ya nos aparece la nueva regla:</p>
+<p><img alt="" src="../images/ud03/practica3/044.png" /></p>
+<p>Como  hemos  comentado  anteriormente,  las  reglas  se  evalúan  con  una  prioridad ascendente, y en cuanto se satisface, ya no se comprueban las de menor prioridad.</p>
+<p>Comprobamos que el ping NO funciona:</p>
+<p><img alt="" src="../images/ud03/practica3/045.png" /></p>
+<ul>
+<li>Ahora añadiremos la regla de salida ICMP en la correspondiente regla de salida NACL, para después comprobar que el ping SI funciona:</li>
+</ul>
+<p><img alt="" src="../images/ud03/practica3/046.png" /></p>
+<p><img alt="" src="../images/ud03/practica3/047.png" /></p>
+<h4 id="reglas-encadenadas-en-grupos-de-seguridad">Reglas encadenadas en grupos de seguridad</h4>
+<p>Las reglas que regulan el tráfico de red en los grupos de seguridad se pueden encadenar, de manera que podemos restringir el tráfico permitiéndolo únicamente cuando proviene de un grupo de seguridad determinado.</p>
+<p>Para probar este concepto, lo que vamos a hacer es crear un nuevo grupo de seguridad (con el nombre ‘gs-encadenado’, por ejemplo) y añadir una nueva regla de entrada que permitirá el tráfico ICMP, asignándole como origen el grupo de seguridad que tiene asociado la instancia que tenemos lanzada:</p>
+<p><img alt="" src="../images/ud03/practica3/048.png" /></p>
+<p>A continuación, lanzamos una nueva instancia EC2 en la misma subred que la primera, y le  asignamos el nuevo grupo de seguridad ‘encadenado’, en lugar de crear un nuevo grupo de seguridad:</p>
+<p>Y cuando queramos por ejemplo hacer un ping desde la máquina local, veremos que no lo permite:</p>
+<p><img alt="" src="../images/ud03/practica3/049.png" /></p>
+<p>Sin embargo, si nos conectamos a la primera instancia por ssh y hacemos un ping a la dirección IP privada de la segunda instancia, comprobaremos que sí hay respuesta al ping:</p>
+<p><img alt="" src="../images/ud03/practica3/050.png" /></p>
+<p>En definitiva, combinando reglas encadenadas de grupos de seguridad y NACLs, es posible controlar de manera exhaustiva todo el tráfico que entra y sale en nuestra VPC y los recursos desplegados en ella.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
