@@ -143,3 +143,9 @@ Una vez hecho esto, ahora sí que podremos conectarnos por ssh a cualquier insta
 !!! success "Captura la pantalla"
     Accede por ssh a la instancia EC2 y comprueba con el comando `ip a` su dirección privada. Captura la pantalla.
 
+!!! warning "Recuerda finalizar el laboratorio cuando acabes con la actividad"
+    - Termina las instancias
+    - Termina el grupo de seguridad
+    - Termina el espacio de red
+    - Cierra el laboratorio    
+

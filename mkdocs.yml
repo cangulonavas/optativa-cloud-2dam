@@ -19,9 +19,9 @@ nav:
       - "Actividad 07. Creación de una VPC de forma manual": "ud03/actividad07.md"
 #      - "Práctica 2. Creación de una VPC con 2 subredes": "ud03/redpractica02.md"
 #      - "Práctica 3. Creación de una VPC con CLI": "ud03/redpractica04.md"
-#  - "UD04. Capa de Almacenamiento": 
-#      - "Capa de Almacenamiento": "ud04/ud04.md"
-#      - "Práctica 1. Creación de bucket en S3": "ud04/practica1.md"
+  - "UD04. Capa de Almacenamiento": 
+      - "Capa de Almacenamiento": "ud04/ud04.md"
+      - "Actividad 08. Creación de bucket en S3": "ud04/actividad08.md"
 #      - "Práctica 2. Publicación de una web estática en S3": "ud04/practica2.md"
 #      - "Práctica 3. Gestión de volúmenes EBS": "ud04/practica3.md"
 #      - "Práctica 4. Almacenamiento compartido con EFS": "ud04/practica4.md"

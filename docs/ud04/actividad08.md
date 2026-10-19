@@ -1,4 +1,4 @@
-# Práctica 1. Creación de un bucket en Amazon S3
+# Actividad 08. Creación de un bucket en Amazon S3
 
 Creación y gestión de un bucket en Amazon S3: subida de objetos, control de permisos y versiones.
 
@@ -22,7 +22,13 @@ Creación y gestión de un bucket en Amazon S3: subida de objetos, control de pe
 - Especifica:
    
     - **Tipo de bucket**: Uso general.
-    - **Nombre del bucket:** debe ser único en todo el mundo (por ejemplo: `practica-s3-nombrealumno`).
+    - **Espacio de nombres del bucket**: espacio de nombres global
+    - **Nombre del bucket:** debe ser único en todo el mundo (por ejemplo: `iescamp-actividad07-nombrealumno`).
+    - **ACL deshabilitadas (recomendado)**: deshabilitadas
+    - **Bloquear todo el acceso público**: activado
+    - **Control de versiones de buckets**: desactivado
+    - **cifrado predeterminado**: Cifrado del servidor con claves administradas de Amazon S3 (SSE-S3)
+    - **Clave de bucket**:
 
 - Deja todos los demás campos por defecto.
 - Crea el bucket pulsando **“Crear bucket”**.
@@ -127,3 +133,12 @@ Amazon S3 incorpora una funcionalidad que permite mantener múltiples versiones 
 
 !!! success "Captura la pantalla"
     Captura la pantalla en la que se muestren las distintas versiones del archivo.
+
+
+!!! warning "Recuerda finalizar el laboratorio cuando acabes con la actividad"
+    - Termina las instancias
+    - Termina el grupo de seguridad
+    - Termina el espacio de red
+    - Vacía el bucket
+    - Elimina el bucket S3
+    - Cierra el laboratorio  
