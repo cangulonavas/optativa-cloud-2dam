@@ -1,4 +1,4 @@
-# Práctica 2. Publicación de una web estática en S3
+# Actividad 09. Publicación de una web estática en S3
 
 Publicación de un sitio web estático en Amazon S3 con control de acceso mediante políticas de bucket.
 
@@ -6,7 +6,7 @@ Publicación de un sitio web estático en Amazon S3 con control de acceso median
 
 * Comprender el funcionamiento del alojamiento web estático en Amazon S3.
 * Aprender a crear un bucket, subir un sitio web y habilitar su acceso público **mediante una política de bucket**.
-* Configurar S3 para que sirva páginas web (HTML, CSS, imágenes, etc.) directamente.
+* Configurar S3 para que sirva páginas web **estáticas** (HTML, CSS, imágenes, etc.) directamente.
 * Comprobar el acceso al sitio web a través de una URL pública de S3.
 
 
@@ -51,7 +51,8 @@ Publicación de un sitio web estático en Amazon S3 con control de acceso median
 
 - En la sección **“Alojamiento de sitio web estático”** haz clic en **“Editar”** → selecciona **“Habilitar”**.
 - En **Documento de índice** escribe: `index.html`
-- Copia la URL del sitio web que aparece (por ejemplo: `http://web-estatica-nombrealumno.s3-website-eu-west-1.amazonaws.com`).
+- Guarda los cambios.
+- Nuevamente, en la sección de **“Alojamiento de sitio web estático”** copia la URL del sitio web que aparece (por ejemplo: `http://web-estatica-nombrealumno.s3-website-eu-west-1.amazonaws.com`).
 
 ---
 

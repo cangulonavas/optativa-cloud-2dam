@@ -22,8 +22,8 @@ nav:
   - "UD04. Capa de Almacenamiento": 
       - "Capa de Almacenamiento": "ud04/ud04.md"
       - "Actividad 08. Creación de bucket en S3": "ud04/actividad08.md"
-#      - "Práctica 2. Publicación de una web estática en S3": "ud04/practica2.md"
-#      - "Práctica 3. Gestión de volúmenes EBS": "ud04/practica3.md"
+      - "Actividad 09. Publicación de una web estática en S3": "ud04/actividad09.md"
+      - "Actividad 10. Gestión de volúmenes EBS": "ud04/actividad10.md"
 #      - "Práctica 4. Almacenamiento compartido con EFS": "ud04/practica4.md"
 #      - "Práctica 5. CI/CD con GitHub Actions sobre S3": "ud04/practica5.md"
 #  - "Proyectos 1ª Evaluación":

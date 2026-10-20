@@ -1,4 +1,4 @@
-# Práctica 3. Gestión de volúmenes EBS
+# Actividad 10.  Gestión de volúmenes EBS
 
 Creación de un volumen EBS y montaje en varias instancias EC2.
 
@@ -27,7 +27,7 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
 * **AMI:** Ubuntu
 * **Instance type:** `t2.micro`
 * **Key pair:** selecciona o crea uno nuevo
-* **Network settings:** deja la VPC y subred por defecto
+* **Network settings:** pulsa **Editar** y deja VPC y subred por defecto (zona de disponibilidad → `us-east-1b`)
 * **Storage:** deja el volumen raíz predeterminado (8 GB)
 
 !!! warning "Importante"
@@ -38,14 +38,14 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
 3.- Podemos conectarnos por ssh, pero esta vez lo vamos a hacer desde el propio navegador:
 
 - Selecciona la instancia `Servidor-A` y pulsa sobre el botón **Conectar**
-- En la pestaña **Conexión de la instancia EC2** pulsa **Conectar**
+- En la pestaña **En el navegador web** pulsa **Conectar**
 - Nos aparecerá una consola de terminal en el navegador conectada a la instancia `Servidor-A`.
 
 <img src="../images/ud04/practica3/ebs01.png">
 
 ---
 
-<img src="../images/ud04/practica3/ebs02.png">
+<img src="../images/ud04/actividad10/act10_01.png">
 
 ---
 
@@ -59,11 +59,13 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
    * **Availability Zone:** la misma que tu EC2
    * Deja los valores por defecto que te propone para las **IOPS** y el **Rendimiento**.
    * No marques la opción de **cifrado**
+   * Crea el volumen.
 
 5.- Una vez creado, selecciona el volumen y pulsa sobre **Acciones → Asociar volumen**
 
    * **Instancia:** elige la instancia `Servidor-A`
    * **Nombre de dispositivo:** selecciona uno de la lista, por ejemplo `/dev/sdf`
+   * Finalmente asocia el volumen.
 
 ---
 
@@ -75,14 +77,17 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
    ```
 
 !!! warning "Atención"
-    Es posible que la máquina EC2 no le asigne el nombre `/dev/sdf` que hemos seleccionado y en su lugar utilice la nomenclatura `/dev/nvmeXnY` que corresponde a los discos NVME.
+    Es posible que la máquina EC2 no le asigne el nombre `/dev/sdf` que hemos seleccionado y en su lugar utilice la nomenclatura `/dev/xvdf` que corresponde a los discos NVME.
+
+<img src="../images/ud04/actividad10/act10_02.png">    
 
 7.- Formatea el volumen (sustituye por el nombre de dispositivo que te haya asignado):
 
    ```bash
-   sudo mkfs -t ext4 /dev/nvme1n1
+   sudo mkfs -t ext4 /dev/xvdf
    ```
-   > Fíjate que no hemos creado ninguna partición en el disco, sino que hemos creado el sistema de ficheros directamente sobre todo el disco. Esto puede ser peligroso, pero en el caso de los discos EBS no hay problema de hacerlo así.
+!!! note "Partición de disco"
+    Fíjate que no hemos creado ninguna partición en el disco, sino que hemos creado el sistema de ficheros directamente sobre todo el disco. Esto puede ser peligroso, pero en el caso de los discos EBS no hay problema de hacerlo así.
 
 8.- Crea un punto de montaje:
 
@@ -92,9 +97,9 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
 9.- Monta el volumen:
 
    ```bash
-   sudo mount /dev/nvme1n1 /datos
+   sudo mount /dev/xvdf /datos
    ```
-10.- Comprueba:
+10.- Comprueba que '/datos' se ha montado correctamente:
 
    ```bash
    df -h
@@ -125,15 +130,24 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
 
    * Selecciona el volumen EBS y pulsa sobre **Desasociar el volumen** desde el menú de acciones.
 
+<img src="../images/ud04/actividad10/act10_03.png">
 
 15.- Crea una **segunda instancia EC2** de Ubuntu:
 
    * **Nombre:** `Servidor-B`
    * **Importante**: Misma AZ que el `Servidor-A`
 
-16.- Una vez en ejecución, desde el panel de **Acciones** de EBS, **Asociar volumen** → selecciona el mismo volumen EBS creado anteriormente y lo asocias a `Servidor-B`.
+16.- Esperar a que la instancia esté en ejecución.
 
-17.- Conéctate a `Servidor-B` y monta el volumen:
+17.- Una vez en ejecución, abrir la instancia y seleccionar **Elastick block Store** → **Volumenes**
+
+18.- Abrir el volumen que creamos anteriormente y del panel de **Acciones** haremos clic en **Asociar volumen**
+
+19.- Asociarás el volumen EBS a `Servidor-B`.
+
+<img src="../images/ud04/actividad10/act10_04.png">
+
+20.- Conéctate a `Servidor-B` y monta el volumen:
 
 ```
 sudo mkdir /datos
@@ -174,12 +188,17 @@ cat /datos/info.txt
     - Seleccionamos el mismo tipo y AZ que el volumen anterior.
     - Dejamos es resto de los valores por defecto.
 
-21.- Conéctalo a cualquiera de las instancias y verifica que el archivo `/datos/info.txt` sigue existiendo.
+
+21.- Busca el volumen disponible y conéctalo a cualquiera de las instancias y verifica que el archivo `/datos/info.txt` sigue existiendo.
+
+<img src="../images/ud04/actividad10/act10_05.png">
 
 ## Liberación de recursos
 
-Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
-
-- Finaliza las instancias **pero no las elimines** (nos harán falta para la siguiente práctica).
-- Elimina los volúmenes EBS creados.
+!!! warning "Eliminar recursos"
+   
+    - Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
+    - Finaliza las instancias **pero no las elimines** (nos harán falta para la siguiente práctica).
+    - Elimina los volúmenes EBS creados.
+    - <img src="../images/ud04/actividad10/act10_06.png">
 
