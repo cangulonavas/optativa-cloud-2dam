@@ -1,0 +1,1237 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 9. Escalabilidad y Alta Disponibilidad en AWS - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-9-escalabilidad-y-alta-disponibilidad-en-aws" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 9. Escalabilidad y Alta Disponibilidad en AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD04. Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD04. Capa de Almacenamiento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/ud04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 08. Creación de bucket en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 09. Publicación de una web estática en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 10. Gestión de volúmenes EBS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-a-las-arquitecturas-reactivas-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción a las Arquitecturas Reactivas en la Nube
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticidad-y-estrategias-de-escalado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elasticidad y Estrategias de Escalado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Elasticidad y Estrategias de Escalado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-escalado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de escalado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoescalado-de-computo-amazon-ec2-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoescalado de cómputo: Amazon EC2 Auto Scaling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalado-en-bases-de-datos-relacionales-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escalado en Bases de Datos Relacionales AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escalado en Bases de Datos Relacionales AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon RDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-aurora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Aurora
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diseno-de-arquitecturas-de-alta-disponibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diseño de Arquitecturas de Alta Disponibilidad
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diseño de Arquitecturas de Alta Disponibilidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alta-disponibilidad-a-nivel-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alta Disponibilidad a nivel de Aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alta-disponibilidad-de-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alta Disponibilidad de Bases de Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-9-escalabilidad-y-alta-disponibilidad-en-aws">Tema 9. Escalabilidad y Alta Disponibilidad en AWS</h1>
+<h2 id="introduccion-a-las-arquitecturas-reactivas-en-la-nube">Introducción a las Arquitecturas Reactivas en la Nube</h2>
+<p>Las aplicaciones modernas deben ser capaces de gestionar cantidades masivas de datos y picos de tráfico sin experimentar tiempos de inactividad y manteniendo tiempos de respuesta inferiores al segundo. </p>
+<div class="admonition example">
+<p class="admonition-title">Caso práctico</p>
+<p>Tomemos el ejemplo de una empresa cuyo sitio web está a punto de aparecer en un famoso programa de televisión. Anticipan un aumento masivo de tráfico, con decenas de miles de nuevos usuarios. Su arquitectura actual, basada en un único servidor en una sola Zona de Disponibilidad, no está preparada para gestionar este pico. Para garantizar una experiencia de cliente excelente, sin retrasos ni caídas, necesitan una arquitectura avanzada que pueda reaccionar dinámicamente a la demanda.</p>
+</div>
+<p>Para cumplir con estos exigentes requisitos, los arquitectos de la nube implementan sistemas basados en los principios de las <strong>arquitecturas reactivas</strong>. Los conceptos clave de un sistema reactivo son:</p>
+<ul>
+<li><strong>Elasticidad</strong>: La capacidad de la infraestructura para ampliarse o contraerse dinámicamente según cambien las necesidades de capacidad.</li>
+<li><strong>Resiliencia</strong>: La habilidad de una carga de trabajo para recuperarse de errores de componentes o picos de estrés, garantizando la continuidad del servicio.</li>
+<li><strong>Capacidad de respuesta</strong>: El sistema responde de manera oportuna bajo cualquier condición de carga, asegurando una interacción fluida para el usuario.</li>
+<li><strong>Basado en mensajes</strong>: Los componentes se comunican de forma asíncrona, lo que promueve un bajo acoplamiento y mejora la escalabilidad y la resiliencia.</li>
+</ul>
+<p>En este tema nos centraremos en tres conceptos fundamentales para construir arquitecturas reactivas en AWS:</p>
+<ul>
+<li><strong>Alta Disponibilidad</strong>: La capacidad de un sistema para resistir fallos y permanecer operativo.</li>
+<li><strong>Tolerancia a Errores (Resiliencia)</strong>: La habilidad de una carga de trabajo para recuperarse de errores de componentes o picos de estrés.</li>
+<li><strong>Autoescalado (Elasticidad)</strong>: La capacidad de la infraestructura para ampliar o contraer automáticamente los recursos según la demanda.</li>
+</ul>
+<hr />
+<h2 id="elasticidad-y-estrategias-de-escalado">Elasticidad y Estrategias de Escalado</h2>
+<p>En el contexto de la nube, la <strong>elasticidad</strong> es una ventaja estratégica fundamental. Se define como la capacidad de una infraestructura para adquirir recursos cuando son necesarios y liberarlos cuando ya no lo son. Esto permite a las aplicaciones manejar fluctuaciones en la demanda —desde picos inesperados hasta patrones diarios predecibles—, garantizando tanto el rendimiento como la optimización de costos, ya que solo se paga por los recursos que se utilizan.</p>
+<p>Para lograr esta elasticidad, la técnica principal que empleamos es el escalado. El escalado consiste en ajustar (aumentando o disminuyendo) la capacidad de los recursos de nuestra arquitectura para satisfacer la carga de trabajo en un momento dado.</p>
+<h3 id="tipos-de-escalado">Tipos de escalado</h3>
+<p>Existen dos estrategias principales para escalar los recursos de una aplicación, cada una con sus propias características y casos de uso.</p>
+<table>
+<thead>
+<tr>
+<th>Escalado Horizontal (Scale-out/Scale-in)</th>
+<th>Escalado Vertical (Scale-up/Scale-down)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consiste en agregar más instancias (escalado ascendente) para distribuir la carga o eliminar instancias (escalado descendente) cuando la demanda disminuye. Es el método preferido para lograr una alta elasticidad y tolerancia a fallos en la nube.</td>
+<td>Consiste en aumentar la potencia de una única instancia, como cambiar a un tipo de instancia con más CPU o memoria (escalado ascendente), o disminuirla (escalado descendente). Puede implicar un breve tiempo de inactividad.</td>
+</tr>
+</tbody>
+</table>
+<p><img src="../images/ud09/ud09_01.png"></p>
+<p>Vamos a ver cómo AWS nos permite automatizar el escalado horizontal de nuestros recursos de cómputo para construir sistemas elásticos.</p>
+<hr />
+<h2 id="autoescalado-de-computo-amazon-ec2-auto-scaling">Autoescalado de cómputo: Amazon EC2 Auto Scaling</h2>
+<p><strong>Amazon EC2 Auto Scaling</strong> es el servicio clave en AWS para implementar la elasticidad de manera automatizada en las instancias de cómputo. Su función principal es asegurar que se ejecute el número correcto de <strong>instancias EC2</strong> para manejar la carga de la aplicación de forma eficiente, lanzando nuevas instancias cuando la demanda aumenta y terminándolas cuando la demanda disminuye para ahorrar costos.</p>
+<p>Este servicio opera a través de un <strong>grupo de Auto Scaling</strong>, que se configura con tres parámetros principales que definen su comportamiento:</p>
+<ul>
+<li><strong>Capacidad Mínima</strong>: El número mínimo de instancias que el grupo debe mantener en ejecución en todo momento, garantizando una capacidad base para la aplicación.</li>
+<li><strong>Capacidad Máxima</strong>: El número máximo de instancias al que el grupo puede escalar. Esto actúa como un límite de seguridad para controlar los costos.</li>
+<li><strong>Capacidad Deseada</strong>: El número de instancias que el grupo intenta mantener en un momento dado. Este valor es dinámico y fluctúa entre el mínimo y el máximo en respuesta a las políticas de escalado.</li>
+</ul>
+<p><img src="../images/ud09/ud09_03.png" width="300"></p>
+<p>El ajuste de la capacidad deseada se gestiona a través de políticas de escalado. Una de las más comunes y efectivas es la política de escalado de seguimiento de valores objetivo. Esta política ajusta el número de instancias para mantener una métrica específica, como el uso promedio de la CPU del grupo, en un valor objetivo que nosotros definimos. Por ejemplo, podemos configurar el grupo para que mantenga la utilización promedio de la CPU en un 50%, y EC2 Auto Scaling se encargará de agregar o eliminar instancias para mantenerse cerca de ese valor. Adicionalmente, EC2 Auto Scaling ofrece estrategias avanzadas como el escalado predictivo, que utiliza modelos de aprendizaje automático para predecir el tráfico futuro basándose en patrones históricos diarios y semanales, permitiendo aprovisionar la capacidad antes de que sea necesaria.</p>
+<p><img src="../images/ud09/ud09_02.png" width="900"></p>
+<hr />
+<h2 id="escalado-en-bases-de-datos-relacionales-aws">Escalado en Bases de Datos Relacionales AWS</h2>
+<p>El escalado de la capa de datos es tan crucial como el de la capa de cómputo para el rendimiento y la disponibilidad de una aplicación. Una base de datos sobrecargada puede convertirse en un cuello de botella que afecte a todo el sistema. AWS ofrece diferentes estrategias y servicios para escalar tanto bases de datos relacionales como no relacionales, permitiendo que la arquitectura completa sea elástica.</p>
+<p>En el tema de Bases de Datos ya vimos que podíamos dividir los servicios de Bases de Datos Relacionales que ofrece AWS en 2 grupos:</p>
+<ul>
+<li><strong>RDS</strong>: (MySQL, PostgreSQL, MariaDB, Oracle, SQL Server)</li>
+<li><strong>Aurora RDS</strong></li>
+</ul>
+<p>Vamos a ver qué mecanismos de escalado ofrecen estos servicios de bases de datos.</p>
+<h3 id="amazon-rds">Amazon RDS</h3>
+<p><strong>Escalado Vertical en Amazon RDS</strong></p>
+<p>La forma más directa de escalar una base de datos RDS es cambiar su clase de instancia a una más potente (escalado ascendente) o menos potente (escalado descendente). Es importante tener en cuenta que este proceso requiere que la base de datos no esté disponible temporalmente, generalmente por unos pocos minutos, mientras se aplica el cambio.</p>
+<p><strong>Escalado Horizontal con Réplicas de Lectura</strong></p>
+<p>Para cargas de trabajo con un alto volumen de lecturas, Amazon RDS permite crear réplicas de lectura. Estas son copias de la base de datos principal que reciben el tráfico de lectura, liberando a la instancia principal para que se concentre en las operaciones de escritura. Amazon RDS estándar permite crear hasta cinco réplicas de lectura. Esta replicación es <strong>asíncrona</strong>, lo que significa que puede haber una pequeña demora entre la escritura en la instancia principal y su reflejo en las réplicas.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Replicación síncrona y asíncrona</p>
+<p>Replicación <strong>síncrona</strong>:</p>
+<ul>
+<li>La escritura se confirma solo cuando los datos se guardan en todas las zonas.</li>
+<li>Garantiza que todas las réplicas estén actualizadas al instante.</li>
+<li>Ventaja: máxima consistencia de datos.</li>
+<li>Inconveniente: puede tener más latencia porque espera la confirmación de la réplica.</li>
+</ul>
+<p>Replicación <strong>asíncrona</strong>: </p>
+<ul>
+<li>La escritura se confirma solo en la zona principal, y las réplicas se actualizan después.</li>
+<li>Ventaja: mejor rendimiento y menor latencia.</li>
+<li>Inconveniente: si falla la zona principal, las réplicas pueden quedar ligeramente desactualizadas.</li>
+</ul>
+</div>
+<p>En este esquema, la instancia principal actúa como <strong>writer endpoint</strong>, siendo la única responsable de aceptar operaciones de escritura (INSERT, UPDATE, DELETE), mientras que cada réplica dispone de su propio <strong>reader endpoint</strong> para atender consultas de solo lectura (SELECT). Las aplicaciones pueden configurarse para dirigir las escrituras siempre al endpoint de la instancia principal y balancear las lecturas entre los endpoints de las réplicas, ya sea de forma manual o mediante mecanismos de balanceo a nivel de aplicación. </p>
+<p>Dado que la replicación es asíncrona, es importante tener en cuenta la <strong>consistencia eventual</strong>: una lectura realizada inmediatamente después de una escritura puede no reflejar aún los cambios si se consulta una réplica. Por este motivo, las operaciones que requieran datos totalmente actualizados deben seguir consultando la instancia principal, mientras que las réplicas resultan ideales para informes, consultas intensivas o aplicaciones donde una ligera latencia en la actualización de los datos sea aceptable.</p>
+<p><img src="../images/ud09/ud09_04.png" width="400"></p>
+<h3 id="amazon-aurora">Amazon Aurora</h3>
+<p>Este motor de base de datos, compatible con MySQL y PostgreSQL, está optimizado para la nube y mejora las capacidades de RDS. Un clúster de Aurora puede tener hasta 15 réplicas de Aurora, lo que aumenta significativamente la capacidad de escalado de lectura en comparación con RDS estándar.</p>
+<p>Al estar desarrollado de forma nativa por Amazon, está diseñado específicamente para la nube y se adapta mejor en coste, rendimiento y alta disponibilidad. Está pensado como un subsistema de almacenamiento distribuido de alto rendimiento y tolerante a fallos.</p>
+<p>En <strong>Amazon Aurora</strong>, los <strong>endpoints del clúster</strong> son uno de sus elementos clave, ya que abstraen la complejidad de trabajar con múltiples instancias y facilitan tanto el <strong>balanceo de carga</strong> como la <strong>alta disponibilidad</strong>. A diferencia de RDS tradicional, Aurora gestiona estos endpoints de forma automática.</p>
+<p><strong>Tipos de endpoints en un clúster Aurora:</strong></p>
+<p><strong>1. Cluster Endpoint (Writer Endpoint)</strong>
+Es el endpoint principal del clúster y <strong>siempre apunta a la instancia escritora activa</strong>. Todas las operaciones de <strong>escritura</strong> (INSERT, UPDATE, DELETE, DDL) deben dirigirse a este endpoint. En caso de <strong>failover</strong>, el endpoint se actualiza automáticamente para apuntar a la nueva instancia escritora, sin necesidad de cambiar la configuración de la aplicación.</p>
+<p><strong>2. Reader Endpoint</strong>
+Este endpoint agrupa todas las <strong>réplicas de lectura</strong> del clúster y <strong>balancea automáticamente</strong> las consultas de solo lectura entre ellas. Es ideal para aplicaciones con alta carga de lecturas, ya que permite escalar horizontalmente sin que la aplicación tenga que conocer las instancias individuales. Si se añade o elimina una réplica, el endpoint se actualiza de forma transparente.</p>
+<p><strong>3. Instance Endpoints</strong>
+Cada instancia del clúster (tanto la escritora como las lectoras) dispone de su <strong>endpoint individual</strong>. Estos endpoints se usan en escenarios específicos, como tareas administrativas, diagnósticos o cuando una aplicación necesita conectarse siempre a una instancia concreta, evitando el balanceo automático.</p>
+<p><img src="../images/ud09/ud09_05.png" width="800"></p>
+<p><strong>Aurora Serverless</strong></p>
+<p>Es una configuración de escalado automático bajo demanda para Amazon Aurora. Resulta ideal para cargas de trabajo intermitentes, poco frecuentes o impredecibles. Con Aurora Serverless, la base de datos se inicia, se apaga y escala su capacidad de cómputo automáticamente según las necesidades de la aplicación, sin necesidad de administrar instancias. El almacenamiento de la base de datos también escala automáticamente desde 10 Gibibytes (GiB) hasta 64 Tebibytes (TiB). El pago se basa en las Unidades de Capacidad de Aurora (ACU) utilizadas por segundo, lo que optimiza los costos para patrones de uso variables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Autoescalado</p>
+<p>En <strong>Amazon RDS tradicional</strong> (MySQL, PostgreSQL, MariaDB, Oracle, SQL Server) <strong>no existe autoescalado nativo del número de réplicas de lectura</strong>, por lo que su creación y eliminación debe hacerse manualmente o mediante automatizaciones personalizadas usando CloudWatch, Lambda y la API de AWS; sin embargo, <strong>Amazon Aurora sí incorpora autoescalado automático de réplicas de lectura</strong>, permitiendo añadir o quitar instancias en función de la carga y utilizando endpoints de lectura que distribuyen el tráfico de forma transparente, lo que supone una diferencia clave entre ambos servicios.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Balanceo</p>
+<p>En <strong>Amazon RDS tradicional</strong> el <strong>balanceo de carga de las lecturas no se realiza automáticamente</strong>: cada <strong>réplica de lectura tiene su propio endpoint</strong>, y es la aplicación la que debe decidir a qué endpoint conectarse para las consultas de lectura. Esto implica que el reparto de carga debe hacerse <strong>de forma manual</strong>, ya sea implementando lógica en la aplicación, utilizando un proxy o apoyándose en un balanceador externo. A diferencia de esto, <strong>Amazon Aurora sí ofrece endpoints de lectura gestionados</strong>, que distribuyen automáticamente las consultas entre las réplicas disponibles.</p>
+</div>
+<hr />
+<h2 id="diseno-de-arquitecturas-de-alta-disponibilidad">Diseño de Arquitecturas de Alta Disponibilidad</h2>
+<p>Un sistema de alta disponibilidad es aquel que está diseñado para resistir fallos y minimizar el tiempo de inactividad, operando sin requerir intervención humana. El principio fundamental para lograrlo es evitar los puntos únicos de fallo (single points of failure), es decir, componentes cuyo fallo provocaría la caída de todo el sistema.</p>
+<h3 id="alta-disponibilidad-a-nivel-de-aplicacion">Alta Disponibilidad a nivel de Aplicación</h3>
+<p>Un servicio fundamental para construir estas arquitecturas en AWS es <strong>Elastic Load Balancing (ELB)</strong>. ELB es un servicio administrado que distribuye automáticamente el tráfico de las aplicaciones entrantes entre múltiples destinos, como instancias EC2, contenedores o direcciones IP.</p>
+<p>Las funciones clave de Elastic Load Balancing incluyen:</p>
+<ul>
+<li><strong>Distribución de Tráfico</strong>: Reparte las solicitudes entrantes entre múltiples destinos para evitar que un único servidor se sobrecargue.</li>
+<li><strong>Tolerancia a Fallos Multi-AZ</strong>: Opera en múltiples Zonas de Disponibilidad (AZ) dentro de una región. Si una AZ falla, el balanceador de carga redirige el tráfico a los destinos en las AZ operativas.</li>
+<li><strong>Comprobaciones de Estado</strong>: Realiza periódicamente comprobaciones de estado (health checks) a sus destinos registrados. Solo envía tráfico a los destinos que responden correctamente, considerándose "en buen estado".</li>
+</ul>
+<p>El servicio ELB de AWS ofrece tres tipos principales de balanceadores de carga:</p>
+<ul>
+<li>Application Load Balancer (<strong>ALB</strong>): Opera en la capa 7 (HTTP/HTTPS) y es ideal para el balanceo de carga avanzado basado en el contenido de la solicitud (como la URL o las cabeceras). Es perfecto para arquitecturas modernas como microservicios.</li>
+<li>Network Load Balancer (<strong>NLB</strong>): Opera en la capa 4 (TCP/UDP/TLS). Está optimizado para manejar millones de solicitudes por segundo y mantener latencias muy bajas, y es ideal para gestionar patrones de tráfico de red repentinos y volátiles.</li>
+<li>Classic Load Balancer (<strong>CLB</strong>): Es la generación anterior de balanceadores de carga. Aunque opera tanto en la capa 4 como en la 7, AWS recomienda utilizar ALB o NLB para nuevas aplicaciones.</li>
+</ul>
+<p>El patrón de arquitectura básico para lograr alta disponibilidad combina estos servicios. La práctica recomendada consiste en colocar las instancias EC2 dentro de un grupo de Auto Scaling configurado para operar en múltiples Zonas de Disponibilidad. Al frente de este grupo, se despliega un Elastic Load Balancer. El ELB distribuye el tráfico entre las instancias saludables repartidas en las diferentes AZ. Si una instancia falla, el ELB la detecta a través de las comprobaciones de estado y deja de enviarle tráfico. Simultáneamente, el grupo de Auto Scaling reemplazará la instancia defectuosa. Si una Zona de Disponibilidad completa falla, el ELB simplemente redirigirá todo el tráfico a las instancias en la(s) AZ restante(s), permitiendo que la aplicación continúe funcionando sin interrupciones.</p>
+<p><img src="../images/ud09/ud09_06.png" width="800"></p>
+<h3 id="alta-disponibilidad-de-bases-de-datos">Alta Disponibilidad de Bases de Datos</h3>
+<p>Una de las funciones más potentes de Amazon RDS es la posibilidad de configurar la instancia de base de datos para una alta disponibilidad con un <strong>despliegue Multi-AZ</strong>. Amazon RDS genera automáticamente una copia en espera de la instancia de base de datos en otra zona de disponibilidad de la misma VPC. Tras propagar la copia de la base de datos, las transacciones se replican de forma <strong>síncrona</strong> en la copia en espera.</p>
+<p>Esta configuración protege las bases de datos contra errores de la instancia de base de datos e interrupciones de la zona de disponibilidad. </p>
+<p><img src="../images/ud09/ud09_07.png" width=700></p>
+<p>Si la instancia de base de datos principal falla en un despliegue Multi-AZ, Amazon RDS pone en línea automáticamente la instancia de base de datos en espera como nueva instancia principal. Dado que las aplicaciones hacen referencia a la base de datos por su nombre mediante el punto de enlace del sistema de nombres de dominio (DNS), no es necesario cambiar nada en el código de la aplicación para utilizar la copia en espera para la conmutación por error.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para que todas estas arquitecturas funcionen de manera óptima, es fundamental observar su estado y rendimiento, lo que nos lleva a la <strong>importancia del monitoreo</strong> que estudiamos en el tema anterior.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

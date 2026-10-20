@@ -1,0 +1,1650 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ud03/actividad07.html">
+      
+      
+        <link rel="next" href="actividad08.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Capa de Almacenamiento - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-4-almacenamiento-en-aws" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Capa de Almacenamiento
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD04. Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD04. Capa de Almacenamiento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ud04.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#almacenamiento-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento en la nube
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#almacenamiento-a-nivel-de-bloque-fichero-y-objeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento a nivel de Bloque, Fichero y Objeto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptos-basicos-de-amazon-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptos básicos de Amazon S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situaciones-tipicas-de-uso-de-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Situaciones típicas de uso de S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-de-acceso-en-amazon-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control de acceso en Amazon S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EBS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon EBS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instantaneas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instantáneas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EFS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon EFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-uso-de-amazon-efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos de uso de Amazon EFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 Glacier
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon S3 Glacier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versiones-o-clases-de-s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versiones o clases de S3 Glacier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 08. Creación de bucket en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 09. Publicación de una web estática en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 10. Gestión de volúmenes EBS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#almacenamiento-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento en la nube
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#almacenamiento-a-nivel-de-bloque-fichero-y-objeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento a nivel de Bloque, Fichero y Objeto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptos-basicos-de-amazon-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptos básicos de Amazon S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situaciones-tipicas-de-uso-de-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Situaciones típicas de uso de S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-de-acceso-en-amazon-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control de acceso en Amazon S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EBS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon EBS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instantaneas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instantáneas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EFS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon EFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-uso-de-amazon-efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos de uso de Amazon EFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 Glacier
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon S3 Glacier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versiones-o-clases-de-s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versiones o clases de S3 Glacier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-4-almacenamiento-en-aws">Tema 4. Almacenamiento en AWS</h1>
+<h2 id="almacenamiento-en-la-nube">Almacenamiento en la nube</h2>
+<p>El almacenamiento en la nube suele ser más fiable, escalable y seguro que los tradicionales sistemas de almacenamiento en las instalaciones. El almacenamiento en la nube es un componente fundamental del cómputo en la nube, pues contiene la información que utilizan las aplicaciones. El análisis de big data, los almacenes de datos, el Internet de las cosas (IoT), las bases de datos y las aplicaciones de copias de seguridad y archivado dependen de algún tipo de arquitectura de almacenamiento de datos. </p>
+<h2 id="almacenamiento-a-nivel-de-bloque-fichero-y-objeto">Almacenamiento a nivel de Bloque, Fichero y Objeto</h2>
+<p>Una diferencia clave entre algunos tipos de almacenamiento es saber si ofrecen almacenamiento en el nivel de bloque, a nivel de fichero o a nivel de objeto. </p>
+<p><img src="../images/ud04/ud04_01.png" width="600"></p>
+<p>Esta diferencia tiene un gran impacto en el rendimiento, la latencia y el costo de la solución de almacenamiento. Las soluciones de almacenamiento en bloque suelen ser más rápidas y utilizan menos ancho de banda, pero pueden costar más que el almacenamiento en el nivel de objeto. Pero muchas veces la elección vendrá condicionada por el tipo de uso que deseamos hacer.</p>
+<p><strong>Almacenamiento en bloque (Block Storage)</strong></p>
+<ul>
+<li>Los datos se dividen en bloques de tamaño fijo (por ejemplo, 512 B o 4 KB).</li>
+<li>Cada bloque tiene una dirección, pero no contiene metadatos.</li>
+<li>El sistema operativo o la aplicación se encarga de organizar los bloques (por ejemplo, mediante un sistema de archivos).</li>
+<li>Ejemplo típico: Discos duros, SSD, volúmenes de máquinas virtuales (como los archivos <em>.vdi</em> de VirtualBox o como <em>Amazon EBS</em>).</li>
+</ul>
+<p><strong>Almacenamiento de ficheros (File Storage)</strong></p>
+<ul>
+<li>Los datos se organizan en un sistema de archivos jerárquico (carpetas y subcarpetas).</li>
+<li>Los usuarios acceden a los archivos mediante rutas (por ejemplo, <code>/documentos/informe.pdf</code>).</li>
+<li>Se usa un protocolo de red como NFS (Linux/Unix) o SMB/CIFS (Windows) o <em>Amazon EFS</em>.</li>
+<li>Ejemplo típico: Servidores NAS, carpetas compartidas en red.</li>
+</ul>
+<p><strong>Almacenamiento de objetos (Object Storage)</strong></p>
+<ul>
+<li>Los datos se almacenan como objetos completos, cada uno con:<ul>
+<li>El dato (contenido del archivo),</li>
+<li>Un identificador único (ID o hash),</li>
+<li>Y metadatos personalizados.</li>
+</ul>
+</li>
+<li>No hay estructura jerárquica: los objetos se guardan en “buckets” (contenedores).</li>
+<li>Se accede normalmente mediante API HTTP/HTTPS (REST).</li>
+<li>Ejemplo típico: Amazon S3, Azure Blob Storage, Google Cloud Storage.</li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Bloques</th>
+<th>Ficheros</th>
+<th>Objetos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Organización</strong></td>
+<td>Bloques con dirección</td>
+<td>Árbol de carpetas y archivos</td>
+<td>Objetos con metadatos</td>
+</tr>
+<tr>
+<td><strong>Acceso</strong></td>
+<td>Bajo nivel (E/S directa)</td>
+<td>Ruta de archivo</td>
+<td>API o URL</td>
+</tr>
+<tr>
+<td><strong>Protocolos comunes</strong></td>
+<td>iSCSI, Fibre Channel</td>
+<td>NFS, SMB/CIFS</td>
+<td>HTTP/HTTPS (REST, S3 API)</td>
+</tr>
+<tr>
+<td><strong>Usos típicos</strong></td>
+<td>Bases de datos, discos VM</td>
+<td>Servidores NAS, uso compartido</td>
+<td>Backups, multimedia, big data</td>
+</tr>
+<tr>
+<td><strong>Ejemplos en AWS</strong></td>
+<td>Amazon EBS</td>
+<td>Amazon EFS</td>
+<td>Amazon S3</td>
+</tr>
+</tbody>
+</table>
+<p>En este tema veremos los siguientes servicios de AWS:</p>
+<ul>
+<li>Amazon Simple Storage Service (<strong>Amazon S3</strong>) --&gt; Almacenamiento a nivel de Objetos</li>
+<li>Amazon Elastic Block Store (<strong>Amazon EBS</strong>) --&gt; Almacenamiento a nivel de Bloques</li>
+<li>Amazon Elastic File System (<strong>Amazon EFS</strong>) --&gt; Almacenamiento a nivel de Ficheros</li>
+<li>Amazon Simple Storage Service <strong>Glacier</strong> --&gt; Almacenamiento a nivel de Objetos</li>
+</ul>
+<hr />
+<h2 id="amazon-s3">Amazon S3</h2>
+<p><strong>Amazon S3 (Simple Storage Service)</strong> es un servicio administrado de almacenamiento a nivel de objetos en la nube de AWS.</p>
+<p>Está diseñado para ofrecer una <strong>alta durabilidad</strong> (11 nueves: 99,999999999%), <strong>escalabilidad automática</strong> y <strong>baja latencia</strong> en el acceso a los datos.</p>
+<p>Sus características principales son:</p>
+<ul>
+<li>Permite almacenar y gestionar objetos (archivos) de hasta 5 TB.</li>
+<li>Los objetos se guardan dentro de <strong>buckets</strong>, cuyos <strong>nombres deben ser únicos</strong> en todo Amazon S3.</li>
+<li>Por defecto, los datos se almacenan <strong>de forma redundante</strong> en múltiples instalaciones y dispositivos, sin que el usuario tenga que administrar servidores.</li>
+</ul>
+<p>Se puede almacenar cualquier tipo de archivo: imágenes, vídeos, registros, copias de seguridad o instantáneas de bases de datos.</p>
+<h3 id="conceptos-basicos-de-amazon-s3">Conceptos básicos de Amazon S3</h3>
+<p>Para utilizar Amazon S3, es importante entender algunos conceptos fundamentales:</p>
+<p><strong>Buckets</strong>:</p>
+<ul>
+<li>Son <strong>contenedores lógicos</strong> donde se almacenan los objetos (archivos).</li>
+<li>Cada bucket debe tener un <strong>nombre único a nivel mundial</strong>.</li>
+<li>Se puede elegir la región de AWS donde se almacenará el bucket (por ejemplo <code>us-east-1</code>).</li>
+<li>Se puede <strong>controlar el acceso</strong> a cada bucket (quién puede crear, eliminar o listar objetos).</li>
+<li>Permiten ver registros de acceso al bucket y a los objetos que contiene.</li>
+</ul>
+<p><strong>Objetos</strong>:</p>
+<ul>
+<li>Los archivos almacenados en S3 se llaman <strong>objetos</strong>.</li>
+<li>
+<p>Un objeto está formado por:</p>
+<ul>
+<li><strong>Datos</strong> (el contenido del archivo).</li>
+<li><strong>Metadatos</strong> (información que lo describe, como permisos o URL).</li>
+</ul>
+</li>
+<li>
+<p>Se puede almacenar cualquier cantidad de objetos dentro de un bucket.</p>
+</li>
+<li>Al cargar un archivo, se pueden definir permisos y metadatos personalizados.</li>
+</ul>
+<p><br></p>
+<p>Cada bucket y objeto tiene una <strong>URL única</strong>, aunque hay <strong>dos estilos de URL</strong> que pueden usarse para acceder a los objetos.</p>
+<p>Ejemplo: un archivo <code>video.mp4</code> dentro de un bucket tendrá una URL con el nombre del bucket y del objeto.</p>
+<p><img src="../images/ud04/ud04_02.png" width="600"></p>
+<h3 id="situaciones-tipicas-de-uso-de-s3">Situaciones típicas de uso de S3</h3>
+<p>Aunque se puede almacenar cualquier tipo de dato, los casos de uso típico de S3 suelen ser:</p>
+<ul>
+<li>
+<p><strong>Copia de seguridad y almacenamiento:</strong> Se utiliza para guardar copias de seguridad y ofrecer servicios de almacenamiento de datos a terceros.</p>
+</li>
+<li>
+<p><strong>Alojamiento de aplicaciones:</strong> Permite implementar, instalar y administrar aplicaciones web directamente desde la nube.</p>
+</li>
+<li>
+<p><strong>Alojamiento multimedia:</strong> Ideal para crear infraestructuras redundantes, escalables y de alta disponibilidad que gestionen la carga y descarga de vídeos, imágenes o música.</p>
+</li>
+<li>
+<p><strong>Entrega de software:</strong> Facilita el alojamiento de aplicaciones o instaladores para que los usuarios puedan descargarlos fácilmente.</p>
+</li>
+</ul>
+<p><img src="../images/ud04/ud04_03.png" width="600"></p>
+<h3 id="control-de-acceso-en-amazon-s3">Control de acceso en Amazon S3</h3>
+<p>Por defecto, <strong>todos los buckets de Amazon S3 son privados</strong>, y solo los usuarios con permisos explícitos pueden acceder a ellos.</p>
+<p>Es fundamental gestionar correctamente los permisos y la seguridad de los datos almacenados. Para ello disponemos de varias herramientas de control de acceso. Las más importantes que utilizaremos serán:</p>
+<p><strong>1. Bloqueo del acceso público:</strong></p>
+<ul>
+<li>Impide que los buckets o los objetos sean accesibles públicamente.</li>
+<li>Tiene prioridad sobre otras políticas o permisos.</li>
+<li>Recomendado para evitar exposiciones accidentales de datos.</li>
+</ul>
+<p><strong>2. Políticas de IAM (Identity and Access Management):</strong></p>
+<ul>
+<li>Permiten definir qué <strong>usuarios o roles</strong> pueden acceder a determinados buckets u objetos.</li>
+</ul>
+<p><strong>3. Políticas de bucket:</strong></p>
+<ul>
+<li>Definen permisos específicos sobre un bucket o sus objetos.</li>
+<li>Útiles cuando no se usa autenticación mediante IAM.</li>
+<li>Pueden permitir acceso <strong>entre cuentas</strong> o incluso <strong>público/anónimo</strong>, por lo que deben configurarse con cuidado.</li>
+<li>Pueden incluir <strong>enunciados de denegación</strong> para restringir el acceso incluso si otros permisos lo permiten.</li>
+</ul>
+<p><strong>4. Listas de control de acceso (ACL):</strong></p>
+<ul>
+<li>Método antiguo, anterior a IAM.</li>
+<li>Se recomienda usarlo solo cuando sea necesario y evitando configuraciones demasiado permisivas.</li>
+</ul>
+<p><img src="../images/ud04/ud04_04.png"></p>
+<p>La situación del medio muestra una ocasión en que se ha desactivado la configuración de seguridad de S3 y cualquiera puede acceder públicamente a los objetos almacenados en el bucket, por ejemplo cuando alojamos un sitio web estático en un bucket S3. </p>
+<div class="admonition danger">
+<p class="admonition-title">Atención</p>
+<p>Usar un bucket de Amazon S3 para alojar un sitio web estático es una forma rápida de configurar una arquitectura en AWS, pero en la mayoría de los casos no se recomienda otorgar acceso público. Normalmente, S3 se utiliza para almacenar datos que son accedidos por aplicaciones externas o para guardar información confidencial y copias de seguridad, por lo que los buckets deben mantenerse privados para garantizar la seguridad de los datos.</p>
+</div>
+<hr />
+<h2 id="amazon-ebs">Amazon EBS</h2>
+<p>Amazon EBS ofrece volúmenes de almacenamiento persistente en bloque para instancias de Amazon EC2, lo que significa que los datos se conservan incluso después de apagar el sistema. </p>
+<p>Cada volumen se <strong>replica automáticamente dentro de una zona de disponibilidad</strong>, garantizando alta disponibilidad y durabilidad. Permite ajustar la capacidad rápidamente (aumentar o reducir el tamaño en cuestión de minutos) y pagar solo por el almacenamiento aprovisionado.</p>
+<p>Los beneficios adicionales de EBS son la replicación en la misma zona de disponibilidad, el cifrado fácil y transparente, los volúmenes elásticos y las copias de seguridad mediante instantáneas.</p>
+<div class="admonition tip">
+<p class="admonition-title">Importante</p>
+<ul>
+<li>Los volúmenes EBS equivalen a los <strong>discos duros virtuales</strong> que utilizan las instancias EC2.</li>
+<li>Un volumen sólo puede estar <strong>conectado a una instancia</strong> simultáneamente.</li>
+<li>Pero una instancia puede <strong>conectar varios volúmes EBS</strong> simultáneamente.</li>
+</ul>
+</div>
+<p><img src="../images/ud04/ud04_05.png" width="600"></p>
+<p>Amazon EBS ofrece tres tipos de volúmenes: </p>
+<ul>
+<li><strong>SSD de uso general</strong>: Son unidades de estado sólido (SSD) optimizadas para cargas de trabajo de transacciones que implican operaciones de lectura/escritura frecuentes de pequeño tamaño de E/S. Proporciona un equilibrio entre precio y rendimiento, y es el tipo recomendado para la mayoría de las cargas de trabajo. Los tipos existentes son <em>gp3</em> (1.000 MiB/s) y <em>gp2</em> (128-250 MiB/s) ambas con un máximo de 16.000 IOPS.</li>
+<li><strong>SSD de IOPS provisionadas</strong>: proporciona un rendimiento elevado con cargas de trabajo críticas, baja latencia o alto rendimiento. Los tipos existentes con <em>io2 Block Express</em> (4.000 MiB/s con un máximo 246.000 IOPS) e <em>io2</em> (1.000 MiB/s con 64.000 IOPS).</li>
+<li><strong>Magnéticos (HDD)</strong>: Son unidades de disco duro (HDD) optimizadas para grandes cargas de trabajo de streaming. Los tipos existentes con <em>st1</em> (con 500 MiB/s y 500 IOPS) y <em>sc1</em> (con 250 MiB/s y 250 IOPS).</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">IOPS</p>
+<p>El término IOPS (operaciones de entrada y salida por segundo) representa una medida de rendimiento frecuente que se utiliza para comparar dispositivos de almacenamiento.  Cuantas más IOPS, mayor velocidad de acceso a los datos. En términos habituales, un disco HDD ofrece entre 100 y 200 IOPS, un SSD SATA entre 5.000 y 100.000 IOPS, y un SSD NVMe puede superar el millón de IOPS. Estas cifras varían según el tipo de carga (lectura/escritura y secuencial/aleatoria).</p>
+</div>
+<h3 id="instantaneas">Instantáneas</h3>
+<p>Para proporcionar un nivel aún mayor de durabilidad de los datos, Amazon EBS permite crear <strong>instantáneas</strong> a un momento dado de nuestros volúmenes y volver a crear un volumen nuevo a partir de una instantánea en cualquier momento.</p>
+<p>La primera instantánea se denomina instantánea de referencia. Cualquier otra instantánea posterior a la de referencia captura solo lo que sea diferente de la instantánea anterior.</p>
+<p>Las instantáneas se almacenan como objetos de Amazon S3.</p>
+<hr />
+<h2 id="amazon-efs">Amazon EFS</h2>
+<p>Amazon EFS (Elastic File System) es un servicio de almacenamiento de archivos compartido y elástico ofrecido por AWS que funciona de manera similar a un NAS (Network Area Storage).</p>
+<p>Proporciona un sistema de archivos NFS (Network File System) <strong>accesible de forma simultánea por múltiples instancias EC2</strong> u otros servicios.</p>
+<p><img src="../images/ud04/ud04_06.png" width="600"></p>
+<p>Sus características principales son:</p>
+<ul>
+<li><strong>Escalado automático</strong>: ajusta su capacidad de almacenamiento automáticamente al añadir o eliminar archivos.</li>
+<li><strong>Alta disponibilidad y durabilidad</strong>: los datos se replican en varias zonas de disponibilidad (AZ) dentro de una región.</li>
+<li><strong>Acceso concurrente</strong>: permite que muchas instancias EC2 monten el mismo sistema de archivos al mismo tiempo.</li>
+<li><strong>Compatibilidad con NFS</strong> v4/v4.1, lo que facilita la integración con sistemas Linux.</li>
+<li><strong>Pago por uso</strong>: se factura solo por la cantidad de datos almacenados (coste mayor por GB que EBS en algunos casos).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Atención</p>
+<p>EFS no se puede montar directamente en Windows (solo es compatible con NFS).</p>
+</div>
+<h3 id="ejemplos-de-uso-de-amazon-efs">Ejemplos de uso de Amazon EFS</h3>
+<p><strong>Servidores web con contenido compartido:</strong></p>
+<p>Varios servidores Apache o Nginx montan el mismo EFS para compartir los archivos del sitio web:</p>
+<ul>
+<li>Ideal para configuraciones con balanceadores de carga (Elastic Load Balancer).</li>
+<li>Garantiza que todos los servidores sirvan el mismo contenido actualizado.</li>
+</ul>
+<p><br></p>
+<p><strong>Almacenamiento de copias de seguridad:</strong></p>
+<p>Centralizar copias de seguridad de varias instancias EC2 o contenedores.</p>
+<p>Permite mantener las copias accesibles desde cualquier servidor de la VPC.</p>
+<p><br></p>
+<p><strong>Directorio de usuarios o home compartido:</strong></p>
+<p>Los usuarios del sistema pueden tener sus directorios personales en EFS, accesibles desde varias máquinas Linux.</p>
+<p><br></p>
+<p><strong>Aplicaciones distribuidas:</strong></p>
+<p>Aplicaciones que necesitan acceso simultáneo a los mismos archivos, por ejemplo:</p>
+<ul>
+<li>Procesamiento de imágenes o vídeos.</li>
+<li>Generación de informes o resultados de cálculo.</li>
+<li>Sistemas de gestión documental.</li>
+</ul>
+<p><br></p>
+<p><strong>Almacenamiento para análisis o procesamiento de datos:</strong></p>
+<p>Conjuntos de datos grandes que son procesados por múltiples nodos (Hadoop, Spark, etc.).</p>
+<p>EFS sirve como repositorio central para datos de entrada o resultados temporales.</p>
+<p><br></p>
+<p><strong>Logs centralizados:</strong></p>
+<p>Varias instancias EC2 pueden escribir sus archivos de logs en un mismo EFS.</p>
+<p>Facilita el análisis centralizado sin necesidad de configurar un servidor de logs.
+Ejemplo: <code>/mnt/efs/logs/app1/</code>, <code>/mnt/efs/logs/app2/</code></p>
+<p><br></p>
+<p><strong>Compartir scripts, configuraciones o paquetes:</strong></p>
+<p>Carpeta EFS con scripts comunes (bash, python, etc.) accesible por todos los servidores.</p>
+<p>Permite mantener entornos de despliegue uniformes.</p>
+<hr />
+<h2 id="amazon-s3-glacier">Amazon S3 Glacier</h2>
+<p>Amazon S3 Glacier es un servicio de almacenamiento en la nube de <strong>bajo coste</strong> diseñado para archivar datos y realizar copias de seguridad a largo plazo. Forma parte de Amazon S3 y está pensado para información que <strong>no se necesita consultar con frecuencia</strong>, pero que debe conservarse de forma segura y duradera.</p>
+<p>Las caracteríticas principales de este servicio son:</p>
+<ul>
+<li><strong>Bajo coste:</strong> es mucho más económico que las clases de almacenamiento estándar de S3, ideal para datos que se acceden rara vez.</li>
+<li><strong>Alta durabilidad:</strong> ofrece los mismos <em>once nueves</em> (99,999999999%) de durabilidad que el resto de S3.</li>
+<li><strong>Seguridad:</strong> admite cifrado automático y control de acceso mediante políticas de IAM y de bucket.</li>
+<li>
+<p><strong>Recuperación flexible:</strong> los datos pueden recuperarse en diferentes velocidades según la urgencia:</p>
+<ul>
+<li><strong>Expedited (rápida):</strong> segundos o minutos.</li>
+<li><strong>Standard:</strong> unas pocas horas.</li>
+<li><strong>Bulk (masiva):</strong> varias horas, más económica.</li>
+</ul>
+</li>
+</ul>
+<h3 id="versiones-o-clases-de-s3-glacier">Versiones o clases de S3 Glacier</h3>
+<p>Amazon S3 incluye tres clases de almacenamiento Glacier, adaptadas a distintos usos:</p>
+<ol>
+<li><strong>S3 Glacier Instant Retrieval:</strong> acceso casi inmediato (segundos), útil para archivos que se consultan ocasionalmente pero requieren un acceso instantáneo. Por ejemplo, historias médicas, archivos multimedia o documentos que se consultan esporádicamente.</li>
+<li><strong>S3 Glacier Flexible Retrieval (antes S3 Glacier):</strong> equilibrio entre coste y tiempo de recuperación (minutos u horas). Útil para copias de seguridad, versiones antiguas de proyectos, o datos empresariales que se consultan solo en auditorías o revisiones anuales.</li>
+<li><strong>S3 Glacier Deep Archive:</strong> la opción <strong>más barata</strong>, pensada para conservación de datos a largo plazo (años), con tiempos de recuperación de <strong>12 a 48 horas</strong>. Útil en, por ejemplo, almacenamiento de facturas antiguas, archivos legales que han de guardarse durante años, copias de seguridad históricas o registros que rara vez se necesitan.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../ud03/actividad07.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Actividad 07. Creación de una VPC de forma manual">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Actividad 07. Creación de una VPC de forma manual
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="actividad08.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Actividad 08. Creación de bucket en S3">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Actividad 08. Creación de bucket en S3
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

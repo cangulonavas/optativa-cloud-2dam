@@ -1,0 +1,1141 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Bases de Datos NoSQL - Servicios en red</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bases-de-datos-nosql" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Servicios en red" class="md-header__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Servicios en red
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bases de Datos NoSQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Servicios en red" class="md-nav__button md-logo" aria-label="Servicios en red" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Servicios en red
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD04. Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD04. Capa de Almacenamiento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/ud04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 08. Creación de bucket en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 09. Publicación de una web estática en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 10. Gestión de volúmenes EBS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-la-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo de la práctica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivo de la práctica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparacion-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PREPARACIÓN CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-la-tabla-de-amazon-dynamo-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREACIÓN DE LA TABLA DE AMAZON DYNAMO DB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulacion-de-amazon-dynamo-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MANIPULACIÓN DE AMAZON DYNAMO DB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MANIPULACIÓN DE AMAZON DYNAMO DB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operacion-1-obtener-las-calificaciones-del-alumno-paco-pandereta-en-el-modulo-de-historia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operación 1: Obtener las calificaciones del alumno Paco Pandereta en el módulo de Historia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacion-2-introducir-un-nuevo-elemento-en-la-tabla-para-un-alumno-llamado-miguel-cervantes-saavedra-que-cursa-el-modulo-de-programacion-y-ha-obtenido-un-10-de-nota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operación 2: Introducir un nuevo elemento en la tabla para un alumno llamado Miguel Cervantes Saavedra, que cursa el módulo de Programación y ha obtenido un 10 de nota
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#las-siguientes-operaciones-realizalas-tu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Las siguientes operaciones realizalas tú:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="bases-de-datos-nosql">Bases de Datos NoSQL</h1>
+<h2 id="objetivo-de-la-practica">Objetivo de la práctica</h2>
+<p>En este ejercicio trabajarás con una base de datos <strong>NoSQL</strong></p>
+<h3 id="preparacion-cli">PREPARACIÓN CLI</h3>
+<p>Para comenzar esta práctica, previamente es necesario tener instalada y configurada la interfaz de línea de comandos de AWS</p>
+<p>A continuación, se debe configurar la AWS CLI con las credenciales del AWS Academy Learner Lab. Para ello, desde la  consola del laboratorio, seleccionamos la opción AWS Details y a continuación presionamos el botón Show en el apartado correspondiente a la AWS CLI.</p>
+<p>Como ya sabemos copiamos las credenciales al archivo credentials de aws</p>
+<h3 id="creacion-de-la-tabla-de-amazon-dynamo-db">CREACIÓN DE LA TABLA DE AMAZON DYNAMO DB</h3>
+<p>Para crear la tabla de Amazon DynamoDB de esta práctica, accederemos a la consola de Amazon DynamoDB y, desde la opción Tables del menú lateral, presionamos el botón Create table:</p>
+<p><img src="../images/ud05/bbdd_p1.png"></p>
+<p>(Mediante la consola de Administración de AWS) En el asistente que aparece a continuación, introduciremos el nombre de la tabla y los atributos que componen la clave primaria y sus correspondientes descriptores de tipos de datos, tal y como se indica a continuación:</p>
+<ul>
+<li>Table name: curso</li>
+<li>Partition key: modulo (String)</li>
+<li>Sort key: alumno (String)</li>
+</ul>
+<p>El resto de las opciones las dejamos en sus valores por defecto y presionamos el botón <strong>Create table</strong></p>
+<p><img src="../images/ud05/bbdd_p2.png"></p>
+<p>Tras el proceso de creación, podremos comprobar en la Consola de Administración del servicio Amazon DynamoDB que nuestra tabla se ha creado correctamente</p>
+<p>Por último, vamos a poblar nuestra tabla de Amazon DynamoDB. Para ello ejecutamos el script que realizará tal función:</p>
+<p>Descarga el scrip cargar-datos.sh y el archivo .json con los items</p>
+<p><a href="dynamodb/cargar-datos.sh">Descargar cargar datos</a>  </p>
+<p><a href="dynamodb/elementos/items-1.json">Descargar items</a></p>
+<p>Ahora ejecuta el script que poblará la base de datos de aws con la información que tiene en el archivo items-1.json</p>
+<p><code>./cargar-datos.sh</code></p>
+<p>Tras esta operación, podremos volver a la Consola de Administración del servicio Amazon DynamoDB y, entrando en la tabla curso podremos acceder al enlace del menú lateral Explorar elementos, seleccionar la tabla curso. Aparecerán todos los elementos añadidos por el script lanzado:</p>
+<p><img src="../images/ud05/bbdd-dyn1.png"></p>
+<p>La tabla creada contiene información simulada de calificaciones de alumnos en diferentes asignaturas.</p>
+<h3 id="manipulacion-de-amazon-dynamo-db">MANIPULACIÓN DE AMAZON DYNAMO DB</h3>
+<p>Amazon DynamoDB dispone de las siguientes operaciones para manipular los datos de una tabla:</p>
+<ul>
+<li><strong>GetItem</strong>. Permite recuperar un único elemento en una tabla de Amazon DynamoDB, identificado por los atributos clave.</li>
+<li><strong>PutItem</strong>. Permite introducir un único elemento en una tabla de Amazon DynamoDB, identificado por los atributos clave, o su sobreescritura si ya existía.</li>
+<li><strong>DeleteItem</strong>. Permite eliminar un único elemento de una tabla de Amazon DynamoDB, identificado por los atributos clave.</li>
+<li><strong>UpdateItem</strong>. Permite actualizar un único elemento de una tabla de Amazon DynamoDB, identificado por los atributos clave.</li>
+<li><strong>Query</strong>. Permite recuperar un conjunto de elementos que tengan el mismo valor en su campo clave de partición (o clave hash) de una tabla de Amazon DynamoDB</li>
+<li><strong>Scan</strong>. Permite recuperar un conjunto de elementos de todas las particiones de una tabla de
+  Amazon DynamoDB</li>
+</ul>
+<p>Ahora vamos a realizar algún ejemplo de manipulación de datos sobre esta base de datos mediante aws cli</p>
+<h4 id="operacion-1-obtener-las-calificaciones-del-alumno-paco-pandereta-en-el-modulo-de-historia">Operación 1: Obtener las calificaciones del alumno Paco Pandereta en el módulo de Historia</h4>
+<p>Para saber el dato correspondiente al alumno, es necesario indicar en un documento JSON la información con los datos de la clave del alumno que se desea obtener, crearemos un documento json de nombre operacion1.json e insertaremos en él el siguiente código:</p>
+<div class="highlight"><pre><span></span><code>{
+"modulo": { "S": "Historia" },
+"alumno": { "S": "Paco Pandereta" }
+}
+</code></pre></div>
+<p>Para ejecutar la consulta desde la AWS CLI introducimos el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code>aws dynamodb get-item --table-name curso --key file://operacion1.json --projection-expression "nota"
+</code></pre></div>
+<p>En el comando anterior, se ejecuta una orden GetItem, indicándose los siguientes parámetros:
+--table-name: Nombre de nuestra tabla, en este caso curso
+--key: Fichero donde se encuentra el documento JSON con la información de los atributos clave del elemento que se obtendrá
+--projection-expression: Indica los atributos del elemento obtenido que se proyectarán en el resultado de la consulta</p>
+<p>Como resultado, se obtendrá un documento JSON con los datos solicitados:</p>
+<p><img src="../images/ud05/bbdd-dyn2.png"></p>
+<h4 id="operacion-2-introducir-un-nuevo-elemento-en-la-tabla-para-un-alumno-llamado-miguel-cervantes-saavedra-que-cursa-el-modulo-de-programacion-y-ha-obtenido-un-10-de-nota">Operación 2: Introducir un nuevo elemento en la tabla para un alumno llamado Miguel Cervantes Saavedra, que cursa el módulo de Programación y ha obtenido un 10 de nota</h4>
+<p>Para introducir el elemento correspondiente al alumno, es necesario indicar en un documento JSON que llamaremos operacion2 la siguiente información</p>
+<div class="highlight"><pre><span></span><code>{
+  "modulo": { "S": "Programación" },
+  "alumno": { "S": "Miguel Cervantes Saavedra" },
+  "nota": { "N": "10" }
+}
+</code></pre></div>
+<p>y después ejecutar el comando</p>
+<div class="highlight"><pre><span></span><code>aws dynamodb put-item --table-name curso --item file://operacion2.json
+</code></pre></div>
+<p><img src="../images/ud05/bbdd-dyn3.png"></p>
+<h4 id="las-siguientes-operaciones-realizalas-tu">Las siguientes operaciones realizalas tú:</h4>
+<p><strong>Operación</strong> 3: Eliminar el elemento correspondiente al alumno de nombre Rosa Mosqueta Lledo que cursa el módulo de Historia<br />
+<strong>Operación</strong> 4: Actualiza el elemento correspondiente de la tabla, asumiendo que el alumno Rafa Raqueta hay que cambiarle la nota vamos a ponerle un 9<br />
+<strong>Operación</strong> 5: Obtener las notas y nombres de los alumnos que cursan el módulo de Deportes
+<code>&lt;br&gt;</code></p>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Entrega</p>
+<p>Contenido del .json y comando ejecutado para realizar las operaciones 3, 4 y 5<br />
+Captura las pantallas con el resultado de realizar cada una de las operaciones</p>
+</div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
