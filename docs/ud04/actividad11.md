@@ -1,4 +1,4 @@
-# Práctica 4. Uso compartido de almacenamiento con Amazon EFS
+# Actividad 11. Uso compartido de almacenamiento con Amazon EFS
 
 !!! tip "Recuerda"
     - Amazon EFS equivale a montar sistemas de ficheros compatibles con NFS.
@@ -34,6 +34,9 @@
    * Asegúrate de que **exista un destino de montaje (mount target)** en la misma subred o AZ de tus instancias. Por defecto se crea uno en cada subred.
    * Fíjate bien en el grupo de seguridad asociado a cada destino de montaje porque habrá que modificar las reglas de ese grupo de seguridad.
 
+!!! note "¿Y si no aparecen grupos de seguridad asociados?"
+    Quizá no le ha dado tiempo a crearse los grupos antes de ver tu EFS. Recarga la página para poder verlos.
+
    >**Apunta el grupo de seguridad** asociado al destino de montaje. Nos hará falta saberlo más adelante.
 
 3.- Copia el nombre de DNS asignado al sistema de ficheros. Debe ser algo así: `fs-0a5162c49f76a0c1e.efs.us-east-1.amazonaws.com`
@@ -50,7 +53,16 @@
 
 ## Abrir el puerto 2049 en el grupo de seguridad
 
-6.- Accede al **grupo de seguridad asociado al EFS** y crea una nueva regla de entrada para permitir el tráfico por el puerto NFS (2049) desde **el grupo de seguridad de las instancias EC2**.
+6.- Accede al **grupo de seguridad asociado al EFS**.
+
+7.- Abre la pestaña **Reglas de entrada**.
+
+8.- Haz clic en editar reglas de entrada.
+
+7.- Crea una nueva regla de entrada para permitir el tráfico por el puerto NFS (2049) desde **el grupo de seguridad de las instancias EC2**.
+
+!!! warning "Conexión SSH"
+    Asegúrate de que tu grupo de seguridad tiene habilitada una conexión SSH a todas las entradas 0.0.0.0/0. Si no, no podrás conectar al Servidor. 
 
 <img src="../images/ud04/practica4/nfs01.png">
 
@@ -85,7 +97,7 @@
 
 ---
 
-## Montar el mismo EFS en otra instancia
+## Montar el **mismo EFS** en otra instancia
 
 12.- Conéctate a la segunda instancia EC2 (`Servidor-B`) e instala también el cliente NFS:
 
@@ -122,7 +134,7 @@
 16.- Ahora crea otro archivo desde el `Servidor-B`:
 
    ```bash
-   echo "Creado desde Servidor-B" | sudo tee mnt/efs/otro.txt
+   echo "Creado desde Servidor-B" | sudo tee /mnt/efs/otro.txt
    ```
 
 17.- Comprueba desde el `Servidor-A` que aparece el nuevo archivo:

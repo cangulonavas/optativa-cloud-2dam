@@ -1,4 +1,4 @@
-site_name: Servicios en red
+site_name: Introducción a la nube
 #site_url: https://cangulonavas.github.io/
 use_directory_urls: false
 
@@ -24,7 +24,8 @@ nav:
       - "Actividad 08. Creación de bucket en S3": "ud04/actividad08.md"
       - "Actividad 09. Publicación de una web estática en S3": "ud04/actividad09.md"
       - "Actividad 10. Gestión de volúmenes EBS": "ud04/actividad10.md"
-#      - "Práctica 4. Almacenamiento compartido con EFS": "ud04/practica4.md"
+      - "Actividad 11. Almacenamiento compartido con EFS": "ud04/actividad11.md"
+      - "Actividad 12. Proyecto web dinámica": "ud04/actividad12.md"      
 #      - "Práctica 5. CI/CD con GitHub Actions sobre S3": "ud04/practica5.md"
 #  - "Proyectos 1ª Evaluación":
 #      - "Infraestructura segura de servidores": "pr01/pr01.md"
