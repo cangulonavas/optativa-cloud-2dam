@@ -1,0 +1,1669 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="actividad11.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Actividad 12. Proyecto web dinámica - Introducción a la nube</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#actividad-12-proyecto-web-dinamica" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Introducción a la nube" class="md-header__button md-logo" aria-label="Introducción a la nube" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción a la nube
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Actividad 12. Proyecto web dinámica
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Introducción a la nube" class="md-nav__button md-logo" aria-label="Introducción a la nube" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Introducción a la nube
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD04. Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD04. Capa de Almacenamiento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ud04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 08. Creación de bucket en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 09. Publicación de una web estática en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 10. Gestión de volúmenes EBS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="actividad11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 11. Almacenamiento compartido con EFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 12. Proyecto web dinámica
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="actividad12.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 12. Proyecto web dinámica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fase-1-creacion-de-la-infraestructura-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1. Creación de la infraestructura de red.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 1. Creación de la infraestructura de red.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-11-crear-la-vpc-y-las-subredes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1.1: Crear la VPC y las Subredes.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-12-habilitar-la-auto-asignacion-de-ips-publicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1.2: Habilitar la auto-asignación de IPs públicas.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-13-verificar-el-enrutamiento-a-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1.3: Verificar el enrutamiento a Internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-2-configuracion-del-almacenamiento-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2. Configuración del Almacenamiento (S3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 2. Configuración del Almacenamiento (S3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-21-crear-el-bucket-de-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2.1: Crear el Bucket de S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-22-permitir-el-acceso-publico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2.2: Permitir el Acceso Público
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-23-crear-el-bucket-y-anadir-la-politica-de-lectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2.3: Crear el Bucket y añadir la política de lectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-3-computo-y-despliegue-en-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Fase 3: Cómputo y Despliegue en EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Fase 3: Cómputo y Despliegue en EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-31-lanzar-la-instancia-ec2-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3.1: Lanzar la Instancia EC2 Ubuntu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 3.1: Lanzar la Instancia EC2 Ubuntu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crea-un-grupo-de-seguridad-para-la-instancia-con-las-siguientes-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crea un grupo de seguridad para la instancia con las siguientes características
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-32-conectarse-al-servidor-por-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3.2: Conectarse al servidor por SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-33-preparar-el-entorno-y-crear-el-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3.3: Preparar el entorno y crear el código
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fase-1-creacion-de-la-infraestructura-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1. Creación de la infraestructura de red.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 1. Creación de la infraestructura de red.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-11-crear-la-vpc-y-las-subredes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1.1: Crear la VPC y las Subredes.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-12-habilitar-la-auto-asignacion-de-ips-publicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1.2: Habilitar la auto-asignación de IPs públicas.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-13-verificar-el-enrutamiento-a-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1.3: Verificar el enrutamiento a Internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-2-configuracion-del-almacenamiento-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2. Configuración del Almacenamiento (S3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 2. Configuración del Almacenamiento (S3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-21-crear-el-bucket-de-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2.1: Crear el Bucket de S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-22-permitir-el-acceso-publico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2.2: Permitir el Acceso Público
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-23-crear-el-bucket-y-anadir-la-politica-de-lectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2.3: Crear el Bucket y añadir la política de lectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-3-computo-y-despliegue-en-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Fase 3: Cómputo y Despliegue en EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Fase 3: Cómputo y Despliegue en EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-31-lanzar-la-instancia-ec2-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3.1: Lanzar la Instancia EC2 Ubuntu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 3.1: Lanzar la Instancia EC2 Ubuntu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crea-un-grupo-de-seguridad-para-la-instancia-con-las-siguientes-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crea un grupo de seguridad para la instancia con las siguientes características
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-32-conectarse-al-servidor-por-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3.2: Conectarse al servidor por SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-33-preparar-el-entorno-y-crear-el-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3.3: Preparar el entorno y crear el código
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="actividad-12-proyecto-web-dinamica">Actividad 12. Proyecto web dinámica</h1>
+<p>El proyecto consiste en crear una aplicación web que permita subir imágenes a un repositorio y mostrar un listado con todas las imágenes que hemos ido subiendo. </p>
+<p><img src="../images/ud04/actividad12/act12_01.png"  style="border: 5px solid #3498db;" width="75%"></p>
+<p>Para crear la aplicación vamos a tener que construir una arquitectura formada por los siguientes servicios de AWS:</p>
+<ul>
+<li><strong>VPC</strong> → para crear la estructura de red y subredes.</li>
+<li><strong>S3</strong> → para crear el repositorio en el que almacenaremos las imágenes.</li>
+<li><strong>EC2</strong> → para crear la instancia con el servidor que va a alojar al servidor web.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Realizaremos el proyecto en tres fases</p>
+</div>
+<h2 id="fase-1-creacion-de-la-infraestructura-de-red">Fase 1. Creación de la infraestructura de red.</h2>
+<p>El objetivo de esta fase es dejar el terreno preparado, creando una red aislada y segura con salida a Internet. Para hacerlo de la forma más limpia y didáctica, utilizaremos el asistente visual de AWS que automatiza la creación y el enrutamiento.</p>
+<h3 id="paso-11-crear-la-vpc-y-las-subredes">Paso 1.1: Crear la VPC y las Subredes.</h3>
+<p>1.- Crea una VPC en la ubicación <code>us-east-1</code></p>
+<p>2.- De nombre indica <code>Proyecto-web-dinamica</code></p>
+<p>3.- Crea una <code>VPC y más</code>.</p>
+<p>3.- Crea sólo una subred pública</p>
+<h3 id="paso-12-habilitar-la-auto-asignacion-de-ips-publicas">Paso 1.2: Habilitar la auto-asignación de IPs públicas.</h3>
+<p>1.- Por defecto, las subredes creadas a mano no asignan una IP pública a los servidores. Debemos activar la subred creada anteriormente para que la máquina EC2 que creemos en la Fase 3 tenga internet:</p>
+<ul>
+<li>Para ello habilita la casilla <code>Habilitar la dirección publica de autoasignación IPv4</code></li>
+</ul>
+<h3 id="paso-13-verificar-el-enrutamiento-a-internet">Paso 1.3: Verificar el enrutamiento a Internet</h3>
+<p>Para seguir con el proyecto asegúrate que la tabla de enrutamiento asignado a tu VPC tiene configurada acceso completo a local y una puerta de enlace. Concretamente asegúrate de encontrar estas dos lineas:</p>
+<ul>
+<li>Una ruta local <strong>10.0.0.0/16 → local</strong>.</li>
+<li>Una ruta de salida total <strong>0.0.0.0/0</strong> apuntando a un <strong>igw-xxxxxxxx</strong> (Internet Gateway).</li>
+</ul>
+<h2 id="fase-2-configuracion-del-almacenamiento-s3">Fase 2. Configuración del Almacenamiento (S3)</h2>
+<p>El objetivo de esta fase es crear el contenedor digital o bucket donde se guardarán las imágenes de la aplicación. En AWS Academy, debido a que <strong>no podemos usar roles de IAM en AWS Academy</strong>, configuraremos el bucket para que permita que las imágenes se puedan ver públicamente mediante enlaces directos en el navegador.</p>
+<h3 id="paso-21-crear-el-bucket-de-s3">Paso 2.1: Crear el Bucket de S3</h3>
+<ul>
+<li>Crea un bucket con nombre <code>bucket-web-dinamica-tuUsuario</code> </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Nombre único</p>
+<p>Recuerda que el nombre del bucket debe ser único a nivel mundial.</p>
+</div>
+<ul>
+<li>Asegúrate de que se crea en la zona <code>us-east-1</code> y tienes habilitadas las <code>listas ACL</code></li>
+<li>El bucket tiene que estar asignado al propietario preferido.</li>
+</ul>
+<h3 id="paso-22-permitir-el-acceso-publico">Paso 2.2: Permitir el Acceso Público</h3>
+<p>Por seguridad, AWS bloquea todo acceso público a los buckets por defecto. Como este proyecto simula una galería de imágenes en una web abierta, deberás desactivar este bloqueo.</p>
+<h3 id="paso-23-crear-el-bucket-y-anadir-la-politica-de-lectura">Paso 2.3: Crear el Bucket y añadir la política de lectura</h3>
+<p>Es el momento de añadir las políticas de lectura. Para ello configura los permisos de políticas del bucket con el siguiente código json:</p>
+<div class="highlight"><pre><span></span><code>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::web-dinamica-angulonavas/*"
+        }
+    ]
+}
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Recuerda</p>
+<p>Debes cambiar el nombre del bucket del código anterior por el tuyo</p>
+</div>
+<h2 id="fase-3-computo-y-despliegue-en-ec2">💻 Fase 3: Cómputo y Despliegue en EC2</h2>
+<p>Llegamos a la última etapa. Con la red segura y el almacenamiento configurado, es hora de levantar el servidor e instalar la aplicación para ver el proyecto en funcionamiento.</p>
+<p>El objetivo de esta fase es lanzar una máquina virtual con Ubuntu Server, configurar su cortafuegos (Security Group), inyectar el código en Python que preparamos y conectarlo todo.</p>
+<h3 id="paso-31-lanzar-la-instancia-ec2-ubuntu">Paso 3.1: Lanzar la Instancia EC2 Ubuntu</h3>
+<p>Crea una instancia con las siguientes características:</p>
+<ul>
+<li>Nombre: <code>servidor-web-dinamca</code></li>
+<li><code>Server 24.04 LTS</code> de tipo <code>t2.micro</code></li>
+<li>Asigna a la instancia la VPC creada anteriormente. </li>
+<li>Debes permitir la asignación de una IP pública.</li>
+</ul>
+<h4 id="crea-un-grupo-de-seguridad-para-la-instancia-con-las-siguientes-caracteristicas">Crea un grupo de seguridad para la instancia con las siguientes características</h4>
+<ul>
+<li>Regla 1 (SSH): Type: SSH | Port: 22 | Accesible desde cualquier sitio.</li>
+<li>Regla 2 (HTTP): Type: HTTP | Port: 80 | Accesible desde cualquier sitio (0.0.0.0/0)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Regla HTTP</p>
+<p>Esta regla es vital para que los usuarios puedan abrir la web.</p>
+</div>
+<h3 id="paso-32-conectarse-al-servidor-por-ssh">Paso 3.2: Conectarse al servidor por SSH</h3>
+<p>Conéctate a tu servidor Ubuntu por SSH desde una terminal abierta en tu equipo local.</p>
+<h3 id="paso-33-preparar-el-entorno-y-crear-el-codigo">Paso 3.3: Preparar el entorno y crear el código</h3>
+<p>1.- En primer lugar instala el servidor python que te va a permitir crear tu servidor web:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>-y
+</code></pre></div></p>
+<p>2.- Instala las librerías necesarias:</p>
+<ul>
+<li>
+<p>Instalar el soporte de entornos virtuales de Python en Ubuntu 
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-venv<span class="w"> </span>-y
+</code></pre></div></p>
+</li>
+<li>
+<p>Crear un entorno virtual llamado 'venv' en la carpeta actual
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+</code></pre></div></p>
+</li>
+<li>
+<p>Activar el entorno virtual (verás que cambia el prompt de tu terminal)
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</code></pre></div></p>
+</li>
+<li>
+<p>Instalar las librerías limpiamente sin 'sudo' ni flags extra
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>flask<span class="w"> </span>boto3
+</code></pre></div></p>
+</li>
+</ul>
+<p>3.- Crea el archivo que contendrá el código de la aplicación y llámalo <code>app.py</code></p>
+<p>4.- Pega el siguiente código en su interior:
+<div class="highlight"><span class="filename">app.py</span><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">render_template_string</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># --- CONFIGURACIÓN ---</span>
+<span class="c1"># El alumno debe escribir aquí el nombre exacto de su Bucket de S3</span>
+<span class="n">BUCKET_NAME</span> <span class="o">=</span> <span class="s2">"web-dinamica-angulonavas"</span>
+<span class="n">REGION</span> <span class="o">=</span> <span class="s2">"us-east-1"</span>
+<span class="c1"># ---------------------</span>
+
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">'s3'</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="n">REGION</span><span class="p">)</span>
+
+<span class="c1"># Plantilla HTML integrada para no necesitar archivos extra</span>
+<span class="n">HTML_TEMPLATE</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">    &lt;title&gt;Galeria AWS Academy&lt;/title&gt;</span>
+<span class="s2">    &lt;style&gt;</span>
+<span class="s2">        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }</span>
+<span class="s2">        .upload-box { background: #f4f4f4; padding: 20px; border-radius: 5px; margin-bottom: 20px; }</span>
+<span class="s2">        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; } /* &lt;-- Cambia 150px por 20px */</span>
+<span class="s2">        .item { text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: white; }</span>
+<span class="s2">        img { width: 100%; height: 150px; object-fit: cover; border-radius: 3px; display: block; } /* &lt;-- Añade un alto fijo y display block */</span>
+<span class="s2">    &lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">    &lt;h2&gt;Mi Galería en AWS (EC2 + S3)&lt;/h2&gt;</span>
+
+<span class="s2">    &lt;div class="upload-box"&gt;</span>
+<span class="s2">        &lt;h3&gt;Subir nueva imagen&lt;/h3&gt;</span>
+<span class="s2">        &lt;form method="post" action="/upload" enctype="multipart/form-data"&gt;</span>
+<span class="s2">            &lt;input type="file" name="file" accept="image/*" required&gt;</span>
+<span class="s2">            &lt;button type="submit"&gt;Subir a S3&lt;/button&gt;</span>
+<span class="s2">        &lt;/form&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;h3&gt;Imágenes en el Bucket: &lt;code&gt;{{ bucket }}&lt;/code&gt;&lt;/h3&gt;</span>
+<span class="s2">    &lt;div class="gallery"&gt;</span>
+<span class="s2">        {</span><span class="si">% f</span><span class="s2">or url, name in images %}</span>
+<span class="s2">            &lt;div class="item"&gt;</span>
+<span class="s2">                &lt;img src="{{ url }}" alt="Imagen"&gt;</span>
+<span class="s2">                &lt;p style="font-size: 12px; word-break: break-all;"&gt;{{ name }}&lt;/p&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        {</span><span class="si">% e</span><span class="s2">lse %}</span>
+<span class="s2">            &lt;p&gt;No hay imágenes en el bucket todavía.&lt;/p&gt;</span>
+<span class="s2">        {</span><span class="si">% e</span><span class="s2">ndfor %}</span>
+<span class="s2">    &lt;/div&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">"""</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Listar objetos del bucket</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">list_objects_v2</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="n">BUCKET_NAME</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">'Contents'</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">'Contents'</span><span class="p">]:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s1">'Key'</span><span class="p">]</span>
+                <span class="c1"># Generar la URL pública directa del objeto en S3</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"http://</span><span class="si">{</span><span class="n">BUCKET_NAME</span><span class="si">}</span><span class="s2">.s3.us-east-1.amazonaws.com/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span>
+                <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">url</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Error al conectar con S3: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">. Revisa las credenciales de AWS Academy."</span>
+
+    <span class="k">return</span> <span class="n">render_template_string</span><span class="p">(</span><span class="n">HTML_TEMPLATE</span><span class="p">,</span> <span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">,</span> <span class="n">bucket</span><span class="o">=</span><span class="n">BUCKET_NAME</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/upload'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">upload</span><span class="p">():</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">'file'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Subir el archivo a S3 permitiendo lectura pública para poder mostrarlo</span>
+            <span class="n">s3</span><span class="o">.</span><span class="n">upload_fileobj</span><span class="p">(</span>
+                <span class="n">file</span><span class="p">,</span> 
+                <span class="n">BUCKET_NAME</span><span class="p">,</span> 
+                <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span>
+                <span class="n">ExtraArgs</span><span class="o">=</span><span class="p">{</span><span class="s1">'ACL'</span><span class="p">:</span> <span class="s1">'public-read'</span><span class="p">,</span> <span class="s1">'ContentType'</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">content_type</span><span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Error al subir: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="c1"># Escucha en el puerto 80 para todo el mundo</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</code></pre></div></p>
+<p>5.- Instalación del paquete de conexión con AWS</p>
+<p>Para poder conectar tu servidor con el cliente AWS es necesario obtener una serie de parámetros, los cuales se pueden obtener en el aparetado <code>AWS Details</code>de tu pantalla inicial del laboratorio:</p>
+<ul>
+<li><strong>aws_access_key_id</strong></li>
+<li><strong>aws_secret_access_key</strong></li>
+<li><strong>aws_session_token</strong></li>
+</ul>
+<p>6.- Una vez localizados estos parámetros, ejecuta la siguiente sentencia en tu servidor:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>aws-cli<span class="w"> </span>–classic
+</code></pre></div></p>
+<p>7.- Una vez configurado el acceso CLI es momento de poner en marcha tu servidor. Hay que ejecutarlo así porque estamos en versión Academy. Indica tus propios parámetros AWS en la configuración de la siguiente sentencia ubicándolos entre comillas:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">"xxxxxxxxxxx"</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">"xxxxxxxxxxxxxxxxxxxx"</span><span class="w"> </span><span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span><span class="s2">"xxxxxxxxxxxxxx"</span><span class="w"> </span>./venv/bin/python3<span class="w"> </span>app.py
+</code></pre></div></p>
+<p>8.- Pon a prueba su servidor conectando al mismo a través de un navegador. Deberás conectar utilizando la IP de tu servidor: <code>http://54.85.23.90</code> </p>
+<div class="admonition warning">
+<p class="admonition-title">Recuerda liberar los recursos</p>
+<ul>
+<li>Libera la instancia EC2</li>
+<li>Libera el bucket S3.</li>
+<li>Libera la estructura de red VPC.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="actividad11.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Actividad 11. Almacenamiento compartido con EFS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Actividad 11. Almacenamiento compartido con EFS
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

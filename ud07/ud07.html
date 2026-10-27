@@ -1,0 +1,1503 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/cloud-computing.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Tema 7. Modelo de Seguridad de AWS - Introducción a la nube</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-7-modelo-de-seguridad-de-aws" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Introducción a la nube" class="md-header__button md-logo" aria-label="Introducción a la nube" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción a la nube
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 7. Modelo de Seguridad de AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Introducción a la nube" class="md-nav__button md-logo" aria-label="Introducción a la nube" data-md-component="logo">
+      
+  <img src="../images/cloud-computing.png" alt="logo">
+
+    </a>
+    Introducción a la nube
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD01. Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD01. Introducción a la Nube Pública
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/ud01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción a la Nube Pública
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01/actividad01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 01. Lanzamiento del Laboratorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD02. Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD02. Capa de Cómputo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/ud02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Cómputo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 02. Creación de una Máquina Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 03. Creación de una Máquina Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02/actividad04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 04. Creación de MV con CloudShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD03. Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD03. Creación de un entorno de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de un entorno de red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 06. Creación de una VPC de forma automática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03/actividad07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 07. Creación de una VPC de forma manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD04. Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD04. Capa de Almacenamiento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/ud04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capa de Almacenamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 08. Creación de bucket en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 09. Publicación de una web estática en S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 10. Gestión de volúmenes EBS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 11. Almacenamiento compartido con EFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud04/actividad12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividad 12. Proyecto web dinámica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-seguridad-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo de Seguridad de AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo de Seguridad de AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsabilidad-compartida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidad compartida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identidad-y-acceso-iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identidad y acceso (IAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cifrado-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cifrado de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-y-perimetro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red y perímetro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitorizacion-y-auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitorización y auditoría
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cumplimiento-y-certificaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cumplimiento y certificaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-and-access-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM (Identity and Access Management)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS IAM (Identity and Access Management)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usuario-grupos-roles-y-politicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usuario, Grupos, Roles y Políticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autorizacion-como-aws-decide-si-algo-esta-permitido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autorización: cómo AWS decide si algo está permitido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-y-delegacion-de-permisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles y delegación de permisos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politicas-de-iam-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Políticas de IAM en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Políticas de IAM en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-politicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de políticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-y-sintaxis-de-una-politica-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura y sintaxis de una política (JSON)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-practico-politica-personalizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo práctico: política personalizada
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-7-modelo-de-seguridad-de-aws">Tema 7. Modelo de Seguridad de AWS</h1>
+<h2 id="modelo-de-seguridad-de-aws">Modelo de Seguridad de AWS</h2>
+<p>El modelo de seguridad de AWS se basa en el principio de <strong>responsabilidad compartida</strong>: AWS asegura la <strong>infraestructura</strong>, y el cliente asegura <strong>los datos y la configuración</strong> de sus servicios.</p>
+<h3 id="responsabilidad-compartida">Responsabilidad compartida</h3>
+<table>
+<thead>
+<tr>
+<th>Parte</th>
+<th>Qué asegura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS</strong></td>
+<td>Seguridad de la <strong>infraestructura física</strong>, hardware, redes, centros de datos y servicios gestionados.</td>
+</tr>
+<tr>
+<td><strong>Cliente</strong></td>
+<td>Configuración de los servicios, control de acceso, cifrado de datos, seguridad de aplicaciones y sistemas operativos.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo</p>
+<p>En <strong>EC2</strong>, AWS asegura el hardware y la red, pero nosotros debemos proteger nuestro sistema operativo, usuarios y aplicaciones.</p>
+</div>
+<h3 id="identidad-y-acceso-iam">Identidad y acceso (IAM)</h3>
+<p>AWS gestiona la autenticación y autorización mediante <strong>IAM (Identity and Access Management)</strong>:</p>
+<ul>
+<li><strong>Usuarios</strong> y <strong>grupos</strong>: cuentas dentro de la organización.</li>
+<li><strong>Roles</strong>: permisos temporales para servicios o usuarios externos.</li>
+<li><strong>Políticas</strong>: reglas que definen qué acciones puede realizar un usuario o servicio sobre un recurso.</li>
+</ul>
+<h3 id="cifrado-de-datos">Cifrado de datos</h3>
+<p>AWS permite cifrar datos <strong>en reposo</strong> y <strong>en tránsito</strong>:</p>
+<ul>
+<li>
+<p><strong>En reposo:</strong></p>
+<ul>
+<li>S3, EBS, RDS y DynamoDB soportan **cifrado con claves gestionadas por AWS ** o <strong>propias</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>En tránsito:</strong></p>
+<ul>
+<li>TLS/SSL para proteger la comunicación entre servicios y clientes.</li>
+</ul>
+</li>
+</ul>
+<h3 id="red-y-perimetro">Red y perímetro</h3>
+<p>AWS protege la red mediante servicios y configuraciones:</p>
+<ul>
+<li><strong>VPC (Virtual Private Cloud):</strong> redes privadas aisladas en la nube.</li>
+<li><strong>Subredes, ACLs y Security Groups:</strong> control granular de tráfico entrante y saliente.</li>
+<li><strong>AWS Shield y WAF:</strong> protección frente a ataques DDoS y filtrado de tráfico web malicioso.</li>
+</ul>
+<h3 id="monitorizacion-y-auditoria">Monitorización y auditoría</h3>
+<ul>
+<li><strong>CloudTrail:</strong> registro de todas las acciones de API realizadas en la cuenta.</li>
+<li><strong>CloudWatch:</strong> monitorización de métricas y eventos de los recursos.</li>
+<li><strong>GuardDuty:</strong> detección de amenazas mediante análisis de logs y patrones sospechosos.</li>
+</ul>
+<h3 id="cumplimiento-y-certificaciones">Cumplimiento y certificaciones</h3>
+<p>AWS cumple con normas de seguridad y privacidad reconocidas internacionalmente.</p>
+<p>Esto permite que las empresas confíen en la infraestructura para aplicaciones críticas y reguladas.</p>
+<hr />
+<h2 id="aws-iam-identity-and-access-management">AWS IAM (Identity and Access Management)</h2>
+<p><strong>AWS Identity and Access Management (IAM)</strong> es el servicio de <strong>gestión de identidades y control de acceso</strong> de Amazon Web Services.</p>
+<p>Permite administrar de forma segura quién puede acceder a los recursos de AWS y qué acciones puede realizar.</p>
+<p>IAM es <strong>gratuito</strong> (no tiene coste adicional) y se integra en todos los servicios de AWS.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Es un componente central del modelo de seguridad de AWS y se basa en el <strong>principio de mínimos privilegios</strong>: cada usuario o servicio solo debe tener los permisos estrictamente necesarios para realizar su tarea.</p>
+</div>
+<h3 id="usuario-grupos-roles-y-politicas">Usuario, Grupos, Roles y Políticas</h3>
+<p>IAM se organiza alrededor de <strong>identidades, políticas y permisos</strong>.</p>
+<p><strong>Usuarios</strong></p>
+<p>Representan <strong>personas o aplicaciones</strong> que necesitan acceder a AWS.</p>
+<ul>
+<li>Tienen <strong>credenciales</strong>: nombre de usuario y contraseña (para la consola web) o claves de acceso (para la CLI o APIs).</li>
+<li>Pueden añadirse a <strong>grupos</strong> o recibir permisos directamente.</li>
+<li>Ejemplo: <code>usuario_admin</code>, <code>usuario_lectura</code>, <code>aplicacion_api</code>.</li>
+</ul>
+<p><strong>Grupos</strong></p>
+<p>Conjuntos lógicos de usuarios con permisos comunes.</p>
+<ul>
+<li>Sirven para gestionar permisos de forma masiva.</li>
+<li>Ejemplo: grupo <code>Desarrolladores</code> con permisos sobre instancias EC2 y buckets S3.</li>
+</ul>
+<p><strong>Roles</strong></p>
+<p>Identidades <strong>sin credenciales propias</strong>, diseñadas para ser asumidas temporalmente por usuarios, servicios o recursos.</p>
+<ul>
+<li>Muy usados para otorgar permisos a <strong>servicios de AWS</strong> (como EC2 o Lambda) sin exponer claves.</li>
+<li>Ejemplo: una instancia EC2 que necesita leer un bucket S3 utiliza un rol IAM con ese permiso.</li>
+</ul>
+<p><strong>Políticas (Policies)</strong></p>
+<p>Son documentos en formato JSON que definen los permisos.</p>
+<p>Las vemos con dentenimiento en el siguiente apratado.</p>
+<h3 id="autorizacion-como-aws-decide-si-algo-esta-permitido">Autorización: cómo AWS decide si algo está permitido</h3>
+<p>Cada vez que un usuario o servicio hace una petición a AWS, IAM evalúa todas las políticas asociadas y aplica una lógica de decisión:</p>
+<ol>
+<li><strong>Por defecto todo está denegado.</strong></li>
+<li>Si una política <strong>permite</strong> la acción, pasa a estado <em>permitido provisionalmente</em>.</li>
+<li>Si alguna política <strong>deniega explícitamente</strong> una acción, la petición <strong>se bloquea siempre</strong>.</li>
+</ol>
+<p>Esto se conoce como el modelo <em>Deny by default</em>.</p>
+<h3 id="roles-y-delegacion-de-permisos">Roles y delegación de permisos</h3>
+<p>Los <strong>roles IAM</strong> permiten <strong>delegar permisos de forma temporal y controlada</strong>.
+Se usan, por ejemplo, para:</p>
+<ul>
+<li>Permitir que una <strong>instancia EC2</strong> acceda a un <strong>bucket S3</strong> sin usar claves.</li>
+<li>Conceder permisos temporales a usuarios externos o cuentas de otra organización (cross-account roles).</li>
+<li>Autorizar a servicios de AWS (como Lambda o ECS) para actuar en nombre del usuario.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>IAM es el corazón de la seguridad en AWS:</strong> controla quién entra, qué puede hacer y con qué recursos, garantizando una gestión centralizada, segura y flexible del acceso a la nube.</p>
+</div>
+<hr />
+<h2 id="politicas-de-iam-en-aws">Políticas de IAM en AWS</h2>
+<p>Las <strong>políticas</strong> son documentos en formato JSON que definen los permisos que se conceden o deniegan a un usuario, grupo o rol en AWS.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Es decir...</p>
+<p>Una política indica qué acciones puede realizar un sujeto (usuario, grupo o rol) sobre qué recursos y bajo qué condiciones.</p>
+</div>
+<p>Son el núcleo del modelo de control de acceso en AWS: <strong>sin una política asociada, ningún usuario o servicio tiene permisos.</strong></p>
+<ul>
+<li>
+<p>Especifican:</p>
+<ul>
+<li><strong>Acciones</strong> (<code>Action</code>): qué operaciones se permiten o deniegan.</li>
+<li><strong>Recursos</strong> (<code>Resource</code>): sobre qué objetos se aplican.</li>
+<li><strong>Efecto</strong> (<code>Effect</code>): <code>Allow</code> o <code>Deny</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Cuando un usuario intenta realizar una acción, AWS evalúa las políticas siguiendo este orden:</p>
+<ol>
+<li><strong>Denegación explícita (Deny)</strong> → siempre prevalece.</li>
+<li><strong>Permiso explícito (Allow)</strong> → concede acceso si no hay una denegación previa.</li>
+<li><strong>Por defecto, todo está denegado</strong> hasta que una política lo permita.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Regla de oro</p>
+<p>Si no hay una política <code>Allow</code>, la acción no se ejecutará.</p>
+</div>
+<ul>
+<li>Ejemplo de política simple:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"s3:ListBucket"</span><span class="p">,</span><span class="w"> </span><span class="s2">"s3:GetObject"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"arn:aws:s3:::mi-bucket"</span><span class="p">,</span><span class="w"> </span><span class="s2">"arn:aws:s3:::mi-bucket/*"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="tipos-de-politicas">Tipos de políticas</h3>
+<p>AWS ofrece varios tipos de políticas, clasificadas según cómo y dónde se aplican:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de política</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Administradas por AWS</strong></td>
+<td>Políticas predefinidas creadas y mantenidas por AWS. Simplifican la gestión y se actualizan automáticamente.</td>
+<td><code>AmazonS3ReadOnlyAccess</code>, <code>AdministratorAccess</code></td>
+</tr>
+<tr>
+<td><strong>Administradas por el cliente</strong></td>
+<td>Políticas personalizadas creadas por el usuario para definir permisos específicos.</td>
+<td>Política que permite acceso de lectura a un bucket concreto.</td>
+</tr>
+<tr>
+<td><strong>Inline (insertadas)</strong></td>
+<td>Políticas directamente incrustadas en un usuario, grupo o rol concreto. No son reutilizables.</td>
+<td>Política personalizada dentro de un rol de EC2.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="estructura-y-sintaxis-de-una-politica-json">Estructura y sintaxis de una política (JSON)</h3>
+<p>Las políticas de IAM siguen una estructura <strong>JSON</strong> con campos obligatorios y opcionales:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"s3:GetObject"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"s3:ListBucket"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"arn:aws:s3:::mi-bucket"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"arn:aws:s3:::mi-bucket/*"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"aws:SourceIp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"203.0.113.0/24"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Desglose de los campos:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Descripción</th>
+<th style="text-align: center;">Obligatorio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Version</strong></td>
+<td>Indica la versión del lenguaje de políticas. Actualmente se usa <code>"2012-10-17"</code>.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Statement</strong></td>
+<td>Lista de reglas que definen permisos. Puede contener una o varias.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Effect</strong></td>
+<td>Determina si la acción se <strong>permite</strong> (<code>Allow</code>) o <strong>deniega</strong> (<code>Deny</code>).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Action</strong></td>
+<td>Especifica las <strong>acciones</strong> de AWS que se permiten o deniegan (por ejemplo, <code>s3:PutObject</code>, <code>ec2:StartInstances</code>).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Resource</strong></td>
+<td>Indica los recursos específicos sobre los que se aplican los permisos, usando su ARN.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Condition</strong></td>
+<td>Define condiciones opcionales (por IP, usuario, hora, MFA, etc.) que deben cumplirse para que se concedan los permisos.</td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ejemplo-practico-politica-personalizada">Ejemplo práctico: política personalizada</h3>
+<p><strong>Objetivo:</strong> Permitir a un usuario listar y leer objetos del bucket <code>iescamp-datos</code>, pero no borrarlos.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Sid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LeerBucketIESCAMP"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"s3:ListBucket"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"s3:GetObject"</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"arn:aws:s3:::iescamp-datos"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"arn:aws:s3:::iescamp-datos/*"</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><em>Sid (Statement ID)</em>: campo opcional para identificar el bloque de permisos.</p>
+</blockquote>
+<p>Los <strong>ARN (Amazon Resource Names)</strong> identifican de forma única los recursos en AWS.</p>
+<p><strong>Ejemplo de estructura:</strong></p>
+<div class="highlight"><pre><span></span><code>arn:aws:servicio:región:cuenta:recurso
+</code></pre></div>
+<p><strong>Ejemplo para un bucket S3:</strong></p>
+<div class="highlight"><pre><span></span><code>arn:aws:s3:::mi-bucket
+arn:aws:s3:::mi-bucket/mis-archivos/*
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "navigation.top", "navigation.tracking", "navigation.footer", "navigation.indexes", "content.code.annotate", "announce.dismiss", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
