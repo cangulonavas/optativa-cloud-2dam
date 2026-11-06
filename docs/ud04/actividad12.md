@@ -1,6 +1,6 @@
 # Actividad 12. Proyecto web dinámica
 
-El proyecto consiste en crear una aplicación web que permita subir imágenes a un repositorio y mostrar un listado con todas las imágenes que hemos ido subiendo. 
+El proyecto consiste en crear una aplicación web que permita subir imágenes a un repositorio y mostrar un listado con todas las imágenes que hemos ido subiendo... 
 
 <img src="../images/ud04/actividad12/act12_01.png"  style="border: 5px solid #3498db;" width="75%">
 
