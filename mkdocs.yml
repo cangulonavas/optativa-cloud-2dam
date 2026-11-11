@@ -30,10 +30,10 @@ nav:
 #  - "Proyectos 1ª Evaluación":
 #      - "Infraestructura segura de servidores": "pr01/pr01.md"
 #      - "VPC con Subredes y Base de datos RDS": "pr01/pr02.md"
-#  - "UD05. Capa de Base de Datos":
-#      - "Capa de base de datos": "ud05/ud5.md"
-#      - "Práctica 1. Base de datos con acceso público": "ud05/bdpractica01.md"
-#      - "Práctica 2. Base de datos privada": "ud05/bdpractica02.md"
+  - "UD05. Capa de Base de Datos":
+      - "Capa de base de datos": "ud05/ud5.md"
+      - "Actividad 13. Base de datos con acceso público": "ud05/actividad13.md"
+      - "Actividad 14. Base de datos privada": "ud05/actividad14.md"
 #      - "Práctica 3. Clúster de Base de Datos Aurora": "ud05/bdpractica03.md"
 #      - "Práctica 4. Base de datos NoSQL": "ud05/bdpractica04.md"
 #  - "UD06. Microservicios y arquitectura sin servidor":

@@ -1,4 +1,4 @@
-# Bases de Datos RDS con acceso público
+# Actividad 13. Bases de Datos RDS con acceso público
 
 ## Objetivo de la práctica
 
@@ -17,6 +17,8 @@ En esta práctica crearemos un servicio de BBDD totalmente gestionado sobre un m
 
 1.-  Accedemos a la consola, dentro de la categoría Bases de Datos, seleccionamos el recurso **Aurora and RDS**.
 
+<img src="../images/ud05/act13/act13_01.png">
+
 !!! note "Nota"
     RDS permite hasta 6 motores de BBDD distintos. En esta práctica, el servicio gestionado de BBDD que vamos a utilizar es **RDS basado en MySQL**, que permite ejecutar bases de datos MySQL.
 
@@ -25,12 +27,19 @@ ___
 
 2.-	Creamos una Base de Datos:
 
-- Seleccionamos el método de *creación estándar*.
+- Seleccionamos el método de **creación sencilla**.
 - Como motor de base de datos elegimos **MySQL**.
 - La plantilla sobre la que se va a basar será **Entorno de pruebas** (las demás no son aptas para el laboratorio).
-- Disponibilidad Implementación de una instanciade base de datos de zona de disponibilidad única (1 instancia)
+- Tipo de escalabilidad de clúster →  `db.t3.small`
+
+<img src="../images/ud05/act13/act13_02.png">
+
+- Disponibilidad Implementación de una instancia de base de datos de zona de disponibilidad única (1 instancia)
 - Ponemos un nombre de servidor que debe ser único en nuestra cuenta de AWS. Introduce uno que lleve tu nombre o iniciales.
 - Asignamos nombre de usuario administrador y su contraseña.
+
+<img src="../images/ud05/act13/act13_03.png">
+
 - Dejamos las opciones por defecto del tamaño de la instancia y el almacenamiento.
 - No vamos a conectar nuestra BBDD a ninguna instancia EC2, y dejamos la BBDD en la VPC por defecto (*Default VPC*).
 - **Importante**: Permitimos el *Acceso Público* a nuestra BBDD. Esto generará una IP Pública para poder conectarnos desde Internet.
@@ -49,6 +58,8 @@ ___
 ___
 
 3.-	Una vez creado el recurso accedemos a él y en el apartado **Conectividad y seguridad** comprobamos el endpoint y el puerto por al cual accederemos. **Copiamos el punto de enlace en el portapapeles.**
+
+<img src="../images/ud05/act13/act13_04.png">
 
 Comprobamos también que se nos ha asociado el nuevo grupo de seguridad que hemos creado.
 
@@ -75,11 +86,17 @@ ___
 
 6.-	En nuestra máquina local establacemos una conexión mediante un cliente de MySQL de línea de comandos, indicando la cadena de conexión y el usuario que hemos definido como administrador. En el parámetro host `-h` ponemos el nombre del servidor (endpoint que hemos copiado en el portapapeles) y en el parámetro de usuario `-u` el nombre del usuario. Para que nos solicite el password indicamos el parámetro `-p`.
 
-`mysql -h database-jrpm.cruqs8qiedha.us-east-1.rds.amazonaws.com -u admin -p`
+```bash
+mysql -h database-jrpm.cruqs8qiedha.us-east-1.rds.amazonaws.com -u admin -p
+```
 
 Una vez comprobada la conexión, cerramos la sesión:
 
-`exit;`
+<img src="../images/ud05/act13/act13_05.png">
+
+```bash
+exit;
+```
 
 !!! warning "Atención"
 
@@ -90,12 +107,12 @@ ___
 
 7.- Vamos a crear una base de datos con una tabla. Lo vamos a hacer mediante un script de sentencias sql. Para ello comenzamos con la descarga del fichero de creación de la base de datos.
 
-[Descarga fichero sql](./asir.sql)
+[Descarga fichero sql](./2dam.sql)
 
-8.- Ejecutamos las instrucciones SQL que hay en el contenido del fichero descargado. Basta con redireccionar la entrada del comando `mysql` con el fichero descargado de nombre `asir.sql`.
+8.- Ejecutamos las instrucciones SQL que hay en el contenido del fichero descargado. Basta con redireccionar la entrada del comando `mysql` con el fichero descargado de nombre `2dam.sql`.
 
-```
-mysql -h database-jrpm.cruqs8qiedha.us-east-1.rds.amazonaws.com -u admin -p < asir.sql
+```bash
+mysql -h database-jrpm.cruqs8qiedha.us-east-1.rds.amazonaws.com -u admin -p < 2dam.sql
 ```
 
 <br>

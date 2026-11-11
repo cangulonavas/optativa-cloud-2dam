@@ -1,8 +1,8 @@
 -- Crear la base de datos
-CREATE DATABASE IF NOT EXISTS webasir;
+CREATE DATABASE IF NOT EXISTS web2dam;
 
 -- Usar la base de datos creada
-USE webasir;
+USE web2dam;
 
 -- Crear la tabla de clientes
 CREATE TABLE IF NOT EXISTS clientes (
