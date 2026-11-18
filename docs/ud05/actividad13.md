@@ -27,7 +27,7 @@ ___
 
 2.-	Creamos una Base de Datos:
 
-- Seleccionamos el método de **creación sencilla**.
+- Seleccionamos el método de **Configuración completa**.
 - Como motor de base de datos elegimos **MySQL**.
 - La plantilla sobre la que se va a basar será **Entorno de pruebas** (las demás no son aptas para el laboratorio).
 - Tipo de escalabilidad de clúster →  `db.t3.small`
@@ -89,6 +89,10 @@ ___
 ```bash
 mysql -h database-jrpm.cruqs8qiedha.us-east-1.rds.amazonaws.com -u admin -p
 ```
+
+!!! warning "Tu máquina local"
+    Si tu máquina local es la de clase, no vas a poder instalar ningún **cliente mysql**. Por lo tanto deberás crear una instancia **EC2** con Ubuntu en la cual te instalaras el **cliente mysql**. Asegúrate que tienes conexión a internet en la instancia.
+
 
 Una vez comprobada la conexión, cerramos la sesión:
 
